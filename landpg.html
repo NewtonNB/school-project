@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nyabikoni Sec. School Navbar</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <style>
+        /* General Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: #f8f9fa;
+        }
+
+        /* Top Bar */
+        .top-bar {
+            background: #0a2240;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 5px 20px;
+            font-size: 14px;
+        }
+
+        .top-bar .social-icons a {
+            color: white;
+            margin-left: 10px;
+            text-decoration: none;
+        }
+
+        /* Navbar */
+        .navbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: white;
+            padding: 15px 20px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar .logo img {
+            height: 40px;
+            margin-right: 10px;
+        }
+
+        .navbar .logo h2 {
+            color: #0a2240;
+        }
+
+        /* Navigation Links */
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            position: relative;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #0a2240;
+            padding: 10px 15px;
+            font-size: 16px;
+            display: block;
+        }
+
+        .nav-links a:hover {
+            color: #007bff;
+        }
+
+        /* Image Slider */
+        .slider {
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+            max-height: 400px;
+        }
+
+        .slides {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .slide {
+            min-width: 100%;
+        }
+
+        .slide img {
+            width: 100%;
+            height: auto;
+        }
+
+        .slider-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            padding: 20px;
+            text-align: center;
+            border-radius: 5px;
+        }
+
+        /* Dropdown Styles */
+        .dropdown {
+            position: absolute;
+            background: white;
+            list-style: none;
+            display: none;
+            top: 40px;
+            left: 0;
+            width: 180px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .dropdown li {
+            width: 100%;
+        }
+
+        .dropdown a {
+            padding: 10px;
+            width: 100%;
+            display: block;
+        }
+
+        .nav-links li:hover .dropdown {
+            display: block;
+        }
+
+        /* Dark Mode Toggle */
+        .theme-toggle {
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 800px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                background: white;
+                position: absolute;
+                top: 60px;
+                right: 0;
+                width: 200px;
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .menu-toggle {
+                display: block;
+                font-size: 24px;
+                cursor: pointer;
+            }
+        }
+    </style>
+</head>
+<body>
+
+   <!-- Top Bar -->
+<div class="top-bar">
+    <marquee behavior="scroll" direction="left">
+        SCHOOL - WE STRIVE FOR EXCELLENCE.
+    </marquee>
+    <div class="social-icons">
+        <a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://www.twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+        <a href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.youtube.com" target="_blank"><i class="fab fa-youtube"></i></a>
+        <span> | <a href="https://webmail.example.com" target="_blank" style="color: white;">Webmail</a></span>
+    </div>
+</div>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="logo">
+            <img src="nyabzgallery/nyabz logo.png" alt="School Logo">
+            <h2>NYABIKONI SEC. SCHOOL</h2>
+        </div>
+
+        <ul class="nav-links">
+            <li><a href="#">HOME</a></li>
+            <li>
+                <a href="#">ABOUT US ▼</a>
+                <ul class="dropdown">
+                    <li><a href="#">Our History</a></li>
+                    <li><a href="#">Mission & Vision</a></li>
+                    <li><a href="#">Staff</a></li>
+                </ul>
+            </li>
+            <li><a href="#">ADMISSIONS</a></li>
+            <li>
+                <a href="#">ACADEMICS ▼</a>
+                <ul class="dropdown">
+                    <li><a href="#">Subjects</a></li>
+                    <li><a href="#">Departments</a></li>
+                </ul>
+            </li>
+            <li><a href="#">NEWS & EVENTS</a></li>
+            <li><a href="#">GALLERY</a></li>
+            <li><a href="#">CONTACT US</a></li>
+        </ul>
+
+        <div class="theme-toggle" onclick="toggleDarkMode()">
+            🌙
+        </div>
+    </nav>
+
+    <!-- Image Slider -->
+    <div class="slider">
+        <div class="slides">
+            <div class="slide"><img src="nyabzgallery/boyswing - Copy.JPG" alt="Slide 1"></div>
+            <div class="slide"><img src="nyabzgallery/current.jpg" alt="Slide 2"></div>
+            <div class="slide"><img src="nyabzgallery/block - Copy.JPG" alt="Slide 3"></div>
+        </div>
+        <div class="slider-content">
+            <h2>Welcome to Nyabikoni Sec. School</h2>
+            <p>Excellence in Education and Beyond</p>
+        </div>
+    </div>
+
+    <script>
+        // Dark Mode Toggle
+        function toggleDarkMode() {
+            document.body.classList.toggle("dark-mode");
+        }
+
+        // Responsive Menu Toggle
+        const menuToggle = document.createElement("div");
+        menuToggle.classList.add("menu-toggle");
+        menuToggle.innerHTML = "☰";
+        document.querySelector(".navbar").appendChild(menuToggle);
+
+        menuToggle.addEventListener("click", () => {
+            document.querySelector(".nav-links").classList.toggle("active");
+        });
+
+        // Image Slider Functionality
+        let index = 0;
+        function showNextSlide() {
+            const slides = document.querySelector(".slides");
+            index = (index + 1) % 3;
+            slides.style.transform = `translateX(-${index * 100}%)`;
+        }
+        setInterval(showNextSlide, 3000);
+    </script>
+</body>
+</html>

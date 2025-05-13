@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us Page</title>
+    <link rel="stylesheet" href="contactus.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Press+Start+2P&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bungee&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Press+Start+2P&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+      
+      footer{
+    position: relative;
+    width: 100%;
+    height: auto;
+    padding: 50px 100px;
+    background: #268b17;
+    margin: 20px;
+
+}
+footer .container{
+    width: 100%;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    grid-gap:20px
+}
+footer .container .sec h2{
+    position: relative;
+    color: #fff;
+    font-weight:500;
+    margin-bottom: 15px;
+}
+footer .container .sec h2::before{
+    content: '';
+    color: #fff;
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 50px;
+    height: 2px;
+    background: #ffeb3b;
+}
+footer .container .sec p{
+    color: #fff;
+}
+.sci{
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: repeat(4,50px);
+    grid-gap: 10px;
+}
+.sci li{
+    list-style: none;
+}
+.sci li a{
+    display: inline-block;
+    width: 48px;
+    height: 48px;
+    background: #49ee2f ;
+    display: grid;
+    align-content: center;
+    justify-content: center;
+}
+.sci li a:hover{
+    background: #49ee2f;
+}
+.sci li a .fa{
+color: #fff;
+font-size: 20px;
+}
+.quicklinks{
+    position: relative;
+}
+.quicklinks li{
+list-style: none;
+}
+.quicklinks li a{
+    color: #f7f7f7;
+    text-decoration: none;
+    margin-bottom: 10px;
+    display: inline-block;
+}
+.quicklinks li a:hover{
+color: #ffeb3b;
+}
+.infa
+{
+    position: relative;
+}
+.infa li{
+    display: grid;
+    grid-template-columns: 30px 1fr;
+    margin-bottom: 16px;
+}
+.infa li span:nth-child(1){
+    color: #fff;
+    font-size: 20px;
+}
+.infa li span{
+ color: #fff;
+}
+.infa a{
+    color: #f7f7f7;
+    text-decoration: none;
+}
+.infa a:hover{
+    color: #ffeb3b;
+}
+.copyrightText{
+    width: 100%;
+    background: #1a650f;
+    padding: 8px 100px;
+    text-align: center;
+    color: #fff;
+}
+@media(max-width:991px){
+    footer{
+        padding: 40px;
+    }
+    footer .container{
+        /* width: 100%; */
+        /* display: grid; */
+        grid-template-columns: repeat(2,1fr);
+        /* grid-gap: 20px; */
+    }
+    .copyrightText{
+        /* width: 100%; */
+        /* background:  #1a650f; */
+        padding: 8px 40px;
+        /* text-align: center; */
+        /* color: #fff; */
+    }
+}
+@media(max-width:768px){
+    footer .container{
+        grid-template-columns: repeat(1,1fr);
+
+    }
+
+}
+
+#up-arrow {
+    position: fixed;
+    bottom: 20px; /* Adjust to position above bottom */
+    right: 20px; /* Adjust to position left of the right edge */
+    width: 50px;
+    height: 50px;
+    background-color: #004d00; /* Dark green */
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Add subtle shadow */
+}
+
+#up-arrow span {
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.fab-container {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  z-index: 1000;
+}
+
+.fab {
+  width: 60px;
+  height: 60px;
+  background-color: #00796b;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  font-size: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.fab:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3);
+}
+
+.fab-options {
+  position: absolute;
+  bottom: 70px;
+  right: 0;
+  display: none;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.fab-option {
+  width: 50px;
+  height: 50px;
+  background-color: white;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.fab-option img {
+  width: 24px;
+  height: 24px;
+}
+
+.fab-option:hover {
+  transform: scale(1.2);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.fab-options.show {
+  display: flex;
+}
+.error {
+            color: red;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+  <section class="header">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" >
+        <a href="index.html"><img src="nyabzgallery/nyabz logo.png" alt=""  style="margin-left: 30px;"></a>
+        <div class="nav-links" id="navlinks">
+            <i class="fa fa-times" onclick="hideMenu()" ></i>
+            <ul  style="margin-right: 30px;">
+                <li><a href="nyabz.html">HOME</a></li>
+                <li><a href="about.html">ABOUT</a></li>
+                <li class="dropdown"><a href="Academics.html">ACADEMICS</a>
+                    <div class="dropdown-content">
+                     <a href="olevel.html">O'LEVEL</a>
+                     <a href="alevel.html">A'LEVEL</a>
+                     <a href="events.html">NEWS & EVENTS</a>
+                    </div>
+                 </li>
+                <li><a href="contact.html">GALLERY</a></li>
+                <li><a href="contactus.html">CONTACT</a></li>
+            </ul>
+        </div>
+        <i class="fa fa-bars" onclick="showMenu()"></i>
+    </nav>
+
+
+    <div class="text-box">
+        <h1 style="font-family: Bungee; margin-top: 100px;">CONTACT US FORM</h1><br>
+        <!-- <h2>Strive For Excellence Is Our Motto</h2> -->
+        <!-- <p>We push ourselves to deliver the highest quality performance we do. <br>At Nyabikoni Secondary school we believe that those who strive for excellence will have longevity in their endeavors.</p> -->
+        <!-- <a href="Academics.html"class="hero-btn">Know More</a> -->
+    </div>
+</section>
+
+    <div class="contactus">
+     <div class="title">
+       <h2 style="font-family: bungee;">Get in Touch</h2>
+     </div>
+     <div class="box">
+      <!-- --form-- -->
+    
+      <div class="contct form">
+        <h3>Send a Message</h3>
+        <form name="formValidation" id="formValidation" method="POST" action="submit.php" enctype="multipart/form-data">
+          <div class="formBox">
+            <div class="row50">
+              <div class="inputBox">
+                <span>First Name</span>
+                <input type="text" name="firstName" placeholder="First Name" required>
+              </div>
+              <div class="inputBox">
+                <span>Last Name</span>
+                <input type="text" name="lastName" placeholder="Last Name" required>
+              </div>
+            </div>
+            <div class="row50">
+              <div class="inputBox">
+                <span>Email</span>
+                <input type="email" name="email" placeholder="Email" required>
+              </div>
+              <div class="inputBox">
+                <span>Mobile</span>
+                <input type="text" name="phone" id="phone" placeholder="Phone No" required>
+                <button type="button" onclick="sendOTP()" style="margin-top: 5px;">Send OTP</button>
+              </div>
+            </div>
+      
+            <div class="row100">
+              <div class="inputBox">
+                <span>Enter OTP</span>
+                <input type="text" name="otp" id="otp" placeholder="Enter OTP sent to phone" required>
+              </div>
+            </div>
+      
+            <div class="row100">
+              <div class="inputBox">
+                <span>Message</span>
+                <textarea placeholder="Write your Message Here..." name="formMessage" required></textarea>
+              </div>
+            </div>
+      
+            <div class="row100">
+              <div class="inputBox">
+                <span>Attachment (optional)</span>
+                <input type="file" name="attachment" accept=".jpg,.png,.pdf,.docx">
+              </div>
+            </div>
+      
+            <!-- reCAPTCHA token -->
+            <input type="hidden" name="g-recaptcha-response" id="g-recaptcha-response">
+      
+            <div class="row100">
+              <div class="inputBox">
+                <input type="submit" value="Send">
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+      
+      <!-- Google reCAPTCHA v3 -->
+      <script src="https://www.google.com/recaptcha/api.js?render=your_site_key"></script>
+      <script>
+        grecaptcha.ready(function () {
+          grecaptcha.execute('your_site_key', { action: 'contact' }).then(function (token) {
+            document.getElementById('g-recaptcha-response').value = token;
+          });
+        });
+      
+        function sendOTP() {
+          const phone = document.getElementById('phone').value;
+          if (!phone) {
+            alert("Enter phone first.");
+            return;
+          }
+      
+          fetch("send-otp.php", {
+            method: "POST",
+            headers: { "Content-Type": "application/x-www-form-urlencoded" },
+            body: "phone=" + encodeURIComponent(phone)
+          })
+          .then(res => res.text())
+          .then(data => alert(data))
+          .catch(err => alert("Error sending OTP"));
+        }
+      </script>
+      
+
+        <!-- ---info box--- -->
+        <div class="contact info">
+          <h3>Contact Info</h3>
+          <div class="infoBox">
+          <div>
+            <span><ion-icon name="location"></ion-icon></span>
+            <p>Itojo Ntungamo <br>Uganda</p>
+          </div>
+          <div>
+            <span><ion-icon name="mail"></ion-icon></span>
+           <a href="nyabikonisecschool@gmail.com">nyabikoniss@email.com</a>
+          </div>
+          <div>
+            <span><ion-icon name="call"></ion-icon></span>
+           <a href="tel:+256 703 599 882">+256 703 599 882</a>
+          </div>
+
+          <!-- social media links -->
+          <ul class="sci">
+           <li><a href="https://www.facebook.com/profile.php?id=100094514101119"> <ion-icon name="logo-facebook"></ion-icon></a></li>
+           <li><a href="https://twitter.com/intent/follow?original_referer=https%3A%2F%2Fwww.nyabikoniss.ac.ug%2F&ref_src=twsrc%5Etfw%7Ctwcamp%5Ebuttonembed%7Ctwterm%5Efollow%7Ctwgr%5Enyabikoniss&region=follow_link&screen_name=nyabikoniss"><ion-icon name="logo-twitter"></ion-icon></a></li>
+           <li><a href="https://www.youtube.com/channel/UCpiBxBBifIwLdhXDrqZggMA"><ion-icon name="logo-youtube"></ion-icon></a></li>
+           <li><a href="https://www.instagram.com/nyabikoniss/"><ion-icon name="logo-instagram"></ion-icon></a></li>
+          </ul>
+        </div>
+      </div>
+     <!-- </div> -->
+
+        <!-- --- Map--- -->
+        <div class="contact map">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13898.983399327251!2d29.973432353126448!3d-1.2468836724494496!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x19dc0df04d1debb7%3A0xcf77785b2b3d1338!2sNyabikoni%20Secondary%20School!5e0!3m2!1sen!2sug!4v1732612844840!5m2!1sen!2sug" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+        </div>
+     </div>
+    </div>
+
+    <footer>
+      <div class="container">
+          <div class="sec aboutus">
+              <h2>About Us</h2>
+              <p>
+                We aim to nurture confident, compassionate, and innovative leaders through inclusive education, fostering lifelong learning, critical thinking, and global awareness to inspire meaningful contributions to society and the world.
+              </p>
+              <ul class="sci">
+                  <li><a href="https://www.facebook.com/profile.php?id=100094514101119" target="_blank"><i class="fa fa-facebook"></i></a></li>
+                  <li><a href="https://x.com/nyabikoniss?ref_src=twsrc%5Etfw" target="_blank"><i class="fa fa-twitter"></i></a></li>
+                  <li><a href="https://www.instagram.com/nyabikoniss/" target="_blank"><i class="fa fa-instagram"></i></a></li>
+                  <li><a href="https://www.youtube.com/channel/UCpiBxBBifIwLdhXDrqZggMA" target="_blank"><i class="fa fa-youtube-play"></i></a></li>
+              </ul>
+          </div>
+          <div class="sec quicklinks">
+              <h2>Quick Links</h2>
+              <ul>
+                  <li><a href="nyabz.html">Home</a></li>
+                  <li><a href="about.html">About Us</a></li>
+                  <li><a href="Academics.html">Acadamics</a></li>
+                  <li><a href="gallery.html">Gallery</a></li>
+                  <!-- <li><a href="#">Terms & Conditions</a></li> -->
+                  <li><a href="contactus.html">Contact Us</a></li>
+              </ul>
+          </div>
+          <div class="sec quicklinks">
+              <h2>Important Links</h2>
+              <ul>
+                  <li><a href="https://www.education.go.ug/">Ministry of Education and Sports</a></li>
+                  <li><a href="https://uneb.ac.ug/">Uganda National Examinations Board (UNEB)</a></li>
+                  <li><a href="https://www.ncdc.go.ug/">Nationl Curriculum Development Centre (NCDC)</a></li>
+                  <li><a href="https://www.kabale.go.ug/">Kabale District Local Government</a></li>
+                  <!-- <li><a href="#">Clothing</a></li> -->
+                  <!-- <li><a href="#">Watch</a></li> -->
+              </ul>
+          </div>
+          
+          <div class="sec contact">
+              <h2>Contact Us</h2>
+              <ul class="infa">
+                  <li>
+                      <span><i class="fa fa-map-marker" aria-hidden="true"></i></span>
+                      <span>Kabale District <br>
+                      Kabale Municipality, Nyabikoni Ward, <br>UGA</span>
+                  </li>
+                  <li>
+                      <span><i class="fa fa-phone" aria-hidden="true"></i></span>
+                      <p><a href="tel:+256704980778">+256 775 475 629</a><br>
+                      <a href="tel:+256704980778">+256 703 599 882</a><br>
+                      <a href="tel:+256704980778">+256 773 078 285</a></p>
+                  </li>
+                  <li>
+                      <span><i class="fa fa-envelope" aria-hidden="true"></i></span>
+                      <p><a href="tukamuhebwanewton@gmail.com">tukamuhebwanewton@gmail.com</a></p>
+                  </li>
+              </ul>
+          </div>
+      </div>
+  </footer>
+  <div class="copyrightText">
+    <div class="fab-container">
+        <button class="fab main-fab" onclick="toggleFab()">
+          +
+        </button>
+        <div class="fab-options">
+          <a href="https://wa.me/256773078285" target="_blank" class="fab-option">
+            <img src="https://img.icons8.com/color/48/whatsapp--v1.png" alt="WhatsApp">
+          </a>
+          <a href="tel:+256775475629" class="fab-option">
+            <img src="https://img.icons8.com/color/48/phone.png" alt="Phone">
+          </a>
+          <a href="nyabikonisecschool@gmail.com" class="fab-option">
+            <img src="https://img.icons8.com/color/48/email.png" alt="Email">
+          </a>
+          <a href="https://nyabikoniss.blogspot.com/p/about-us.html" class="fab-option">
+            <img src="https://img.icons8.com/color/48/info.png" alt="Info">
+          </a>
+        </div>
+      </div>
+      <p>Copyright @ 2025 Nyabikoni Sec School. All Rights Reserved.</p>
+
+      <div id="up-arrow" onclick="scrollToTop()">
+        <span>&#9650;</span> <!-- Unicode for upward arrow -->
+    </div>
+  </div>
+ 
+  <!-- ------javascript for toggle menu--------- -->
+<script>
+  var navlinks = document.getElementById("navlinks");
+  function showMenu(){
+      navlinks.style.right = "0"
+  }
+  function hideMenu(){
+      navlinks.style.right = "-200px"
+  }
+</script>
+
+
+<script>
+    function scrollToTop() {
+window.scrollTo({
+    top: 0, // Scroll to the top of the page
+    behavior: 'smooth' // Smooth scrolling animation
+});
+}
+
+</script>
+
+<script>
+    function toggleFab() {
+      const fabOptions = document.querySelector('.fab-options');
+      fabOptions.classList.toggle('show');
+    }
+    </script>
+
+
+<script>
+  $(document).ready(function () {
+      $("#formValidation").validate({
+          rules: {
+              firstName: "required",
+              lastName: "required",
+              email: {
+                  required: true,
+                  email: true
+              },
+              phone: {
+                  required: true,
+                  digits: true,
+                  minlength: 10,
+                  maxlength: 15
+              },
+              otp: {
+                  required: true,
+                  digits: true,
+                  minlength: 6,
+                  maxlength: 6
+              },
+              formMessage: "required",
+              attachment: {
+                  extension: "jpg|jpeg|png|pdf|docx"
+              }
+          },
+          messages: {
+              firstName: "Please enter your first name",
+              lastName: "Please enter your last name",
+              email: {
+                  required: "Please enter your email",
+                  email: "Please enter a valid email address"
+              },
+              phone: {
+                  required: "Please enter your phone number",
+                  digits: "Please enter only numbers",
+                  minlength: "Phone number must be at least 10 digits",
+                  maxlength: "Phone number cannot exceed 15 digits"
+              },
+              otp: {
+                  required: "Please enter the OTP",
+                  digits: "OTP must contain only numbers",
+                  minlength: "OTP must be 6 digits",
+                  maxlength: "OTP must be 6 digits"
+              },
+              formMessage: "Please enter your message",
+              attachment: {
+                  extension: "Please upload only jpg, png, pdf, or docx files"
+              }
+          },
+          submitHandler: function (form) {
+              // Verify reCAPTCHA first
+              grecaptcha.execute('your_site_key', { action: 'contact' }).then(function (token) {
+                  document.getElementById('g-recaptcha-response').value = token;
+                  
+                  // Then submit the form
+                  form.submit();
+              });
+          }
+      });
+  });
+
+  function sendOTP() {
+      const phone = document.getElementById('phone').value;
+      if (!phone) {
+          alert("Please enter your phone number first.");
+          return;
+      }
+
+      // Disable the send OTP button while processing
+      const sendOtpButton = document.querySelector('button[onclick="sendOTP()"]');
+      sendOtpButton.disabled = true;
+      sendOtpButton.textContent = "Sending...";
+
+      fetch("send-otp.php", {
+          method: "POST",
+          headers: { "Content-Type": "application/x-www-form-urlencoded" },
+          body: "phone=" + encodeURIComponent(phone)
+      })
+      .then(res => res.text())
+      .then(data => {
+          alert(data);
+          // Re-enable the button
+          sendOtpButton.disabled = false;
+          sendOtpButton.textContent = "Send OTP";
+      })
+      .catch(err => {
+          alert("Error sending OTP. Please try again.");
+          // Re-enable the button
+          sendOtpButton.disabled = false;
+          sendOtpButton.textContent = "Send OTP";
+      });
+  }
+</script>
+
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+</body>
+</html>

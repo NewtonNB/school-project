@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Nyabikoni SS</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bungee&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Press+Start+2P&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Press+Start+2P&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="style3.css">
+<style>
+
+    body {
+        /* font-family: Arial, sans-serif; */
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        background-color: #f4f4f9;
+        color: #333;
+    }
+
+    header {
+        text-align: center;
+        padding: 20px;
+        background-color:  #268b17;
+        color: #fff;
+        margin: 20px;
+    }
+
+    header h1 {
+        margin: 0;
+    }
+
+    .statistics {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+        padding: 20px;
+    }
+
+    .stat-card {
+        background: #fff;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        width: 250px;
+        padding: 20px;
+        transition: transform 0.3s ease;
+    }
+
+    .stat-card:hover {
+        transform: translateY(-5px);
+    }
+
+    .stat-card i {
+        font-size: 50px;
+        color:  #268b17;
+        margin-bottom: 15px;
+    }
+
+    .stat-card h2 {
+        font-size: 2.5em;
+        margin: 10px 0;
+        color: #333;
+    }
+
+    .stat-card p {
+        font-size: 1.2em;
+        margin: 0;
+    }
+
+
+    #up-arrow {
+    position: fixed;
+    bottom: 20px; /* Adjust to position above bottom */
+    right: 20px; /* Adjust to position left of the right edge */
+    width: 50px;
+    height: 50px;
+    background-color: #004d00; /* Dark green */
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Add subtle shadow */
+}
+
+#up-arrow span {
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.fab-container {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  z-index: 1000;
+}
+
+.fab {
+  width: 60px;
+  height: 60px;
+  background-color: #00796b;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  font-size: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.fab:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3);
+}
+
+.fab-options {
+  position: absolute;
+  bottom: 70px;
+  right: 0;
+  display: none;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.fab-option {
+  width: 50px;
+  height: 50px;
+  background-color: white;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.fab-option img {
+  width: 24px;
+  height: 24px;
+}
+
+.fab-option:hover {
+  transform: scale(1.2);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.fab-options.show {
+  display: flex;
+}
+</style>
+</head>
+<body>
+    
+    
+    <section class="header" >
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+            <a href="index.html"><img src="nyabzgallery/nyabz logo.png" alt=""></a>
+            <div class="nav-links" id="navlinks">
+                <i class="fa fa-times" onclick="hideMenu()"></i>
+                <ul>
+                    <li><a href="nyabz.html">HOME</a></li>
+                    <li class="dropdown"><a href="about.html">ABOUT</a>
+                      <div class="dropdown-content">
+                        <a href="anthem.html">SCHOOL ANTHEM</a>
+                        <a href="staff.html">TEACHING STAFF</a>
+                        <a href="nonstaff.html">NON TEACHING STAFF</a>
+                        <a href="footer.html">STUDENT'S CLUBS</a>
+                    </div>
+                  </li>
+                    <li class="dropdown"><a href="Academics.html">ACADEMICS</a>
+                        <div class="dropdown-content">
+                            <a href="olevel.html">O'LEVEL</a>
+                            <a href="alevel.html">A'LEVEL</a>
+                            <a href="events.html">NEWS & EVENTS</a>
+                        </div>
+                    </li>
+                    <li><a href="contact.html">GALLERY</a></li>
+                    <li><a href="contactus.html">CONTACT</a></li>
+                </ul>
+            </div>
+            <i class="fa fa-bars" onclick="showMenu()"></i>
+        </nav>
+
+        <div class="text-box">
+            <h1 style="font-family: Bungee;margin-top: 150px;">ABOUT US</h1><br>
+            <!-- <h1>ABOUT US</h1> -->
+            <!-- <p style="padding: 20px;">"Welcome to Nyabikoni Secondary School,where excellence is not just a goal, but a way of life. <br> Join us on a journey of discovery, <br> growth, and endless possibilities, as we shape the leaders of tomorrow."</p> -->
+            <!-- <a href=""class="hero-btn">Know More</a> -->
+        </div>
+    </section>
+<section style="margin: 40px;">
+    <div>
+        <div style="margin-top: 40px;">
+            <center><h2 style="font-family: 'Bungee';">HEADMASTER'S MESSAGE</h2></center>
+            <img src="nyabzgallery/HM.JPG"  alt="..." style="width: 50%; border-radius: 20% ; float: left;padding: 20px;">
+            <p style="padding-top: 40px;">Welcome to our website, dear visitor. We sincerely appreciate you taking the time out of your busy schedule for us. I am glad to see that you are interested in learning more about Nyabikoni Secondary School. There is no question that learning more about us will be a good decision.<br>
+            The goal of Nyabikoni Secondary School is to provide a holistic education, or generating people who are intellectually strong, physically healthy, socially balanced, and God-fearing. By emphasizing academics and extracurricular activities, this is achieved. I have to admit that I am honored to be affiliated with Nyabikoni Secondary School, an institution whose mission is "To produce competent human resources to serve the church, state, and world." We try our hardest to make our dream a reality and not only talk about it; we actually put our vision into action.<h4>By Head Teacher.<h4> <h2>Mr. Turyasiima Elly </h2></p>
+        </div>
+    </div>
+</section>   
+   
+   
+<div id="about-2" style="margin-top: 50px;">
+    <div class="content-box-lg">
+        <div class="container1" >
+          <div class="row">
+            <div class="col-md-4" style="height: 100% ; width: 100%;">
+                <div class="about-item">
+                    <i class="fa fa-book"></i>
+                        <h3 style="font-family: Bungee;">VISION</h3>
+                        <hr>
+                        <p>To be at the helm of producing competent human resource to serve the church, state and the world.</p>
+                    </i>
+                </div>
+            </div>
+            <div class="col-md-4" style="height: 100%; width: 100%;">
+                <div class="about-item text-center">
+                    <i class="fa fa-pencil"></i>
+                        <h3 style="font-family: Bungee;">MISSION</h3>
+                        <hr>
+                        <p>To provide quality education through practical skills, teamwork, self reliance and produce God fearing persons.</p>
+                    </i>
+                </div>
+            </div>
+            <div class="col-md-4" style="height: 100%; width: 100%; ">
+                <div class="about-item">
+                    <i class="fa fa-globe" style="margin-left:0px ;" ></i>
+                        <h3 style="font-family: Bungee;">CORE VALUES</h3>
+                        <hr>
+                        <ul>
+                            <li>Fear God</li>
+                            <li>Excellence</li>
+                            <li>Integrity</li>
+                            <li>Respect of persons and <br>property</li>
+                        </ul>
+                    </i>
+                </div>
+            </div>
+           </div>
+      </div>
+    </div>
+</div>
+
+
+    <header>
+        <h1 style="font-family: Bungee;">School Statistics Data</h1>
+        <p>Providing quality education with a dedicated team and rich curriculum.</p>
+    </header>
+
+    <section class="statistics">
+        <div class="stat-card">
+            <i class="fas fa-user-graduate"></i>
+            <h2 class="counter" data-target="15000">0</h2>
+            <p>Graduated Students</p>
+        </div>
+
+        <div class="stat-card">
+            <i class="fas fa-chalkboard-teacher"></i>
+            <h2 class="counter" data-target="35">0</h2>
+            <p>Teachers</p>
+        </div>
+
+        <div class="stat-card">
+            <i class="fas fa-users"></i>
+            <h2 class="counter" data-target="1115">0</h2>
+            <p>Current Students</p>
+        </div>
+
+        <div class="stat-card">
+            <i class="fas fa-futbol"></i>
+            <h2 class="counter" data-target="15">0</h2>
+            <p>Extra Curricular</p>
+        </div>
+</section>
+
+
+<section>
+<div class="section">
+  <div class="container1">
+      <div class="content-section">
+          <div class="title">
+            <div class="accordion accordion-flush" id="accordionFlushExample ">
+              <div class="accordion-item    m-5">
+                <h2 class="accordion-header" id="flush-headingOne">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                      Well Built Classrooms
+                  </button>
+                </h2>
+                <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                  <div class="accordion-body">Our Classrooms are well equipped and built for a great student experience and study.</div>
+                </div>
+              </div>
+              <div class="accordion-item m-5">
+                <h2 class="accordion-header" id="flush-headingTwo">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+                      Health Center
+                  </button>
+                </h2>
+                <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
+                  <div class="accordion-body">This is a priority as we make sure we cater for the health of our students at our sick bay.</div>
+                </div>
+              </div>
+              <div class="accordion-item m-5 ">
+                <h2 class="accordion-header" id="flush-headingThree">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+                      Computer Lab
+                  </button>
+                </h2>
+                <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
+                  <div class="accordion-body">Our Computer Lab has all a student needs to learn and practice his/her computer skills and be able to pass Exams and work in the new computerised world.</div>
+                </div>
+              </div>
+            </div>
+      </div>
+      <!-- <div class="image-section">
+          <img src="/nyabzgallery/scholar.JPG" alt="">
+      </div> -->
+  </div>
+</div>
+</section>
+
+
+    <div style="text-align: center; font-size: 6px;">
+        <a href=""><img src="nyabzgallery/nyabz logo.png" alt=""></a>
+    </div>
+
+    <footer>
+      <div class="cantainer">
+          <div class="sec aboutus">
+              <h2>About Us</h2>
+              <p>We aim to nurture confident, compassionate, and innovative leaders through inclusive education, fostering lifelong learning, critical thinking, and global awareness to inspire meaningful contributions to society and the world. </p>
+              <ul class="sci">
+                  <li><a href="https://www.facebook.com" target="_blank"><i class="fa fa-facebook"></i></a></li>
+                  <li><a href="https://twitter.com" target="_blank"><i class="fa fa-twitter"></i></a></li>
+                  <li><a href="https://www.instagram.com" target="_blank"><i class="fa fa-instagram"></i></a></li>
+                  <li><a href="https://www.youtube.com" target="_blank"><i class="fa fa-youtube-play"></i></a></li>
+              </ul>
+          </div>
+          <div class="sec quicklinks">
+              <h2>Quick Links</h2>
+              <ul>
+                  <li><a href="nyabz.html">HOME</a></li>
+                  <li><a href="about.html">ABOUT US</a></li>
+                  <li><a href="Academics.html">ACADEMICS</a></li>
+                  <li><a href="gallery.html">GALLERY</a></li>
+                  <li><a href="staff.html">STAFF</a></li>
+                  <li><a href="contactus.html">CONTACT US</a></li>
+              </ul>
+          </div>
+          <div class="sec quicklinks">
+              <h2>Important Links</h2>
+              <ul>
+                  <li><a href="https://www.education.go.ug/">Ministry of Education and Sports</a></li>
+                  <li><a href="https://uneb.ac.ug/">Uganda National Examinations Board (UNEB)</a></li>
+                  <li><a href="https://www.ncdc.go.ug/">Nationl Curriculum Development Centre (NCDC)</a></li>
+                  <li><a href="https://www.kabale.go.ug/">Kabale District Local Government</a></li>
+                  <!-- <li><a href="#">Clothing</a></li>
+                  <li><a href="#">Watch</a></li> -->
+              </ul>
+          </div>
+          
+          <div class="sec contact">
+              <h2>Contact Us</h2>
+              <ul class="info">
+                  <li>
+                      <span><i class="fa fa-map-marker" aria-hidden="true"></i></span>
+                      <span>Kabale District<br>
+                      Kabale Municipality, Nyabikoni Ward, <br>UGA</span>
+                  </li>
+                  <li>
+                      <span><i class="fa fa-phone" aria-hidden="true"></i></span>
+                      <p><a href="tel:+256704980778">+256 775 475 629</a><br>
+                      <a href="tel:+256704980778">+256 703 599 882</a><br>
+                      <a href="tel:+256704980778">+256 773 078 285</a></p>
+                  </li>
+                  <li>
+                      <span><i class="fa fa-envelope" aria-hidden="true"></i></span>
+                      <p><a href="nyabikonisecschool@gmail.com">nyabikonisecschool@gmail.com</a></p>
+                  </li>
+              </ul>
+          </div>
+      </div>
+  </footer>
+  <div class="copyrightText">
+    <div class="fab-container">
+        <button class="fab main-fab" onclick="toggleFab()">
+          +
+        </button>
+        <div class="fab-options">
+          <a href="https://wa.me/256773078285" target="_blank" class="fab-option">
+            <img src="https://img.icons8.com/color/48/whatsapp--v1.png" alt="WhatsApp">
+          </a>
+          <a href="tel:+256775475629" class="fab-option">
+            <img src="https://img.icons8.com/color/48/phone.png" alt="Phone">
+          </a>
+          <a href="nyabikonisecschool@gmail.com" class="fab-option">
+            <img src="https://img.icons8.com/color/48/email.png" alt="Email">
+          </a>
+          <a href="https://nyabikoniss.blogspot.com/p/about-us.html" class="fab-option">
+            <img src="https://img.icons8.com/color/48/info.png" alt="Info">
+          </a>
+        </div>
+      </div>
+      <p>Copyright @ 2025 Nyabikoni Sec School. All Rights Reserved.</p>
+      <!-- <i class="fa fa-arrow-up" aria-hidden="true"></i> -->
+      <div id="up-arrow" onclick="scrollToTop()">
+        <span>&#9650;</span> <!-- Unicode for upward arrow -->
+    </div>
+    </div>
+    </div>
+  </div>
+  
+
+      
+
+<!-- -------script----- -->
+
+    <script>
+        var navlinks = document.getElementById("navlinks");
+        function showMenu(){
+            navlinks.style.right = "0"
+        }
+        function hideMenu(){
+            navlinks.style.right = "-200px"
+        }
+         </script>
+
+    <script>
+        function scrollToTop() {
+    window.scrollTo({
+        top: 0, // Scroll to the top of the page
+        behavior: 'smooth' // Smooth scrolling animation
+    });
+}
+    </script>
+
+<script>
+    function toggleFab() {
+      const fabOptions = document.querySelector('.fab-options');
+      fabOptions.classList.toggle('show');
+    }
+    </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const counters = document.querySelectorAll(".counter");
+
+            counters.forEach(counter => {
+                const updateCounter = () => {
+                    const target = +counter.getAttribute("data-target");
+                    const count = +counter.innerText;
+                    const increment = target / 100; // Adjust speed
+
+                    if (count < target) {
+                        counter.innerText = Math.ceil(count + increment);
+                        setTimeout(updateCounter, 30); // Adjust speed timing
+                    } else {
+                        counter.innerText = target;
+                    }
+                };
+                updateCounter();
+            });
+        });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+</body>
+</html>
+
+
+
+
+ 
