@@ -1,0 +1,921 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MediCare Hospital - Your Health, Our Priority</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#2563EB',
+                        secondary: '#1E3A8A',
+                        accent: '#3B82F6',
+                        dark: '#0F172A',
+                        green: '#22C55E',
+                        logoGreen: '#22C55E',
+                        logoBlue: '#2563EB'
+                    },
+                    fontFamily: {
+                        'poppins': ['Poppins', 'sans-serif']
+                    },
+                    gradientColorStops: theme => ({
+                        ...theme('colors'),
+                        'logo': '#22C55E',
+                        'logo-blue': '#2563EB',
+                    })
+                }
+            }
+        }
+    </script>
+    <style>
+        .hero-pattern {
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%2322c55e' fill-opacity='0.07'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+        
+        .gradient-text {
+            background: linear-gradient(135deg, #22C55E 0%, #2563EB 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-5px);
+        }
+        
+        .stat-card {
+            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.9);
+        }
+        
+        .carousel {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .carousel-inner {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+        
+        .carousel-item {
+            flex: 0 0 100%;
+            position: relative;
+        }
+        
+        .carousel-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to right, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.4) 50%, rgba(0, 0, 0, 0.1) 100%);
+        }
+        
+        .carousel-control {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #22C55E 0%, #2563EB 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(4px);
+        }
+        
+        .carousel-control:hover {
+            background: linear-gradient(135deg, #2563EB 0%, #22C55E 100%);
+        }
+        
+        .carousel-prev {
+            left: 20px;
+        }
+        
+        .carousel-next {
+            right: 20px;
+        }
+        
+        .carousel-indicators {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+        }
+        
+        .carousel-indicator {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .carousel-indicator.active {
+            background: #22C55E;
+            transform: scale(1.2);
+        }
+        
+        .bg-primary {
+            background-color: #2563EB !important;
+        }
+        
+        .bg-primary\/10 {
+            background-color: rgba(34, 197, 94, 0.1) !important;
+        }
+        
+        .bg-primary\/20 {
+            background-color: rgba(34, 197, 94, 0.2) !important;
+        }
+        
+        .bg-primary\/30 {
+            background-color: rgba(34, 197, 94, 0.3) !important;
+        }
+        
+        .bg-primary\/80 {
+            background-color: rgba(34, 197, 94, 0.8) !important;
+        }
+        
+        .bg-primary\/90 {
+            background-color: rgba(34, 197, 94, 0.9) !important;
+        }
+        
+        .bg-logoGreen {
+            background-color: #22C55E !important;
+        }
+        
+        .text-primary {
+            color: #2563EB !important;
+        }
+        
+        .text-logoGreen {
+            color: #22C55E !important;
+        }
+        
+        .border-primary {
+            border-color: #2563EB !important;
+        }
+        
+        .hover\:bg-primary:hover {
+            background-color: #22C55E !important;
+        }
+        
+        .hover\:text-primary:hover {
+            color: #22C55E !important;
+        }
+        
+        .card-hover:hover {
+            box-shadow: 0 8px 32px 0 rgba(34, 197, 94, 0.15), 0 1.5px 4px 0 rgba(37, 99, 235, 0.10);
+        }
+        
+        .stat-card {
+            background: linear-gradient(135deg, #22C55E10 0%, #2563EB10 100%);
+        }
+        
+        .bg-primary.text-white:hover {
+            background-color: #22C55E !important;
+            color: #fff !important;
+        }
+        
+        .stat-card {
+            border: 1.5px solid #22C55E;
+        }
+        
+        @keyframes slideIn {
+            from {
+                transform: translateX(100%);
+            }
+            to {
+                transform: translateX(0);
+            }
+        }
+        
+        .animate-slideIn {
+            animation: slideIn 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .why-animate {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: box-shadow 0.3s, transform 0.3s;
+        }
+        
+        .why-animate.visible {
+            animation: fadeInUp 0.7s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+        }
+        
+        .why-card {
+            transition: box-shadow 0.3s, transform 0.3s, border 0.3s;
+            border: 2px solid transparent;
+            background: linear-gradient(135deg, #fff 80%, #e0fbe6 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .why-card:hover {
+            transform: translateY(-8px) scale(1.04) rotate(-1deg);
+            box-shadow: 0 8px 32px 0 rgba(34, 197, 94, 0.18), 0 1.5px 4px 0 rgba(37, 99, 235, 0.10);
+            border: 2px solid #22C55E;
+            background: linear-gradient(135deg, #e0fbe6 0%, #fff 100%);
+        }
+        
+        .why-card::before {
+            content: '';
+            position: absolute;
+            top: -40px;
+            left: -40px;
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #22C55E33 0%, #2563EB22 100%);
+            border-radius: 50%;
+            z-index: 0;
+            opacity: 0.5;
+            transition: opacity 0.3s;
+        }
+        
+        .why-card:hover::before {
+            opacity: 0.8;
+        }
+        
+        @keyframes fadeInUpTestimonial {
+            from {
+                opacity: 0;
+                transform: translateY(60px) scale(0.96);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+        
+        .testimonial-animate {
+            opacity: 0;
+            transform: translateY(60px) scale(0.96);
+            transition: box-shadow 0.3s, transform 0.3s;
+        }
+        
+        .testimonial-animate.visible {
+            animation: fadeInUpTestimonial 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+        }
+        
+        .testimonial-card {
+            transition: box-shadow 0.3s, transform 0.3s, border 0.3s;
+            border: 2px solid transparent;
+            background: linear-gradient(135deg, #fff 80%, #e0fbe6 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .testimonial-card:hover {
+            transform: translateY(-8px) scale(1.04) rotate(1deg);
+            box-shadow: 0 8px 32px 0 rgba(37, 99, 235, 0.13), 0 1.5px 4px 0 rgba(34, 197, 94, 0.10);
+            border: 2px solid #2563EB;
+            background: linear-gradient(135deg, #e0fbe6 0%, #fff 100%);
+        }
+        
+        .testimonial-card::before {
+            content: '';
+            position: absolute;
+            bottom: -40px;
+            right: -40px;
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #2563EB33 0%, #22C55E22 100%);
+            border-radius: 50%;
+            z-index: 0;
+            opacity: 0.5;
+            transition: opacity 0.3s;
+        }
+        
+        .testimonial-card:hover::before {
+            opacity: 0.8;
+        }
+    </style>
+</head>
+
+<body class="font-poppins">
+    <!-- Navigation -->
+    <nav class="bg-white/80 backdrop-blur-md shadow-lg fixed w-full z-50">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex items-center">
+                    <a href="index.html" class="flex items-center">
+                        <img src="img/logo2.png" alt="Clinic Logo" class="h-32 w-auto mr-30" />
+                        <span class="text-2xl font-bold text-primary ml-1">CHANSE PHYSICIAN & CHILDREN'S CLINIC</span>
+                    </a>
+                </div>
+                <div class="hidden md:flex items-center space-x-3 ml-20">
+                    <a href="index.html" class="text-primary font-medium">Home</a>
+                    <a href="services.html" class="text-gray-700 hover:text-primary transition duration-300 font-medium">Services</a>
+                    <a href="doctors.html" class="text-gray-700 hover:text-primary transition duration-300 font-medium">Doctors</a>
+                    <a href="about.html" class="text-gray-700 hover:text-primary transition duration-300 font-medium">About</a>
+                    <a href="contact.html" class="text-gray-700 hover:text-primary transition duration-300 font-medium">Contact</a>
+                    <a class="bg-primary text-white px-6 py-2 rounded-full hover:bg-logoGreen transition duration-300 shadow-lg hover:shadow-xl book-appointment">Book Appointment</a>
+                </div>
+                <div class="md:hidden">
+                    <button id="mobile-menu-toggle" class="text-gray-700 hover:text-primary focus:outline-none">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="fixed inset-0 z-[60] bg-black/40 hidden">
+            <div class="bg-white w-4/5 max-w-xs h-full shadow-2xl p-8 flex flex-col space-y-6 absolute right-0 top-0 animate-slideIn">
+                <div>
+                    <div>
+                        <a href="index.html" class="flex items-center">
+                            <img src="img/logo2.png" alt="Clinic Logo" class="h-12 w-auto mr-2" />
+                            <span class="text-lg font-bold text-primary">CHANSE CLINIC</span>
+                        </a>
+                        <button id="mobile-menu-close" class="absolute top-4 right-4 text-gray-400 hover:text-logoGreen text-2xl focus:outline-none">
+                        <i class="fas fa-times"></i>
+                        </button>
+                        <nav class="flex flex-col gap-4">
+                            <a href="index.html" class="bg-logoGreen text-white font-semibold text-lg py-2 px-2 rounded hover:bg-primary transition">Home</a>
+                            <a href="services.html" class="bg-logoGreen text-white font-semibold text-lg py-2 px-2 rounded hover:bg-primary transition">Services</a>
+                            <a href="doctors.html" class="bg-logoGreen text-white font-semibold text-lg py-2 px-2 rounded hover:bg-primary transition">Doctors</a>
+                            <a href="about.html" class="bg-logoGreen text-white font-semibold text-lg py-2 px-2 rounded hover:bg-primary transition">About</a>
+                            <a href="contact.html" class="bg-logoGreen text-white font-semibold text-lg py-2 px-2 rounded hover:bg-primary transition">Contact</a>
+                        </nav>
+                        <a class="bg-primary text-white px-6 py-2 rounded-full hover:bg-logoGreen transition duration-300 shadow-lg hover:shadow-xl mt-4">Book Appointment</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Carousel Section -->
+    <section class="carousel h-[600px] relative pt-24">
+        <div class="carousel-inner h-full">
+            <div class="carousel-item h-full">
+                <img src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80" alt="Modern Hospital" class="w-full h-full object-cover">
+                <div class="carousel-overlay"></div>
+                <div class="absolute inset-0 flex items-center">
+                    <div class="max-w-7xl mx-auto px-4 w-full">
+                        <div class="max-w-2xl">
+                            <h1 class="text-5xl font-bold text-white mb-6">Advanced Medical Care for Your Family</h1>
+                            <p class="text-xl text-gray-200 mb-8">Experience world-class healthcare with cutting-edge technology and compassionate care.</p>
+                            <a class="bg-primary text-white px-8 py-3 rounded-full hover:bg-blue-700 transition duration-300 inline-flex items-center book-appointment">
+                                <span>Book Appointment</span>
+                                <i class="fas fa-arrow-right ml-2"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item h-full">
+                <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80" alt="Medical Team" class="w-full h-full object-cover">
+                <div class="carousel-overlay"></div>
+                <div class="absolute inset-0 flex items-center">
+                    <div class="max-w-7xl mx-auto px-4 w-full">
+                        <div class="max-w-2xl">
+                            <h1 class="text-5xl font-bold text-white mb-6">Expert Medical Professionals</h1>
+                            <p class="text-xl text-gray-200 mb-8">Our team of experienced doctors and healthcare professionals is dedicated to your well-being.</p>
+                            <a href="doctors.html" class="bg-primary text-white px-8 py-3 rounded-full hover:bg-blue-700 transition duration-300 inline-flex items-center book-appointment">
+                                <span>Meet Our Team</span>
+                                <i class="fas fa-arrow-right ml-2"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item h-full">
+                <img src="https://images.unsplash.com/photo-1587351021759-3e566b6af7cc?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80" alt="Medical Technology" class="w-full h-full object-cover">
+                <div class="carousel-overlay"></div>
+                <div class="absolute inset-0 flex items-center">
+                    <div class="max-w-7xl mx-auto px-4 w-full">
+                        <div class="max-w-2xl">
+                            <h1 class="text-5xl font-bold text-white mb-6">State-of-the-Art Facilities</h1>
+                            <p class="text-xl text-gray-200 mb-8">Access the latest medical technology and treatment options for optimal care.</p>
+                            <a href="services.html" class="bg-primary text-white px-8 py-3 rounded-full hover:bg-blue-700 transition duration-300 inline-flex items-center book-appointment">
+                                <span>Our Services</span>
+                                <i class="fas fa-arrow-right ml-2"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button class="carousel-control carousel-prev">
+            <i class="fas fa-chevron-left"></i>
+        </button>
+        <button class="carousel-control carousel-next">
+            <i class="fas fa-chevron-right"></i>
+        </button>
+        <div class="carousel-indicators">
+            <div class="carousel-indicator active"></div>
+            <div class="carousel-indicator"></div>
+            <div class="carousel-indicator"></div>
+        </div>
+    </section>
+
+    <!-- Hero Section -->
+    <section class="pt-20 hero-pattern">
+        <div class="max-w-7xl mx-auto px-4 py-20">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <div class="inline-block bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-medium mb-6">
+                        Welcome to MediCare
+                    </div>
+                    <h1 class="text-5xl font-bold text-dark mb-6 leading-tight">
+                        Your Health Is Our
+                        <span class="gradient-text">Top Priority</span>
+                    </h1>
+                    <p class="text-gray-600 text-lg mb-8 leading-relaxed">
+                        Experience world-class healthcare with our expert medical professionals. We provide comprehensive medical services with cutting-edge technology and compassionate care.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a class="bg-primary text-white px-8 py-3 rounded-full hover:bg-blue-700 transition duration-300 shadow-lg hover:shadow-xl flex items-center book-appointment">
+                            <span>Book Appointment</span>
+                            <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                        <a href="services.html" class="border-2 border-primary text-primary px-8 py-3 rounded-full hover:bg-primary hover:text-white transition duration-300 flex items-center">
+                            <span>Our Services</span>
+                            <i class="fas fa-chevron-right ml-2"></i>
+                        </a>
+                    </div>
+                    <div class="grid grid-cols-3 gap-4 mt-12">
+                        <div class="stat-card p-4 rounded-xl shadow-lg">
+                            <div class="text-3xl font-bold text-primary">24/7</div>
+                            <div class="text-sm text-gray-600">Emergency Care</div>
+                        </div>
+                        <div class="stat-card p-4 rounded-xl shadow-lg">
+                            <div class="text-3xl font-bold text-primary">50+</div>
+                            <div class="text-sm text-gray-600">Expert Doctors</div>
+                        </div>
+                        <div class="stat-card p-4 rounded-xl shadow-lg">
+                            <div class="text-3xl font-bold text-primary">10k+</div>
+                            <div class="text-sm text-gray-600">Happy Patients</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="relative">
+                    <div class="absolute -top-6 -right-6 w-72 h-72 bg-primary/10 rounded-full filter blur-3xl"></div>
+                    <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Hospital" class="rounded-2xl shadow-2xl relative z-10">
+                    <div class="absolute -bottom-6 -left-6 bg-white p-6 rounded-xl shadow-xl z-20">
+                        <div class="flex items-center space-x-4">
+                            <div class="bg-primary/10 p-3 rounded-full">
+                                <i class="fas fa-user-md text-logoGreen text-2xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-lg">Expert Doctors</h3>
+                                <p class="text-gray-600">24/7 Available</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us Section -->
+    <section class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-16">
+                <div class="inline-block bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-medium mb-4">
+                    Why Choose Us
+                </div>
+                <h2 class="text-4xl font-bold text-dark mb-4">Excellence in Healthcare</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">We are committed to providing the highest quality healthcare services with a focus on patient comfort and satisfaction.</p>
+            </div>
+            <div class="grid md:grid-cols-4 gap-8">
+                <div class="why-card why-animate bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition duration-300 relative">
+                    <div class="bg-primary/10 w-12 h-12 rounded-lg flex items-center justify-center mb-4 relative z-10">
+                        <i class="fas fa-award text-logoGreen text-xl"></i>
+                    </div>
+                    <h3 class="font-bold text-lg mb-2 relative z-10">Accredited Facility</h3>
+                    <p class="text-gray-600 text-sm relative z-10">Recognized for excellence in healthcare delivery and patient care.</p>
+                </div>
+                <div class="why-card why-animate bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition duration-300 relative">
+                    <div class="bg-primary/10 w-12 h-12 rounded-lg flex items-center justify-center mb-4 relative z-10">
+                        <i class="fas fa-clock text-logoGreen text-xl"></i>
+                    </div>
+                    <h3 class="font-bold text-lg mb-2 relative z-10">24/7 Service</h3>
+                    <p class="text-gray-600 text-sm relative z-10">Round-the-clock medical care and emergency services.</p>
+                </div>
+                <div class="why-card why-animate bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition duration-300 relative">
+                    <div class="bg-primary/10 w-12 h-12 rounded-lg flex items-center justify-center mb-4 relative z-10">
+                        <i class="fas fa-microscope text-logoGreen text-xl"></i>
+                    </div>
+                    <h3 class="font-bold text-lg mb-2 relative z-10">Advanced Technology</h3>
+                    <p class="text-gray-600 text-sm relative z-10">State-of-the-art medical equipment and facilities.</p>
+                </div>
+                <div class="why-card why-animate bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition duration-300 relative">
+                    <div class="bg-primary/10 w-12 h-12 rounded-lg flex items-center justify-center mb-4 relative z-10">
+                        <i class="fas fa-heart text-logoGreen text-xl"></i>
+                    </div>
+                    <h3 class="font-bold text-lg mb-2 relative z-10">Patient-Centered Care</h3>
+                    <p class="text-gray-600 text-sm relative z-10">Personalized treatment plans and compassionate care.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-16">
+                <div class="inline-block bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-medium mb-4">
+                    Our Services
+                </div>
+                <h2 class="text-4xl font-bold text-dark mb-4">Comprehensive Healthcare Solutions</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">We offer a wide range of medical services to ensure you receive the best possible care for your health needs.</p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition duration-300 card-hover">
+                    <div class="bg-primary/10 w-16 h-16 rounded-xl flex items-center justify-center mb-6">
+                        <i class="fas fa-heartbeat text-logoGreen text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Cardiology</h3>
+                    <p class="text-gray-600">Expert care for your heart health with state-of-the-art diagnostic and treatment facilities.</p>
+                    <ul class="mt-4 space-y-2">
+                        <li class="flex items-center text-gray-600">
+                            <i class="fas fa-check text-primary mr-2"></i> Heart Disease Treatment
+                        </li>
+                        <li class="flex items-center text-gray-600">
+                            <i class="fas fa-check text-primary mr-2"></i> Cardiac Surgery
+                        </li>
+                        <li class="flex items-center text-gray-600">
+                            <i class="fas fa-check text-primary mr-2"></i> Heart Failure Management
+                        </li>
+                    </ul>
+                    <a href="services.html" class="inline-flex items-center text-primary mt-4 hover:text-blue-700">
+                        Learn More
+                        <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+                <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition duration-300 card-hover">
+                    <div class="bg-primary/10 w-16 h-16 rounded-xl flex items-center justify-center mb-6">
+                        <i class="fas fa-brain text-logoGreen text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Neurology</h3>
+                    <p class="text-gray-600">Specialized neurological care with advanced treatment options and expert neurologists.</p>
+                    <ul class="mt-4 space-y-2">
+                        <li class="flex items-center text-gray-600">
+                            <i class="fas fa-check text-primary mr-2"></i> Brain Surgery
+                        </li>
+                        <li class="flex items-center text-gray-600">
+                            <i class="fas fa-check text-primary mr-2"></i> Stroke Treatment
+                        </li>
+                        <li class="flex items-center text-gray-600">
+                            <i class="fas fa-check text-primary mr-2"></i> Neurological Disorders
+                        </li>
+                    </ul>
+                    <a href="services.html" class="inline-flex items-center text-primary mt-4 hover:text-blue-700">
+                        Learn More
+                        <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+                <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition duration-300 card-hover">
+                    <div class="bg-primary/10 w-16 h-16 rounded-xl flex items-center justify-center mb-6">
+                        <i class="fas fa-tooth text-logoGreen text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Dental Care</h3>
+                    <p class="text-gray-600">Complete dental care services with modern equipment and experienced dentists.</p>
+                    <ul class="mt-4 space-y-2">
+                        <li class="flex items-center text-gray-600">
+                            <i class="fas fa-check text-primary mr-2"></i> Cosmetic Dentistry
+                        </li>
+                        <li class="flex items-center text-gray-600">
+                            <i class="fas fa-check text-primary mr-2"></i> Orthodontics
+                        </li>
+                        <li class="flex items-center text-gray-600">
+                            <i class="fas fa-check text-primary mr-2"></i> Preventive Care
+                        </li>
+                    </ul>
+                    <a href="services.html" class="inline-flex items-center text-primary mt-4 hover:text-blue-700">
+                        Learn More
+                        <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-16">
+                <div class="inline-block bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-medium mb-4">
+                    Testimonials
+                </div>
+                <h2 class="text-4xl font-bold text-dark mb-4">What Our Patients Say</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Hear from our patients about their experiences at MediCare Hospital.</p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="testimonial-card testimonial-animate bg-white p-8 rounded-xl shadow-lg relative">
+                    <div class="flex items-center mb-6 relative z-10">
+                        <div class="w-12 h-12 rounded-full overflow-hidden mr-4">
+                            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&auto=format&fit=crop&w=100&q=80" alt="Patient" class="w-full h-full object-cover">
+                        </div>
+                        <div>
+                            <h4 class="font-bold">Sarah Johnson</h4>
+                            <p class="text-gray-600 text-sm">Cardiac Patient</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 relative z-10">"The care I received at MediCare was exceptional. The doctors and staff were professional and caring throughout my treatment."</p>
+                    <div class="flex text-yellow-400 mt-4 relative z-10">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+                <div class="testimonial-card testimonial-animate bg-white p-8 rounded-xl shadow-lg relative">
+                    <div class="flex items-center mb-6 relative z-10">
+                        <div class="w-12 h-12 rounded-full overflow-hidden mr-4">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&auto=format&fit=crop&w=100&q=80" alt="Patient" class="w-full h-full object-cover">
+                        </div>
+                        <div>
+                            <h4 class="font-bold">Michael Chen</h4>
+                            <p class="text-gray-600 text-sm">Neurology Patient</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 relative z-10">"The neurology department's expertise and the hospital's advanced technology made my treatment successful. Highly recommended!"</p>
+                    <div class="flex text-yellow-400 mt-4 relative z-10">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+                <div class="testimonial-card testimonial-animate bg-white p-8 rounded-xl shadow-lg relative">
+                    <div class="flex items-center mb-6 relative z-10">
+                        <div class="w-12 h-12 rounded-full overflow-hidden mr-4">
+                            <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&auto=format&fit=crop&w=100&q=80" alt="Patient" class="w-full h-full object-cover">
+                        </div>
+                        <div>
+                            <h4 class="font-bold">Emily Brown</h4>
+                            <p class="text-gray-600 text-sm">Dental Patient</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 relative z-10">"The dental care team was amazing. They made me feel comfortable and explained everything clearly. Great experience!"</p>
+                    <div class="flex text-yellow-400 mt-4 relative z-10">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Emergency Care Section -->
+    <section class="py-20 bg-primary text-white">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h2 class="text-4xl font-bold mb-6">24/7 Emergency Care</h2>
+                    <p class="text-lg mb-8">Our emergency department is staffed with experienced medical professionals and equipped with state-of-the-art technology to provide immediate care when you need it most.</p>
+                    <div class="space-y-4">
+                        <div class="flex items-center">
+                            <i class="fas fa-phone-alt text-2xl mr-4"></i>
+                            <div>
+                                <h3 class="font-bold">Emergency Hotline</h3>
+                                <p class="text-xl">(555) 123-4567</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-clock text-2xl mr-4"></i>
+                            <div>
+                                <h3 class="font-bold">Available 24/7</h3>
+                                <p>Round-the-clock emergency services</p>
+                            </div>
+                        </div>
+                    </div>
+                    <a class="inline-flex items-center bg-white text-primary px-8 py-3 rounded-full mt-8 hover:bg-gray-100 transition duration-300 book-appointment">
+                        <span>Contact Emergency</span>
+                        <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+                <div class="relative">
+                    <img src="https://images.unsplash.com/photo-1584982751601-97dcc096659c?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Emergency Care" class="rounded-2xl shadow-2xl">
+                    <div class="absolute -bottom-6 -left-6 bg-white p-6 rounded-xl shadow-xl">
+                        <div class="flex items-center space-x-4">
+                            <div class="bg-primary/10 p-3 rounded-full">
+                                <i class="fas fa-ambulance text-logoGreen text-2xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-dark">Quick Response</h3>
+                                <p class="text-gray-600">Emergency Ambulance Service</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Latest News Section -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-16">
+                <div class="inline-block bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-medium mb-4">
+                    Latest News
+                </div>
+                <h2 class="text-4xl font-bold text-dark mb-4">Healthcare Updates</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">Stay informed about the latest developments in healthcare and medical research.</p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden card-hover">
+                    <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="News" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <div class="text-sm text-gray-500 mb-2">March 15, 2024</div>
+                        <h3 class="text-xl font-bold mb-2">New Cardiac Care Unit Opening</h3>
+                        <p class="text-gray-600 mb-4">We're expanding our cardiac care facilities with state-of-the-art equipment and specialized staff.</p>
+                        <a href="#" class="text-primary hover:text-blue-700">Read More →</a>
+                    </div>
+                </div>
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden card-hover">
+                    <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="News" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <div class="text-sm text-gray-500 mb-2">March 10, 2024</div>
+                        <h3 class="text-xl font-bold mb-2">COVID-19 Vaccination Update</h3>
+                        <p class="text-gray-600 mb-4">Latest information about our vaccination program and safety protocols.</p>
+                        <a href="#" class="text-primary hover:text-blue-700">Read More →</a>
+                    </div>
+                </div>
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden card-hover">
+                    <img src="https://images.unsplash.com/photo-1587351021759-3e566b6af7cc?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="News" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <div class="text-sm text-gray-500 mb-2">March 5, 2024</div>
+                        <h3 class="text-xl font-bold mb-2">Medical Research Breakthrough</h3>
+                        <p class="text-gray-600 mb-4">Our research team makes significant progress in neurological treatments.</p>
+                        <a href="#" class="text-primary hover:text-blue-700">Read More →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-12">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center mb-6">
+                        <img src="img/logo2.png" alt="Clinic Logo" class="h-32 w-auto mr-30 bg-white rounded-lg p-1" />
+                        <span class="text-2xl font-bold ml-1">CHANSE PHYSICIAN & CHILDREN'S CLINIC</span>
+                    </div>
+                    <p class="text-gray-400">Providing quality healthcare services with compassion and excellence.</p>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Home</a></li>
+                        <li><a href="#services" class="text-gray-400 hover:text-white transition duration-300">Services</a></li>
+                        <li><a href="#doctors" class="text-gray-400 hover:text-white transition duration-300">Doctors</a></li>
+                        <li><a href="#about" class="text-gray-400 hover:text-white transition duration-300">About</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Services</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Cardiology</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Neurology</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Dental Care</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Emergency Care</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold mb-4">Newsletter</h3>
+                    <p class="text-gray-400 mb-4">Subscribe to our newsletter for updates and health tips.</p>
+                    <form class="flex">
+                        <input type="email" placeholder="Enter your email" class="px-4 py-2 rounded-l-lg w-full focus:outline-none bg-gray-800 text-white placeholder-gray-400">
+                        <button class="bg-primary px-4 py-2 rounded-r-lg hover:bg-blue-700 transition duration-300">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-12 pt-8 text-center text-gray-400">
+                <p>&copy; 2024 MediCare Hospital. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Carousel functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const carousel = document.querySelector('.carousel-inner');
+            const items = document.querySelectorAll('.carousel-item');
+            const indicators = document.querySelectorAll('.carousel-indicator');
+            const prevBtn = document.querySelector('.carousel-prev');
+            const nextBtn = document.querySelector('.carousel-next');
+            let currentIndex = 0;
+
+            function updateCarousel() {
+                carousel.style.transform = `translateX(-${currentIndex * 100}%)`;
+                indicators.forEach((indicator, index) => {
+                    indicator.classList.toggle('active', index === currentIndex);
+                });
+            }
+
+            function nextSlide() {
+                currentIndex = (currentIndex + 1) % items.length;
+                updateCarousel();
+            }
+
+            function prevSlide() {
+                currentIndex = (currentIndex - 1 + items.length) % items.length;
+                updateCarousel();
+            }
+
+            // Event listeners
+            nextBtn.addEventListener('click', nextSlide);
+            prevBtn.addEventListener('click', prevSlide);
+            indicators.forEach((indicator, index) => {
+                indicator.addEventListener('click', () => {
+                    currentIndex = index;
+                    updateCarousel();
+                });
+            });
+
+            // Auto-advance slides every 5 seconds
+            setInterval(nextSlide, 5000);
+        });
+
+        // Hamburger/mobile menu logic
+        const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileMenuClose = document.getElementById('mobile-menu-close');
+
+        function openMobileMenu() {
+            mobileMenu.classList.remove('hidden');
+            document.body.classList.add('overflow-hidden');
+        }
+
+        function closeMobileMenu() {
+            mobileMenu.classList.add('hidden');
+            document.body.classList.remove('overflow-hidden');
+        }
+        mobileMenuToggle.addEventListener('click', openMobileMenu);
+        mobileMenuClose.addEventListener('click', closeMobileMenu);
+        mobileMenu.addEventListener('click', e => {
+            if (e.target === mobileMenu) closeMobileMenu();
+        });
+        // Close mobile menu on link click
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', closeMobileMenu);
+        });
+        // Close on ESC
+        window.addEventListener('keydown', e => {
+            if (e.key === 'Escape') closeMobileMenu();
+        });
+
+        // Animate Why Choose Us cards on scroll
+        function animateWhyCards() {
+            const cards = document.querySelectorAll('.why-animate');
+            const trigger = window.innerHeight * 0.92;
+            cards.forEach(card => {
+                const rect = card.getBoundingClientRect();
+                if (rect.top < trigger) card.classList.add('visible');
+            });
+        }
+        window.addEventListener('scroll', animateWhyCards);
+        window.addEventListener('DOMContentLoaded', animateWhyCards);
+        // Animate Testimonials cards on scroll
+        function animateTestimonialCards() {
+            const cards = document.querySelectorAll('.testimonial-animate');
+            const trigger = window.innerHeight * 0.92;
+            cards.forEach(card => {
+                const rect = card.getBoundingClientRect();
+                if (rect.top < trigger) card.classList.add('visible');
+            });
+        }
+        window.addEventListener('scroll', animateTestimonialCards);
+        window.addEventListener('DOMContentLoaded', animateTestimonialCards);
+    </script>
+</body>
+
+</html>
