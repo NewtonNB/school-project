@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us - MediCare Hospital</title>
+    <title>About Us - CHANSE CLINIC</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -113,6 +113,20 @@
         
         .hero-pattern {
             background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%2322c55e' fill-opacity='0.07'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+        
+        .content-bg {
+            background: linear-gradient(135deg, rgba(34, 197, 94, 0.03) 0%, rgba(34, 197, 94, 0.08) 100%);
+            backdrop-filter: blur(8px);
+        }
+        
+        .card-bg {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.95) 100%);
+            backdrop-filter: blur(8px);
+        }
+        
+        .section-bg {
+            background: linear-gradient(135deg, rgba(34, 197, 94, 0.02) 0%, rgba(34, 197, 94, 0.05) 100%);
         }
         
         .value-card {
@@ -284,6 +298,210 @@
         .animate-slideIn {
             animation: slideIn 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
+        /* Modal Styles */
+        
+        .modal {
+            position: fixed;
+            inset: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s, visibility 0.3s;
+            padding: 1rem;
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+        
+        .modal.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .modal-content {
+            background: white;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 500px;
+            padding: 1.5rem;
+            transform: translateY(-20px);
+            transition: transform 0.3s;
+            margin: auto;
+            position: relative;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+        
+        .modal.active .modal-content {
+            transform: translateY(0);
+        }
+        
+        @media (max-width: 640px) {
+            .modal-content {
+                padding: 1rem;
+                margin: 0.5rem;
+            }
+            .modal-header h2 {
+                font-size: 1.25rem;
+            }
+            .form-group input,
+            .form-group select {
+                padding: 0.5rem;
+            }
+            .modal-footer {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+            .modal-footer button {
+                width: 100%;
+            }
+        }
+        
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+        
+        .modal-header h2 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #0F172A;
+        }
+        
+        .modal-close {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: #6B7280;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+        
+        .modal-close:hover {
+            color: #2563EB;
+        }
+        
+        .modal-body {
+            margin-bottom: 1rem;
+        }
+        
+        .form-group {
+            margin-bottom: 1rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: #374151;
+        }
+        
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #D1D5DB;
+            border-radius: 0.375rem;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+        
+        .form-group input:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #2563EB;
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        }
+        
+        .modal-footer {
+            display: flex;
+            justify-content: flex-end;
+            gap: 0.5rem;
+        }
+        
+        .modal-footer button {
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.375rem;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+        
+        .modal-footer button.cancel {
+            background-color: #F3F4F6;
+            color: #374151;
+        }
+        
+        .modal-footer button.cancel:hover {
+            background-color: #E5E7EB;
+        }
+        
+        .modal-footer button.submit {
+            background-color: #2563EB;
+            color: white;
+        }
+        
+        .modal-footer button.submit:hover {
+            background-color: #1D4ED8;
+        }
+    </style>
+    <style>
+        /* WhatsApp and Back-to-Top Buttons */
+        
+        .floating-buttons {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            z-index: 1000;
+        }
+        
+        .whatsapp-button,
+        .back-to-top {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .whatsapp-button {
+            background-color: #25D366;
+            color: white;
+            font-size: 28px;
+        }
+        
+        .back-to-top {
+            background-color: #4ade80;
+            color: white;
+            font-size: 20px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(20px);
+        }
+        
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        
+        .whatsapp-button:hover,
+        .back-to-top:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+        }
     </style>
 </head>
 
@@ -294,17 +512,25 @@
             <div class="flex justify-between items-center h-20">
                 <div class="flex items-center">
                     <a href="index.html" class="flex items-center">
-                        <img src="img/logo2.png" alt="Clinic Logo" class="h-32 w-auto mr-30" />
-                        <span class="text-2xl font-bold text-primary ml-1">CHANSE PHYSICIAN & CHILDREN'S CLINIC</span>
+                        <img src="img/logo2.png" alt="Clinic Logo" class="h-16 sm:h-20 md:h-24 lg:h-32 w-auto mr-2 sm:mr-4 md:mr-6 lg:mr-8" />
+                        <div class="flex flex-col">
+                            <div class="hidden lg:block">
+                                <span class="text-2xl font-bold text-primary">CHANSE PHYSICIAN & CHILDREN'S CLINIC</span>
+                            </div>
+                            <div class="lg:hidden">
+                                <span class="text-sm sm:text-base md:text-lg font-bold text-primary">CHANSE PHYSICIAN & CHILDREN'S</span>
+                                <span class="text-sm sm:text-base md:text-lg font-bold text-primary block text-center">CLINIC</span>
+                            </div>
+                        </div>
                     </a>
                 </div>
-                <div class="hidden md:flex items-center space-x-3 ml-20">
-                    <a href="index.html" class="text-gray-700 hover:text-primary transition duration-300 font-medium">Home</a>
-                    <a href="services.html" class="text-gray-700 hover:text-primary transition duration-300 font-medium">Services</a>
-                    <a href="doctors.html" class="text-gray-700 hover:text-primary transition duration-300 font-medium">Doctors</a>
-                    <a href="about.html" class="text-primary font-medium">About</a>
-                    <a href="contact.html" class="text-gray-700 hover:text-primary transition duration-300 font-medium">Contact</a>
-                    <a class="bg-primary text-white px-6 py-2 rounded-full hover:bg-logoGreen transition duration-300 shadow-lg hover:shadow-xl">Book Appointment</a>
+                <div class="hidden md:flex items-center space-x-2 lg:space-x-3 ml-4 lg:ml-20">
+                    <a href="index.html" class="text-gray-700 hover:text-primary transition duration-300 font-medium text-sm lg:text-base">Home</a>
+                    <a href="services.html" class="text-gray-700 hover:text-primary transition duration-300 font-medium text-sm lg:text-base">Services</a>
+                    <a href="doctors.html" class="text-gray-700 hover:text-primary transition duration-300 font-medium text-sm lg:text-base">Doctors</a>
+                    <a href="about.html" class="text-primary font-medium text-sm lg:text-base">About</a>
+                    <a href="contact.html" class="text-gray-700 hover:text-primary transition duration-300 font-medium text-sm lg:text-base">Contact</a>
+                    <a class="bg-primary text-white px-3 lg:px-6 py-2 rounded-full hover:bg-logoGreen transition duration-300 shadow-lg hover:shadow-xl book-appointment text-sm lg:text-base whitespace-nowrap">Book Appointment</a>
                 </div>
                 <div class="md:hidden">
                     <button id="mobile-menu-toggle" class="text-gray-700 hover:text-primary focus:outline-none">
@@ -315,24 +541,24 @@
         </div>
         <!-- Mobile Menu -->
         <div id="mobile-menu" class="fixed inset-0 z-[60] bg-black/40 hidden">
-            <div class="bg-white w-4/5 max-w-xs h-full shadow-2xl p-8 flex flex-col space-y-6 absolute right-0 top-0 animate-slideIn">
+            <div class="bg-white w-4/5 max-w-xs h-full shadow-2xl p-4 sm:p-6 md:p-8 flex flex-col space-y-4 sm:space-y-6 absolute right-0 top-0 animate-slideIn">
                 <div>
                     <div>
                         <a href="index.html" class="flex items-center">
-                            <img src="img/logo2.png" alt="Clinic Logo" class="h-12 w-auto mr-2" />
-                            <span class="text-lg font-bold text-primary">CHANSE CLINIC</span>
+                            <img src="img/logo2.png" alt="Clinic Logo" class="h-10 sm:h-12 w-auto mr-2" />
+                            <span class="text-base sm:text-lg font-bold text-primary">CHANSE CLINIC</span>
                         </a>
                         <button id="mobile-menu-close" class="absolute top-4 right-4 text-gray-400 hover:text-logoGreen text-2xl focus:outline-none">
-                        <i class="fas fa-times"></i>
+                            <i class="fas fa-times"></i>
                         </button>
-                        <nav class="flex flex-col gap-4">
-                            <a href="index.html" class="bg-logoGreen text-white font-semibold text-lg py-2 px-2 rounded hover:bg-primary transition">Home</a>
-                            <a href="services.html" class="bg-logoGreen text-white font-semibold text-lg py-2 px-2 rounded hover:bg-primary transition">Services</a>
-                            <a href="doctors.html" class="bg-logoGreen text-white font-semibold text-lg py-2 px-2 rounded hover:bg-primary transition">Doctors</a>
-                            <a href="about.html" class="bg-logoGreen text-white font-semibold text-lg py-2 px-2 rounded hover:bg-primary transition">About</a>
-                            <a href="contact.html" class="bg-logoGreen text-white font-semibold text-lg py-2 px-2 rounded hover:bg-primary transition">Contact</a>
+                        <nav class="flex flex-col gap-3 sm:gap-4 mt-4">
+                            <a href="index.html" class="bg-logoGreen text-white font-semibold text-base sm:text-lg py-2 px-2 rounded hover:bg-primary transition">Home</a>
+                            <a href="services.html" class="bg-logoGreen text-white font-semibold text-base sm:text-lg py-2 px-2 rounded hover:bg-primary transition">Services</a>
+                            <a href="doctors.html" class="bg-logoGreen text-white font-semibold text-base sm:text-lg py-2 px-2 rounded hover:bg-primary transition">Doctors</a>
+                            <a href="about.html" class="bg-logoGreen text-white font-semibold text-base sm:text-lg py-2 px-2 rounded hover:bg-primary transition">About</a>
+                            <a href="contact.html" class="bg-logoGreen text-white font-semibold text-base sm:text-lg py-2 px-2 rounded hover:bg-primary transition">Contact</a>
                         </nav>
-                        <a class="bg-primary text-white px-6 py-2 rounded-full hover:bg-logoGreen transition duration-300 shadow-lg hover:shadow-xl mt-4">Book Appointment</a>
+                        <a class="bg-primary text-white px-4 sm:px-6 py-2 rounded-full hover:bg-logoGreen transition duration-300 shadow-lg hover:shadow-xl mt-4 book-appointment text-sm sm:text-base block text-center">Book Appointment</a>
                     </div>
                 </div>
             </div>
@@ -500,111 +726,120 @@
                 </div>
             </div>
             <div class="border-t border-gray-800 mt-12 pt-8 text-center text-gray-400">
-                <p>&copy; 2024 MediCare Hospital. All rights reserved.</p>
+                <p>&copy; 2025 CHANSE CLINIC. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
-    <!-- Appointment Modal -->
-    <div id="appointment-modal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/40 hidden">
-        <div class="bg-white rounded-2xl shadow-2xl w-full max-w-lg max-w-sm sm:max-w-lg p-4 sm:p-8 relative animate-fadeIn flex flex-col justify-center overflow-y-auto max-h-[90vh]">
-            <button id="close-appointment-modal" class="absolute top-4 right-4 text-gray-400 hover:text-logoGreen text-2xl focus:outline-none">
-                <i class="fas fa-times"></i>
-            </button>
-            <h2 class="text-3xl font-bold mb-6 text-center gradient-text">Book Appointment</h2>
-            <form class="space-y-4">
-                <div class="grid md:grid-cols-2 gap-4">
-                    <div>
-                        <label class="block text-gray-700 font-medium mb-1">First Name</label>
-                        <input type="text" class="form-input w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-logoGreen focus:ring-2 focus:ring-logoGreen/20 outline-none" placeholder="John" required>
+    <!-- Floating Buttons -->
+    <div class="floating-buttons">
+        <a href="https://wa.me/yourphonenumber" target="_blank" class="whatsapp-button" title="Contact us on WhatsApp">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+        <button class="back-to-top" title="Back to top">
+            <i class="fas fa-arrow-up"></i>
+        </button>
+    </div>
+
+    <!-- Appointment Form Modal -->
+    <div id="appointment-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Book an Appointment</h2>
+                <button class="modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="appointment-form">
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" name="name" required>
                     </div>
-                    <div>
-                        <label class="block text-gray-700 font-medium mb-1">Last Name</label>
-                        <input type="text" class="form-input w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-logoGreen focus:ring-2 focus:ring-logoGreen/20 outline-none" placeholder="Doe" required>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
                     </div>
-                </div>
-                <div>
-                    <label class="block text-gray-700 font-medium mb-1">Email Address</label>
-                    <input type="email" class="form-input w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-logoGreen focus:ring-2 focus:ring-logoGreen/20 outline-none" placeholder="john@example.com" required>
-                </div>
-                <div>
-                    <label class="block text-gray-700 font-medium mb-1">Phone Number</label>
-                    <input type="tel" class="form-input w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-logoGreen focus:ring-2 focus:ring-logoGreen/20 outline-none" placeholder="(555) 123-4567" required>
-                </div>
-                <div class="grid md:grid-cols-2 gap-4">
-                    <div>
-                        <label class="block text-gray-700 font-medium mb-1">Date</label>
-                        <input type="date" class="form-input w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-logoGreen focus:ring-2 focus:ring-logoGreen/20 outline-none" required>
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone" required>
                     </div>
-                    <div>
-                        <label class="block text-gray-700 font-medium mb-1">Time</label>
-                        <input type="time" class="form-input w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-logoGreen focus:ring-2 focus:ring-logoGreen/20 outline-none" required>
+                    <div class="form-group">
+                        <label for="date">Preferred Date</label>
+                        <input type="date" id="date" name="date" required>
                     </div>
-                </div>
-                <div>
-                    <label class="block text-gray-700 font-medium mb-1">Department/Service</label>
-                    <select class="form-input w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-logoGreen focus:ring-2 focus:ring-logoGreen/20 outline-none" required>
-                        <option value="">Select Department</option>
-                        <option>Cardiology</option>
-                        <option>Neurology</option>
-                        <option>Pediatrics</option>
-                        <option>Orthopedics</option>
-                        <option>Dermatology</option>
-                        <option>Ophthalmology</option>
-                        <option>Gastroenterology</option>
-                        <option>Dental Care</option>
-                        <option>Other</option>
-                    </select>
-                </div>
-                <div>
-                    <label class="block text-gray-700 font-medium mb-1">Message / Notes</label>
-                    <textarea class="form-input w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-logoGreen focus:ring-2 focus:ring-logoGreen/20 outline-none h-24" placeholder="How can we help you?"></textarea>
-                </div>
-                <button type="submit" class="w-full bg-logoGreen text-white px-6 py-3 rounded-xl font-semibold shadow-lg hover:bg-primary transition duration-300 submit-btn">Book Appointment</button>
-            </form>
+                    <div class="form-group">
+                        <label for="time">Preferred Time</label>
+                        <input type="time" id="time" name="time" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="service">Service</label>
+                        <select id="service" name="service" required>
+                            <option value="">Select a service</option>
+                            <option value="cardiology">Cardiology</option>
+                            <option value="neurology">Neurology</option>
+                            <option value="dental">Dental Care</option>
+                            <option value="emergency">Emergency Care</option>
+                        </select>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="cancel">Cancel</button>
+                <button class="submit">Book Appointment</button>
+            </div>
         </div>
     </div>
 
     <script>
-        // Appointment Modal Logic
-        function toggleAppointmentModal(show) {
-            const modal = document.getElementById('appointment-modal');
-            if (show) {
-                modal.classList.remove('hidden');
-                document.body.classList.add('overflow-hidden');
-                setTimeout(() => {
-                    modal.querySelector('input,select,textarea,button').focus();
-                }, 100);
-            } else {
-                modal.classList.add('hidden');
-                document.body.classList.remove('overflow-hidden');
-            }
-        }
+        // Appointment Modal Functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const appointmentModal = document.getElementById('appointment-modal');
+            const appointmentForm = document.getElementById('appointment-form');
+            const modalClose = appointmentModal.querySelector('.modal-close');
+            const cancelBtn = appointmentModal.querySelector('.cancel');
+            const submitBtn = appointmentModal.querySelector('.submit');
+            const bookAppointmentBtns = document.querySelectorAll('.book-appointment');
 
-        // Attach to all Book Appointment buttons
-        const bookBtns = document.querySelectorAll('a,button');
-        bookBtns.forEach(btn => {
-            if (btn.textContent.match(/book appointment/i)) {
-                btn.removeAttribute('href');
-                btn.classList.add('book-appointment');
-                btn.addEventListener('click', e => {
+            function openAppointmentModal() {
+                appointmentModal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+
+            function closeAppointmentModal() {
+                appointmentModal.classList.remove('active');
+                document.body.style.overflow = '';
+                appointmentForm.reset();
+            }
+
+            // Add click event listeners to all book appointment buttons
+            bookAppointmentBtns.forEach(btn => {
+                btn.addEventListener('click', function(e) {
                     e.preventDefault();
-                    toggleAppointmentModal(true);
+                    openAppointmentModal();
                 });
-            }
-        });
+            });
 
-        // Close modal
-        const closeBtn = document.getElementById('close-appointment-modal');
-        closeBtn.addEventListener('click', () => toggleAppointmentModal(false));
-        // Close on overlay click
-        const modal = document.getElementById('appointment-modal');
-        modal.addEventListener('click', e => {
-            if (e.target === modal) toggleAppointmentModal(false);
-        });
-        // Close on ESC
-        window.addEventListener('keydown', e => {
-            if (e.key === 'Escape') toggleAppointmentModal(false);
+            modalClose.addEventListener('click', closeAppointmentModal);
+            cancelBtn.addEventListener('click', closeAppointmentModal);
+            appointmentModal.addEventListener('click', e => {
+                if (e.target === appointmentModal) closeAppointmentModal();
+            });
+
+            submitBtn.addEventListener('click', e => {
+                e.preventDefault();
+                if (appointmentForm.checkValidity()) {
+                    // Here you would typically send the form data to your server
+                    alert('Appointment booked successfully!');
+                    closeAppointmentModal();
+                } else {
+                    appointmentForm.reportValidity();
+                }
+            });
+
+            window.addEventListener('keydown', e => {
+                if (e.key === 'Escape' && appointmentModal.classList.contains('active')) {
+                    closeAppointmentModal();
+                }
+            });
         });
 
         // Hamburger/mobile menu logic
@@ -633,6 +868,24 @@
         // Close on ESC
         window.addEventListener('keydown', e => {
             if (e.key === 'Escape') closeMobileMenu();
+        });
+
+        // Back to Top Button Functionality
+        const backToTopButton = document.querySelector('.back-to-top');
+
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.add('visible');
+            } else {
+                backToTopButton.classList.remove('visible');
+            }
+        });
+
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
         });
     </script>
 </body>
