@@ -4,10 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Favicon -->
+    <link href="img/logo2.png" rel="icon">
     <title>CHANSE CLINIC - Your Health, Our Priority</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
         tailwind.config = {
             theme: {
@@ -662,7 +665,7 @@
             <div class="grid md:grid-cols-2 gap-12 items-center">
                 <div>
                     <div class="inline-block bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-medium mb-6">
-                        Welcome to MediCare
+                        Welcome to Chanse
                     </div>
                     <h1 class="text-5xl font-bold text-dark mb-6 leading-tight">
                         Your Health Is Our
@@ -1066,33 +1069,39 @@
                 <form id="appointment-form">
                     <div class="form-group">
                         <label for="name">Full Name</label>
-                        <input type="text" id="name" name="name" required>
+                        <input type="text" id="name" name="name" class="form-control">
+                        <span class="error-message text-red-500 text-sm hidden"></span>
                     </div>
                     <div class="form-group">
                         <label for="email">Email</label>
-                        <input type="email" id="email" name="email" required>
+                        <input type="email" id="email" name="email" class="form-control">
+                        <span class="error-message text-red-500 text-sm hidden"></span>
                     </div>
                     <div class="form-group">
                         <label for="phone">Phone Number</label>
-                        <input type="tel" id="phone" name="phone" required>
+                        <input type="tel" id="phone" name="phone" class="form-control">
+                        <span class="error-message text-red-500 text-sm hidden"></span>
                     </div>
                     <div class="form-group">
                         <label for="date">Preferred Date</label>
-                        <input type="date" id="date" name="date" required>
+                        <input type="date" id="date" name="date" class="form-control">
+                        <span class="error-message text-red-500 text-sm hidden"></span>
                     </div>
                     <div class="form-group">
                         <label for="time">Preferred Time</label>
-                        <input type="time" id="time" name="time" required>
+                        <input type="time" id="time" name="time" class="form-control">
+                        <span class="error-message text-red-500 text-sm hidden"></span>
                     </div>
                     <div class="form-group">
                         <label for="service">Service</label>
-                        <select id="service" name="service" required>
+                        <select id="service" name="service" class="form-control">
                             <option value="">Select a service</option>
                             <option value="cardiology">Cardiology</option>
                             <option value="neurology">Neurology</option>
                             <option value="dental">Dental Care</option>
                             <option value="emergency">Emergency Care</option>
                         </select>
+                        <span class="error-message text-red-500 text-sm hidden"></span>
                     </div>
                 </form>
             </div>
@@ -1229,21 +1238,126 @@
                 if (e.target === appointmentModal) closeAppointmentModal();
             });
 
-            submitBtn.addEventListener('click', e => {
-                e.preventDefault();
-                if (appointmentForm.checkValidity()) {
-                    // Here you would typically send the form data to your server
-                    alert('Appointment booked successfully!');
-                    closeAppointmentModal();
-                } else {
-                    appointmentForm.reportValidity();
-                }
-            });
+            // Add error styling
+            $('<style>')
+                .text(`
+                    .error {
+                        border-color: #EF4444 !important;
+                        box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1) !important;
+                    }
+                    .error-message {
+                        display: none;
+                        margin-top: 0.25rem;
+                    }
+                    .error-message.visible {
+                        display: block;
+                    }
+                `)
+                .appendTo('head');
 
-            window.addEventListener('keydown', e => {
-                if (e.key === 'Escape' && appointmentModal.classList.contains('active')) {
-                    closeAppointmentModal();
+            // Form validation
+            $(document).ready(function() {
+                const appointmentForm = $('#appointment-form');
+                const submitBtn = $('.submit');
+
+                // Validation rules
+                const validationRules = {
+                    name: {
+                        required: true,
+                        minlength: 2,
+                        message: 'Please enter your full name'
+                    },
+                    email: {
+                        required: true,
+                        email: true,
+                        message: 'Please enter a valid email address'
+                    },
+                    phone: {
+                        required: true,
+                        pattern: /^[0-9+\-\s()]{10,}$/,
+                        message: 'Please enter a valid phone number'
+                    },
+                    date: {
+                        required: true,
+                        message: 'Please select a preferred date'
+                    },
+                    time: {
+                        required: true,
+                        message: 'Please select a preferred time'
+                    },
+                    service: {
+                        required: true,
+                        message: 'Please select a service'
+                    }
+                };
+
+                // Real-time validation
+                appointmentForm.find('input, select').on('blur', function() {
+                    validateField($(this));
+                });
+
+                // Validate single field
+                function validateField(field) {
+                    const fieldName = field.attr('name');
+                    const fieldValue = field.val();
+                    const rules = validationRules[fieldName];
+                    const errorElement = field.siblings('.error-message');
+
+                    field.removeClass('error');
+                    errorElement.removeClass('visible').text('');
+
+                    if (rules.required && !fieldValue) {
+                        showError(field, errorElement, rules.message);
+                        return false;
+                    }
+
+                    if (fieldValue) {
+                        if (rules.email && !isValidEmail(fieldValue)) {
+                            showError(field, errorElement, rules.message);
+                            return false;
+                        }
+                        if (rules.pattern && !rules.pattern.test(fieldValue)) {
+                            showError(field, errorElement, rules.message);
+                            return false;
+                        }
+                        if (rules.minlength && fieldValue.length < rules.minlength) {
+                            showError(field, errorElement, rules.message);
+                            return false;
+                        }
+                    }
+
+                    return true;
                 }
+
+                // Show error
+                function showError(field, errorElement, message) {
+                    field.addClass('error');
+                    errorElement.text(message).addClass('visible');
+                }
+
+                // Email validation helper
+                function isValidEmail(email) {
+                    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+                }
+
+                // Form submission
+                submitBtn.on('click', function(e) {
+                    e.preventDefault();
+                    let isValid = true;
+
+                    // Validate all fields
+                    appointmentForm.find('input, select').each(function() {
+                        if (!validateField($(this))) {
+                            isValid = false;
+                        }
+                    });
+
+                    if (isValid) {
+                        // Here you would typically send the form data to your server
+                        alert('Appointment booked successfully!');
+                        closeAppointmentModal();
+                    }
+                });
             });
         });
 

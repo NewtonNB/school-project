@@ -4,6 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Favicon -->
+    <link href="img/logo2.png" rel="icon">
     <title>Contact Us - CHANSE CLINIC</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -566,28 +568,33 @@
             <div class="grid md:grid-cols-2 gap-12">
                 <div>
                     <h2 class="text-3xl font-bold mb-6">Send us a <span class="gradient-text">Message</span></h2>
-                    <form class="space-y-6">
+                    <form id="contact-form" class="space-y-6">
                         <div class="grid md:grid-cols-2 gap-6">
                             <div>
                                 <label class="block text-gray-700 font-medium mb-2">First Name</label>
-                                <input type="text" class="form-input w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none" placeholder="John">
+                                <input type="text" name="firstName" class="form-input w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none" placeholder="John">
+                                <span class="error-message text-red-500 text-sm hidden"></span>
                             </div>
                             <div>
                                 <label class="block text-gray-700 font-medium mb-2">Last Name</label>
-                                <input type="text" class="form-input w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none" placeholder="Doe">
+                                <input type="text" name="lastName" class="form-input w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none" placeholder="Doe">
+                                <span class="error-message text-red-500 text-sm hidden"></span>
                             </div>
                         </div>
                         <div>
                             <label class="block text-gray-700 font-medium mb-2">Email Address</label>
-                            <input type="email" class="form-input w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none" placeholder="john@example.com">
+                            <input type="email" name="email" class="form-input w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none" placeholder="john@example.com">
+                            <span class="error-message text-red-500 text-sm hidden"></span>
                         </div>
                         <div>
                             <label class="block text-gray-700 font-medium mb-2">Phone Number</label>
-                            <input type="tel" class="form-input w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none" placeholder="(555) 123-4567">
+                            <input type="tel" name="phone" class="form-input w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none" placeholder="(555) 123-4567">
+                            <span class="error-message text-red-500 text-sm hidden"></span>
                         </div>
                         <div>
                             <label class="block text-gray-700 font-medium mb-2">Message</label>
-                            <textarea class="form-input w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none h-32" placeholder="How can we help you?"></textarea>
+                            <textarea name="message" class="form-input w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none h-32" placeholder="How can we help you?"></textarea>
+                            <span class="error-message text-red-500 text-sm hidden"></span>
                         </div>
                         <button type="submit" class="submit-btn w-full bg-primary text-white px-6 py-3 rounded-xl hover:bg-blue-700 transition duration-300 shadow-lg hover:shadow-xl">
                             Send Message
@@ -669,33 +676,39 @@
                 <form id="appointment-form">
                     <div class="form-group">
                         <label for="name">Full Name</label>
-                        <input type="text" id="name" name="name" required>
+                        <input type="text" id="name" name="name" class="form-control">
+                        <span class="error-message text-red-500 text-sm hidden"></span>
                     </div>
                     <div class="form-group">
                         <label for="email">Email</label>
-                        <input type="email" id="email" name="email" required>
+                        <input type="email" id="email" name="email" class="form-control">
+                        <span class="error-message text-red-500 text-sm hidden"></span>
                     </div>
                     <div class="form-group">
                         <label for="phone">Phone Number</label>
-                        <input type="tel" id="phone" name="phone" required>
+                        <input type="tel" id="phone" name="phone" class="form-control">
+                        <span class="error-message text-red-500 text-sm hidden"></span>
                     </div>
                     <div class="form-group">
                         <label for="date">Preferred Date</label>
-                        <input type="date" id="date" name="date" required>
+                        <input type="date" id="date" name="date" class="form-control">
+                        <span class="error-message text-red-500 text-sm hidden"></span>
                     </div>
                     <div class="form-group">
                         <label for="time">Preferred Time</label>
-                        <input type="time" id="time" name="time" required>
+                        <input type="time" id="time" name="time" class="form-control">
+                        <span class="error-message text-red-500 text-sm hidden"></span>
                     </div>
                     <div class="form-group">
                         <label for="service">Service</label>
-                        <select id="service" name="service" required>
+                        <select id="service" name="service" class="form-control">
                             <option value="">Select a service</option>
                             <option value="cardiology">Cardiology</option>
                             <option value="neurology">Neurology</option>
                             <option value="dental">Dental Care</option>
                             <option value="emergency">Emergency Care</option>
                         </select>
+                        <span class="error-message text-red-500 text-sm hidden"></span>
                     </div>
                 </form>
             </div>
@@ -706,7 +719,176 @@
         </div>
     </div>
 
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
+        $(document).ready(function() {
+            // Error styling
+            $('<style>')
+                .text(`
+                    .error {
+                        border-color: #ef4444 !important;
+                        background-color: #fef2f2 !important;
+                    }
+                    .error-message {
+                        color: #ef4444;
+                        font-size: 0.875rem;
+                        margin-top: 0.25rem;
+                        display: block;
+                    }
+                `)
+                .appendTo('head');
+
+            // Validation rules
+            const validationRules = {
+                firstName: {
+                    required: true,
+                    minlength: 2,
+                    message: 'Please enter your first name'
+                },
+                lastName: {
+                    required: true,
+                    minlength: 2,
+                    message: 'Please enter your last name'
+                },
+                email: {
+                    required: true,
+                    email: true,
+                    message: 'Please enter a valid email address'
+                },
+                phone: {
+                    required: true,
+                    pattern: /^[0-9+\-\s()]{10,}$/,
+                    message: 'Please enter a valid phone number'
+                },
+                message: {
+                    required: true,
+                    minlength: 10,
+                    message: 'Please enter a message (minimum 10 characters)'
+                },
+                name: {
+                    required: true,
+                    minlength: 2,
+                    message: 'Please enter your full name'
+                },
+                date: {
+                    required: true,
+                    message: 'Please select a preferred date'
+                },
+                time: {
+                    required: true,
+                    message: 'Please select a preferred time'
+                },
+                service: {
+                    required: true,
+                    message: 'Please select a service'
+                }
+            };
+
+            // Real-time validation
+            function validateField(field) {
+                const fieldName = field.attr('name');
+                const fieldValue = field.val();
+                const rules = validationRules[fieldName];
+                const errorElement = field.siblings('.error-message');
+
+                field.removeClass('error');
+                errorElement.removeClass('visible').text('');
+
+                if (rules.required && !fieldValue) {
+                    showError(field, errorElement, rules.message);
+                    return false;
+                }
+
+                if (fieldValue) {
+                    if (rules.email && !isValidEmail(fieldValue)) {
+                        showError(field, errorElement, rules.message);
+                        return false;
+                    }
+                    if (rules.pattern && !rules.pattern.test(fieldValue)) {
+                        showError(field, errorElement, rules.message);
+                        return false;
+                    }
+                    if (rules.minlength && fieldValue.length < rules.minlength) {
+                        showError(field, errorElement, rules.message);
+                        return false;
+                    }
+                }
+
+                return true;
+            }
+
+            // Show error
+            function showError(field, errorElement, message) {
+                field.addClass('error');
+                errorElement.text(message).addClass('visible');
+            }
+
+            // Email validation helper
+            function isValidEmail(email) {
+                return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+            }
+
+            // Contact form validation
+            $('#contact-form').on('submit', function(e) {
+                e.preventDefault();
+                let isValid = true;
+
+                // Validate all fields
+                $(this).find('input, textarea').each(function() {
+                    if (!validateField($(this))) {
+                        isValid = false;
+                    }
+                });
+
+                if (isValid) {
+                    alert('Message sent successfully!');
+                    this.reset();
+                }
+            });
+
+            // Real-time validation for contact form
+            $('#contact-form input, #contact-form textarea').on('blur', function() {
+                validateField($(this));
+            });
+
+            // Appointment form validation
+            $('.submit').on('click', function(e) {
+                e.preventDefault();
+                let isValid = true;
+
+                // Validate all fields
+                $('#appointment-form input, #appointment-form select').each(function() {
+                    if (!validateField($(this))) {
+                        isValid = false;
+                    }
+                });
+
+                if (isValid) {
+                    alert('Appointment booked successfully!');
+                    closeAppointmentModal();
+                }
+            });
+
+            // Real-time validation for appointment form
+            $('#appointment-form input, #appointment-form select').on('blur', function() {
+                validateField($(this));
+            });
+
+            // Newsletter form validation
+            $('form').on('submit', function(e) {
+                if ($(this).find('input[type="email"]').length > 0) {
+                    e.preventDefault();
+                    const emailField = $(this).find('input[type="email"]');
+                    if (!isValidEmail(emailField.val())) {
+                        showError(emailField, emailField.siblings('.error-message'), 'Please enter a valid email address');
+                        return false;
+                    }
+                    alert('Thank you for subscribing!');
+                    this.reset();
+                }
+            });
+        });
+
         // Appointment Modal Functionality
         document.addEventListener('DOMContentLoaded', function() {
             const appointmentModal = document.getElementById('appointment-modal');
@@ -725,6 +907,9 @@
                 appointmentModal.classList.remove('active');
                 document.body.style.overflow = '';
                 appointmentForm.reset();
+                // Clear any error messages
+                $(appointmentForm).find('.error-message').text('').removeClass('visible');
+                $(appointmentForm).find('input, select').removeClass('error');
             }
 
             // Add click event listeners to all book appointment buttons
@@ -739,17 +924,6 @@
             cancelBtn.addEventListener('click', closeAppointmentModal);
             appointmentModal.addEventListener('click', e => {
                 if (e.target === appointmentModal) closeAppointmentModal();
-            });
-
-            submitBtn.addEventListener('click', e => {
-                e.preventDefault();
-                if (appointmentForm.checkValidity()) {
-                    // Here you would typically send the form data to your server
-                    alert('Appointment booked successfully!');
-                    closeAppointmentModal();
-                } else {
-                    appointmentForm.reportValidity();
-                }
             });
 
             window.addEventListener('keydown', e => {

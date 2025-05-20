@@ -4,10 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Favicon -->
+    <link href="img/logo2.png" rel="icon">
     <title>Our Doctors - CHANSE CLINIC</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
         tailwind.config = {
             theme: {
@@ -850,33 +853,39 @@
                 <form id="appointment-form">
                     <div class="form-group">
                         <label for="name">Full Name</label>
-                        <input type="text" id="name" name="name" required>
+                        <input type="text" id="name" name="name">
+                        <span class="error-message"></span>
                     </div>
                     <div class="form-group">
                         <label for="email">Email</label>
-                        <input type="email" id="email" name="email" required>
+                        <input type="email" id="email" name="email">
+                        <span class="error-message"></span>
                     </div>
                     <div class="form-group">
                         <label for="phone">Phone Number</label>
-                        <input type="tel" id="phone" name="phone" required>
+                        <input type="tel" id="phone" name="phone">
+                        <span class="error-message"></span>
                     </div>
                     <div class="form-group">
                         <label for="date">Preferred Date</label>
-                        <input type="date" id="date" name="date" required>
+                        <input type="date" id="date" name="date">
+                        <span class="error-message"></span>
                     </div>
                     <div class="form-group">
                         <label for="time">Preferred Time</label>
-                        <input type="time" id="time" name="time" required>
+                        <input type="time" id="time" name="time">
+                        <span class="error-message"></span>
                     </div>
                     <div class="form-group">
                         <label for="service">Service</label>
-                        <select id="service" name="service" required>
+                        <select id="service" name="service">
                             <option value="">Select a service</option>
                             <option value="cardiology">Cardiology</option>
                             <option value="neurology">Neurology</option>
                             <option value="dental">Dental Care</option>
                             <option value="emergency">Emergency Care</option>
                         </select>
+                        <span class="error-message"></span>
                     </div>
                 </form>
             </div>
@@ -888,110 +897,226 @@
     </div>
 
     <script>
-        // Mobile Menu Functionality
-        document.addEventListener('DOMContentLoaded', function() {
-            const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
-            const mobileMenu = document.getElementById('mobile-menu');
-            const mobileMenuClose = document.getElementById('mobile-menu-close');
+        $(document).ready(function() {
+            // Add error styling
+            $('<style>')
+                .text(`
+                    .error {
+                        border-color: #EF4444 !important;
+                        background-color: #FEF2F2 !important;
+                    }
+                    .error-message {
+                        color: #EF4444;
+                        font-size: 0.875rem;
+                        margin-top: 0.25rem;
+                        display: block;
+                    }
+                    .form-group {
+                        margin-bottom: 1.5rem;
+                    }
+                `)
+                .appendTo('head');
 
-            function openMobileMenu() {
-                mobileMenu.classList.remove('hidden');
-                mobileMenu.classList.add('active');
-                document.body.style.overflow = 'hidden';
-            }
-
-            function closeMobileMenu() {
-                mobileMenu.classList.add('hidden');
-                mobileMenu.classList.remove('active');
-                document.body.style.overflow = '';
-            }
-
-            mobileMenuToggle.addEventListener('click', openMobileMenu);
-            mobileMenuClose.addEventListener('click', closeMobileMenu);
-            mobileMenu.addEventListener('click', e => {
-                if (e.target === mobileMenu) closeMobileMenu();
-            });
-
-            // Close mobile menu on link click
-            mobileMenu.querySelectorAll('a').forEach(link => {
-                link.addEventListener('click', closeMobileMenu);
-            });
-
-            // Close on ESC
-            window.addEventListener('keydown', e => {
-                if (e.key === 'Escape' && !mobileMenu.classList.contains('hidden')) {
-                    closeMobileMenu();
+            // Validation rules
+            const validationRules = {
+                name: {
+                    required: true,
+                    minlength: 2,
+                    pattern: /^[a-zA-Z\s]*$/
+                },
+                email: {
+                    required: true,
+                    email: true
+                },
+                phone: {
+                    required: true,
+                    pattern: /^[0-9]{10}$/
+                },
+                date: {
+                    required: true,
+                    min: new Date().toISOString().split('T')[0]
+                },
+                time: {
+                    required: true
+                },
+                service: {
+                    required: true
                 }
-            });
-        });
+            };
 
-        // Appointment Modal Functionality
-        document.addEventListener('DOMContentLoaded', function() {
-            const appointmentModal = document.getElementById('appointment-modal');
-            const appointmentForm = document.getElementById('appointment-form');
-            const modalClose = appointmentModal.querySelector('.modal-close');
-            const cancelBtn = appointmentModal.querySelector('.cancel');
-            const submitBtn = appointmentModal.querySelector('.submit');
-            const bookAppointmentBtns = document.querySelectorAll('.book-appointment');
+            // Error messages
+            const errorMessages = {
+                name: {
+                    required: "Please enter your full name",
+                    minlength: "Name must be at least 2 characters long",
+                    pattern: "Name can only contain letters and spaces"
+                },
+                email: {
+                    required: "Please enter your email address",
+                    email: "Please enter a valid email address"
+                },
+                phone: {
+                    required: "Please enter your phone number",
+                    pattern: "Please enter a valid 10-digit phone number"
+                },
+                date: {
+                    required: "Please select a preferred date",
+                    min: "Please select a future date"
+                },
+                time: {
+                    required: "Please select a preferred time"
+                },
+                service: {
+                    required: "Please select a service"
+                }
+            };
 
-            function openAppointmentModal() {
-                appointmentModal.classList.add('active');
-                document.body.style.overflow = 'hidden';
+            // Function to validate a field
+            function validateField(field) {
+                const value = field.val();
+                const fieldName = field.attr('name');
+                const rules = validationRules[fieldName];
+                const errorSpan = field.siblings('.error-message');
+                let isValid = true;
+                let errorMessage = '';
+
+                // Check required
+                if (rules.required && !value) {
+                    isValid = false;
+                    errorMessage = errorMessages[fieldName].required;
+                }
+                // Check minlength
+                else if (rules.minlength && value.length < rules.minlength) {
+                    isValid = false;
+                    errorMessage = errorMessages[fieldName].minlength;
+                }
+                // Check pattern
+                else if (rules.pattern && !rules.pattern.test(value)) {
+                    isValid = false;
+                    errorMessage = errorMessages[fieldName].pattern;
+                }
+                // Check email format
+                else if (fieldName === 'email' && value && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)) {
+                    isValid = false;
+                    errorMessage = errorMessages[fieldName].email;
+                }
+                // Check date
+                else if (fieldName === 'date' && value) {
+                    const selectedDate = new Date(value);
+                    const today = new Date();
+                    today.setHours(0, 0, 0, 0);
+                    if (selectedDate < today) {
+                        isValid = false;
+                        errorMessage = errorMessages[fieldName].min;
+                    }
+                }
+
+                // Update field styling and error message
+                if (!isValid) {
+                    field.addClass('error');
+                    errorSpan.text(errorMessage);
+                } else {
+                    field.removeClass('error');
+                    errorSpan.text('');
+                }
+
+                return isValid;
             }
 
-            function closeAppointmentModal() {
-                appointmentModal.classList.remove('active');
-                document.body.style.overflow = '';
-                appointmentForm.reset();
-            }
-
-            // Add click event listeners to all book appointment buttons
-            bookAppointmentBtns.forEach(btn => {
-                btn.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    openAppointmentModal();
-                });
+            // Real-time validation on blur
+            $('#appointment-form input, #appointment-form select').on('blur', function() {
+                validateField($(this));
             });
 
-            modalClose.addEventListener('click', closeAppointmentModal);
-            cancelBtn.addEventListener('click', closeAppointmentModal);
-            appointmentModal.addEventListener('click', e => {
-                if (e.target === appointmentModal) closeAppointmentModal();
-            });
-
-            submitBtn.addEventListener('click', e => {
+            // Form submission validation
+            $('.submit').on('click', function(e) {
                 e.preventDefault();
-                if (appointmentForm.checkValidity()) {
+                let isValid = true;
+
+                // Validate all fields
+                $('#appointment-form input, #appointment-form select').each(function() {
+                    if (!validateField($(this))) {
+                        isValid = false;
+                    }
+                });
+
+                if (isValid) {
                     // Here you would typically send the form data to your server
                     alert('Appointment booked successfully!');
                     closeAppointmentModal();
-                } else {
-                    appointmentForm.reportValidity();
                 }
             });
 
-            window.addEventListener('keydown', e => {
-                if (e.key === 'Escape' && appointmentModal.classList.contains('active')) {
+            // Clear errors when modal is closed
+            function closeAppointmentModal() {
+                $('#appointment-modal').removeClass('active');
+                $('body').css('overflow', '');
+                $('#appointment-form')[0].reset();
+                $('.error-message').text('');
+                $('.error').removeClass('error');
+            }
+
+            // Modal functionality
+            $('.book-appointment').on('click', function(e) {
+                e.preventDefault();
+                $('#appointment-modal').addClass('active');
+                $('body').css('overflow', 'hidden');
+            });
+
+            $('.modal-close, .cancel').on('click', function() {
+                closeAppointmentModal();
+            });
+
+            $('#appointment-modal').on('click', function(e) {
+                if (e.target === this) {
                     closeAppointmentModal();
                 }
             });
-        });
 
-        // Back to Top Button Functionality
-        const backToTopButton = document.querySelector('.back-to-top');
+            // Close modal on ESC key
+            $(document).on('keydown', function(e) {
+                if (e.key === 'Escape' && $('#appointment-modal').hasClass('active')) {
+                    closeAppointmentModal();
+                }
+            });
 
-        window.addEventListener('scroll', () => {
-            if (window.pageYOffset > 300) {
-                backToTopButton.classList.add('visible');
-            } else {
-                backToTopButton.classList.remove('visible');
-            }
-        });
+            // Mobile Menu Functionality
+            $('#mobile-menu-toggle').on('click', function() {
+                $('#mobile-menu').removeClass('hidden').addClass('active');
+                $('body').css('overflow', 'hidden');
+            });
 
-        backToTopButton.addEventListener('click', () => {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
+            $('#mobile-menu-close').on('click', function() {
+                $('#mobile-menu').addClass('hidden').removeClass('active');
+                $('body').css('overflow', '');
+            });
+
+            $('#mobile-menu').on('click', function(e) {
+                if (e.target === this) {
+                    $(this).addClass('hidden').removeClass('active');
+                    $('body').css('overflow', '');
+                }
+            });
+
+            // Close mobile menu on link click
+            $('#mobile-menu a').on('click', function() {
+                $('#mobile-menu').addClass('hidden').removeClass('active');
+                $('body').css('overflow', '');
+            });
+
+            // Back to Top Button Functionality
+            $(window).on('scroll', function() {
+                if ($(window).scrollTop() > 300) {
+                    $('.back-to-top').addClass('visible');
+                } else {
+                    $('.back-to-top').removeClass('visible');
+                }
+            });
+
+            $('.back-to-top').on('click', function() {
+                $('html, body').animate({
+                    scrollTop: 0
+                }, 'smooth');
             });
         });
     </script>
