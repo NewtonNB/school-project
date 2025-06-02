@@ -537,19 +537,19 @@
 <body class="font-poppins bg-gray-50">
 <div class="">
     <!-- Navigation -->
-<nav id="navbar" class="navbar fixed w-full z-50 ">
-        <div class="max-w-7xl mx-auto px-4">
+<nav id="navbar" class="navbar fixed w-full z-50 text-white">
+        <div class="max-w-7xl ml-20">
             <div class="flex justify-between items-center h-20">
                 <div class="flex items-center">
                     <a href="index.html" class="flex items-center">
                         <img src="img/logo2.png" alt="Clinic Logo" class="h-16 sm:h-20 md:h-24 lg:h-32 w-auto mr-2 sm:mr-4 md:mr-6 lg:mr-8" />
                         <div class="flex flex-col">
                             <div class="hidden lg:block">
-                                <span class="text-2xl font-bold ">CHANSE PHYSICIAN & CHILDREN'S CLINIC</span>
+                                <span class="text-2xl font-bold">CHANSE PHYSICIAN & CHILDREN'S CLINIC</span>
                             </div>
                             <div class="lg:hidden">
-                                <span class="text-sm sm:text-base md:text-lg font-bold text-primary">CHANSE PHYSICIAN & CHILDREN'S</span>
-                                <span class="text-sm sm:text-base md:text-lg font-bold text-primary block text-center">CLINIC</span>
+                                <span class="text-sm sm:text-base md:text-lg font-bold">CHANSE PHYSICIAN & CHILDREN'S</span>
+                                <span class="text-sm sm:text-base md:text-lg font-bold  block text-center">CLINIC</span>
                             </div>
                         </div>
                     </a>
@@ -596,7 +596,7 @@
     </nav>
 
     <!-- Carousel Section -->
-    <section class="carousel h-[650px] relative">
+    <section class="carousel h-[700px] relative">
         <div class="carousel-inner h-full">
             <div class="carousel-item h-full">
                 <img src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80" alt="Modern Hospital" class="w-full h-full object-cover">
@@ -661,7 +661,7 @@
     </section>
 </div>
     <!-- Hero Section -->
-    <section class="pt-20 hero-pattern">
+    <section class=" hero-pattern">
         <div class="max-w-7xl mx-auto px-4 py-20">
             <div class="grid md:grid-cols-2 gap-12 items-center">
                 <div>
@@ -1388,9 +1388,9 @@
         //navbar scroll functionality
         $(window).on('scroll',function(){
             if($(window).scrollTop() > 50){
-                $('#navbar').addClass('bg-white shadow text-black').removeClass('text-white');
+                $('#navbar').addClass('bg-white shadow').removeClass('text-white');
             }else{
-                $('#navbar').removeClass('bg-white show text-black').addClass('text-white');
+                $('#navbar').removeClass('bg-white shadow text-white').addClass('text-white');
             }
         });
     </script>
