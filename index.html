@@ -535,8 +535,9 @@
 </head>
 
 <body class="font-poppins bg-gray-50">
+<div class="">
     <!-- Navigation -->
-    <nav class="bg-white/80 backdrop-blur-md shadow-lg fixed w-full z-50">
+<nav id="navbar" class="navbar fixed w-full z-50 ">
         <div class="max-w-7xl mx-auto px-4">
             <div class="flex justify-between items-center h-20">
                 <div class="flex items-center">
@@ -544,7 +545,7 @@
                         <img src="img/logo2.png" alt="Clinic Logo" class="h-16 sm:h-20 md:h-24 lg:h-32 w-auto mr-2 sm:mr-4 md:mr-6 lg:mr-8" />
                         <div class="flex flex-col">
                             <div class="hidden lg:block">
-                                <span class="text-2xl font-bold text-primary">CHANSE PHYSICIAN & CHILDREN'S CLINIC</span>
+                                <span class="text-2xl font-bold ">CHANSE PHYSICIAN & CHILDREN'S CLINIC</span>
                             </div>
                             <div class="lg:hidden">
                                 <span class="text-sm sm:text-base md:text-lg font-bold text-primary">CHANSE PHYSICIAN & CHILDREN'S</span>
@@ -554,12 +555,12 @@
                     </a>
                 </div>
                 <div class="hidden md:flex items-center space-x-2 lg:space-x-3 ml-4 lg:ml-20">
-                    <a href="index.html" class="text-primary font-medium text-sm lg:text-base">Home</a>
-                    <a href="services.html" class="text-gray-700 hover:text-primary transition duration-300 font-medium text-sm lg:text-base">Services</a>
-                    <a href="doctors.html" class="text-gray-700 hover:text-primary transition duration-300 font-medium text-sm lg:text-base">Doctors</a>
-                    <a href="about.html" class="text-gray-700 hover:text-primary transition duration-300 font-medium text-sm lg:text-base">About</a>
-                    <a href="contact.html" class="text-gray-700 hover:text-primary transition duration-300 font-medium text-sm lg:text-base">Contact</a>
-                    <a class="bg-primary text-white px-3 lg:px-6 py-2 rounded-full hover:bg-logoGreen transition duration-300 shadow-lg hover:shadow-xl book-appointment text-sm lg:text-base whitespace-nowrap">Book Appointment</a>
+                    <a href="index.html" class="hover:text-primary font-medium text-sm lg:text-base">Home</a>
+                    <a href="services.html" class="hover:text-primary transition duration-300 font-medium text-sm lg:text-base">Services</a>
+                    <a href="doctors.html" class="hover:text-primary transition duration-300 font-medium text-sm lg:text-base">Doctors</a>
+                    <a href="about.html" class="hover:text-primary transition duration-300 font-medium text-sm lg:text-base">About</a>
+                    <a href="contact.html" class="hover:text-primary transition duration-300 font-medium text-sm lg:text-base">Contact</a>
+                    <a class="bg-primary  px-3 lg:px-6 py-2 rounded-full hover:bg-logoGreen transition duration-300 shadow-lg hover:shadow-xl book-appointment text-sm lg:text-base whitespace-nowrap">Book Appointment</a>
                 </div>
                 <div class="md:hidden">
                     <button id="mobile-menu-toggle" class="text-gray-700 hover:text-primary focus:outline-none">
@@ -595,7 +596,7 @@
     </nav>
 
     <!-- Carousel Section -->
-    <section class="carousel h-[600px] relative pt-24">
+    <section class="carousel h-[750px] relative">
         <div class="carousel-inner h-full">
             <div class="carousel-item h-full">
                 <img src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80" alt="Modern Hospital" class="w-full h-full object-cover">
@@ -658,7 +659,7 @@
             <div class="carousel-indicator"></div>
         </div>
     </section>
-
+</div>
     <!-- Hero Section -->
     <section class="pt-20 hero-pattern">
         <div class="max-w-7xl mx-auto px-4 py-20">
@@ -1112,6 +1113,11 @@
         </div>
     </div>
 
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-3fp51L5d9y9ZGtF/5e3rbzUbjwLq2fDRF5F2mVZK6k8="
+        crossorigin="anonymous"></script>
+
     <script>
         // Carousel functionality
         document.addEventListener('DOMContentLoaded', function() {
@@ -1377,6 +1383,15 @@
                 top: 0,
                 behavior: 'smooth'
             });
+        });
+
+        //navbar scroll functionality
+        $(window).on('scroll',function(){
+            if($(window).scrollTop() > 50){
+                $('#navbar').addClass('bg-white shadow text-black').removeClass('text-white');
+            }else{
+                $('#navbar').removeClass('bg-white show text-black').addClass('text-white');
+            }
         });
     </script>
 </body>
