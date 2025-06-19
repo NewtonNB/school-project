@@ -1,0 +1,826 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our School Clubs</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Press+Start+2P&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bungee&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Press+Start+2P&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+<!-- AOS CSS -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+
+    <style>
+        @import url('https:fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins';
+    /* color: #fff; */
+}
+h1,h2{
+    font-family: 'bungee';
+}
+
+.header{
+  min-height: 50vh;
+  width: 100%;
+  background-image: linear-gradient(rgba(4,9,30,0.7),rgba(4,9,30,0.7)),url(nyabzgallery/current.jpg);
+  background-position: center;
+  background-size: cover;
+  position: relative;
+}
+nav{
+  display: flex;
+  padding: 2% 6%;
+  justify-content: space-between;
+  align-items: center;
+}
+nav img{
+  width: 100px;
+}
+.nav-links{
+  flex: 1;
+  text-align: right;
+}
+.nav-links ul li{
+  list-style: none;
+  display: inline-block;
+  padding: 8px 12px;
+  position: relative;
+}
+.nav-links ul li a{
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 17px;
+}
+.nav-links ul li::after{
+  content: '';
+  width: 0%;
+  height: 2px;
+  background:  #268b17;
+  display: block;
+  margin: auto;
+  transition: 0.5s;
+}
+.nav-links ul li:hover::after{
+  width: 100%;
+}
+
+.text-box {
+  text-align: center;
+  margin: 0 auto;
+  color: #fff;
+}
+
+.text-box h1{
+  font-size: 62px;
+}
+
+.hero-btn{
+  display: inline-block;
+  text-decoration: none;
+  color: #fff;
+  border: 1px solid #f9f6f6;
+  padding: 12px 34px;
+  font-size: 13px;
+  background: transparent;
+  position: relative;
+  cursor: pointer;
+}
+.hero-btn:hover{
+  color: #fff;
+  border:1px solid  #268b17;
+  background: #268b17;
+  transition: 1s;
+}
+
+nav .fa{
+  display: none;
+}
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #1c4673;
+  min-width: 200px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.9);
+  z-index: 1;
+  border-radius: 4px;
+  margin-top: 10px;
+}
+
+.dropdown-content a {
+  color: #333;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  transition: background-color 0.3s;
+}
+
+.dropdown-content a:hover {
+  background-color:  #268b17;
+}
+
+/* Show dropdown on hover */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+
+
+
+@media(max-width: 700px){
+  nav{
+    /* margin-right: 50px; */
+    text-align: center;
+    display: flex;
+    /* height: 10px; */
+  }
+  .text-box h1{
+      font-size: 20px;
+  }
+  
+  .nav-links ul li{
+      display: block;
+  }
+  .nav-links{
+      position: absolute;
+      background:  #268b17;
+      height: 100vh;
+      width: 200px;
+      top: 0;
+      right: -200px;
+      text-align: left;
+      z-index: 2;
+      transition: 1s;
+
+  }
+  nav .fa{
+      display: block;
+      color: #fff;
+      margin: 10px;
+      font-size: 30px;
+      cursor: pointer;
+      margin-right: 120px;
+
+  }
+  .nav-links ul{
+      padding: 30px
+  }
+}
+        body {
+            /* font-family: Arial, sans-serif; */
+            background-color: #f4f4f4;
+            margin: 0;
+            /* padding: 20px; */
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            max-width: 1200px;
+            margin: auto;
+            margin-top: 30px;
+        }
+        .club {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .club img {
+            width: 100px;
+            height: 100px;
+            margin-bottom: 10px;
+            border-radius: 10px;
+        }
+        .club h2 {
+            margin: 10px 0;
+            color: #333;
+        }
+        .club ul {
+            text-align: left;
+            padding-left: 20px;
+        }
+
+        footer{
+    position: relative;
+    width: 100%;
+    height: auto;
+    padding: 50px 100px;
+    background: #268b17;
+    /* margin: 20px; */
+
+}
+footer .container{
+    width: 100%;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    grid-gap:20px;
+    color: #fff;
+}
+footer .container .sec h2{
+    position: relative;
+    color: #fff;
+    font-weight:500;
+    margin-bottom: 15px;
+}
+footer .container .sec h2::before{
+    content: '';
+    color: #fff;
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 50px;
+    height: 2px;
+    background: #ffeb3b;
+}
+footer .container .sec p{
+    color: #fff;
+}
+.sci{
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: repeat(4,50px);
+    grid-gap: 10px;
+}
+.sci li{
+    list-style: none;
+}
+.sci li a{
+    display: inline-block;
+    width: 48px;
+    height: 48px;
+    background: #49ee2f ;
+    display: grid;
+    align-content: center;
+    justify-content: center;
+}
+.sci li a:hover{
+    background: #49ee2f;
+}
+.sci li a .fa{
+color: #fff;
+font-size: 20px;
+}
+.quicklinks{
+    position: relative;
+}
+.quicklinks li{
+list-style: none;
+}
+.quicklinks li a{
+    color: #f7f7f7;
+    text-decoration: none;
+    margin-bottom: 10px;
+    display: inline-block;
+}
+.quicklinks li a:hover{
+color: #ffeb3b;
+}
+.info
+{
+    position: relative;
+}
+.info li{
+    display: grid;
+    grid-template-columns: 30px 1fr;
+    margin-bottom: 16px;
+}
+.info li span:nth-child(1){
+    color: #fff;
+    font-size: 20px;
+}
+.info li span{
+ color: #fff;
+}
+.info a{
+    color: #f7f7f7;
+    text-decoration: none;
+}
+.info a:hover{
+    color: #ffeb3b;
+}
+.copyrightText{
+    width: 100%;
+    background: #1a650f;
+    padding: 8px 100px;
+    text-align: center;
+    color: #fff;
+}
+@media(max-width:991px){
+    footer{
+        padding: 40px;
+    }
+    footer .container{
+        /* width: 100%; */
+        /* display: grid; */
+        grid-template-columns: repeat(2,1fr);
+        /* grid-gap: 20px; */
+    }
+    .copyrightText{
+        /* width: 100%; */
+        /* background:  #1a650f; */
+        padding: 8px 40px;
+        /* text-align: center; */
+        /* color: #fff; */
+    }
+}
+@media(max-width:768px){
+    footer .container{
+        grid-template-columns: repeat(1,1fr);
+
+    }
+
+}
+
+#up-arrow {
+    position: fixed;
+    bottom: 20px; /* Adjust to position above bottom */
+    right: 20px; /* Adjust to position left of the right edge */
+    width: 50px;
+    height: 50px;
+    background-color: #004d00; /* Dark green */
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Add subtle shadow */
+}
+
+#up-arrow span {
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.fab-container {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  z-index: 1000;
+}
+
+.fab {
+  width: 60px;
+  height: 60px;
+  background-color: #00796b;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  font-size: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.fab:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3);
+}
+
+.fab-options {
+  position: absolute;
+  bottom: 70px;
+  right: 0;
+  display: none;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.fab-option {
+  width: 50px;
+  height: 50px;
+  background-color: white;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.fab-option img {
+  width: 24px;
+  height: 24px;
+}
+
+.fab-option:hover {
+  transform: scale(1.2);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.fab-options.show {
+  display: flex;
+}
+
+
+.topbar {
+  background: #268b17;
+  color: #fff;
+  font-size: 15px;
+  padding: 1.2rem 0;
+  min-height: 56px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1001;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  transform: translateY(0);
+}
+
+.topbar.hide {
+  transform: translateY(-100%);
+}
+
+.navbar {
+  position: fixed;
+  top: 56px;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  background-color: #343a40 !important;
+  transform: translateY(0);
+}
+
+.navbar.show {
+  transform: translateY(-56px);
+}
+
+/* Adjust the header section to account for fixed navbar and topbar */
+.header {
+  margin-top: 112px;
+  background-attachment: fixed;
+}
+
+/* Adjust text-box to account for fixed navbar */
+.text-box {
+  margin-top: 150px !important;
+}
+
+.topbar .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+      margin-top: 20px;
+}
+.topbar .topbar-left {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+.topbar .topbar-left span, .topbar .topbar-left a {
+  color: #fff;
+  text-decoration: none;
+  margin-right: 1.5rem;
+  display: flex;
+  align-items: center;
+}
+.topbar .topbar-left i {
+  margin-right: 0.5rem;
+  color: #fff;
+}
+.topbar .topbar-right {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+.topbar .topbar-message {
+  margin-right: 1.5rem;
+  color: #fff;
+}
+.topbar .topbar-message a {
+  color: #4da3ff;
+  text-decoration: none;
+  font-weight: 500;
+}
+.topbar .topbar-social a {
+  color: #fff;
+  margin-left: 0.7rem;
+  font-size: 1.1em;
+  transition: color 0.2s;
+}
+.topbar .topbar-social a:hover {
+  color: #4da3ff;
+}
+@media (max-width: 768px) {
+  .topbar .container {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  .topbar .topbar-right {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.3rem;
+  }
+  .topbar .topbar-message {
+    margin-right: 0;
+  }
+}
+    </style>
+</head>
+<body>
+    <!-- Topbar Section -->
+<div class="topbar" style="padding: 5px 0;">
+    <div class="container" style="font-size: 14px; line-height: 18px; display: flex; justify-content: space-between; align-items: center;">
+        <div class="topbar-left" style="flex: 1;">
+            <marquee behavior="scroll" direction="left" scrollamount="5" onmouseover="this.stop()" onmouseout="this.start()" style="height: 20px; line-height: 20px;">
+                <span style="padding-right: 30px;"><i class="fa fa-envelope"></i> nyabikonisecschool@gmail.com</span>
+                <span><i class="fa fa-info-circle"></i> +256704980778</span>
+            </marquee>
+        </div>
+        <div class="topbar-right" style="flex: 1; display: flex; justify-content: flex-end; align-items: center; gap: 10px;">
+            <marquee behavior="scroll" direction="left" scrollamount="5" onmouseover="this.stop()" onmouseout="this.start()" style="height: 20px; line-height: 20px; max-width: 70%;">
+                <span class="topbar-message">
+                    We deliver the highest quality performance we do. <a href="contact.html">Contact Us</a>
+                </span>
+            </marquee>
+            <span class="topbar-social" style="white-space: nowrap;">
+                <a href="#"><i class="fa fa-twitter"></i></a>
+                <a href="#"><i class="fa fa-facebook"></i></a>
+                <a href="#"><i class="fa fa-linkedin"></i></a>
+                <a href="#"><i class="fa fa-instagram"></i></a>
+            </span>
+        </div>
+    </div>
+</div>
+
+    <section class="header">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" >
+            <a href="index.html"><img src="nyabzgallery/nyabz logo.png" alt=""  style="margin-left: 30px;"></a>
+            <div class="nav-links" id="navlinks">
+                <i class="fa fa-times" onclick="hideMenu()"></i>
+                <ul style="margin-right: 30px;">
+                    <li><a href="index.html">HOME</a></li>
+                    <li class="dropdown"><a href="about.html">ABOUT</a>
+                        <div class="dropdown-content">
+                            <a href="anthem.html">SCHOOL ANTHEM</a>
+                            <div class="dropdown">
+                                <a href="staff.html">STAFF</a>
+                                <div class="dropdown-content">
+                                    <a href="staff.html">TEACHING STAFF</a>
+                                    <a href="nonstaff.html">NON TEACHING STAFF</a>
+                                </div>
+                            </div>
+                            <a href="footer.html">STUDENT'S CLUBS</a>
+                        </div>
+                    </li>
+                    <li class="dropdown"><a href="Academics.html">ACADEMICS</a>
+                        <div class="dropdown-content">
+                            <div class="dropdown">
+                                <div class="dropdown-content">
+                                    <a href="olevel.html">O'LEVEL</a>
+                                    <a href="alevel.html">A'LEVEL</a>
+                                </div>
+                            </div>
+                            <a href="events.html">NEWS & EVENTS</a>
+                        </div>
+                    </li>
+                    <li><a href="contact.html">GALLERY</a></li>
+                    <li><a href="contactus.html">CONTACT</a></li>
+                </ul>
+            </div>
+            <i class="fa fa-bars" onclick="showMenu()"></i>
+        </nav>
+    
+    
+  <div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-8 text-center text-box" data-aos="fade-down" data-aos-duration="1000">
+      <h1 style="font-family: Bungee; margin-bottom: 200px;">STUDENT'S CLUBS</h1><br>
+    </div>
+  </div>
+</div>
+
+
+    </section>
+<div class="container py-4">
+    <div class="club animate__animated animate__fadeInUp mb-4" style="animation-delay: 0s;">
+        <img src="nyabzgallery/interact.png" alt="ICT Club" class="img-fluid mb-2">
+        <h2>ICT Club</h2>
+        <ul>
+            <li>To provide a platform for ICT students to share, innovate, and enable world-standard research and learning in ICT.</li>
+            <li>A vibrant club where learners find a sense of belonging and actively participate in activities that enhance ICT and Computer Studies.</li>
+        </ul>
+    </div>
+
+    <div class="club animate__animated animate__fadeInUp mb-4" style="animation-delay: 0.1s;">
+        <img src="nyabzgallery/interact.png" alt="Interact Club" class="img-fluid mb-2">
+        <h2>Interact Club</h2>
+        <ul>
+            <li>A club for young people who want to join and tackle issues in their community together while having fun.</li>
+            <li>Develop leadership skills, make international connections, help others, and carry out hands-on service projects.</li>
+        </ul>
+    </div>
+
+    <div class="club animate__animated animate__fadeInUp mb-4" style="animation-delay: 0.2s;">
+        <img src="nyabzgallery/pathfinder.jpg" alt="Pathfinder Club" class="img-fluid mb-2">
+        <h2>Pathfinder Club</h2>
+        <ul>
+            <li>To introduce young people to Jesus Christ and help them develop their bodies, minds, and spirits.</li>
+            <li>Encourages leadership, teamwork, and holistic development physically, socially, intellectually, and spiritually.</li>
+        </ul>
+    </div>
+
+    <div class="club animate__animated animate__fadeInUp mb-4" style="animation-delay: 0.3s;">
+        <img src="nyabzgallery/wildlife.jpg" alt="Wildlife Club" class="img-fluid mb-2">
+        <h2>Wildlife Club</h2>
+        <ul>
+            <li>Helping the young generation to enjoy and appreciate the natural world.</li>
+            <li>Creates awareness on balancing human activities with wildlife and teaches conservation and wildlife management.</li>
+        </ul>
+    </div>
+
+    <div class="club animate__animated animate__fadeInUp mb-4" style="animation-delay: 0.4s;">
+        <img src="nyabzgallery/env.jpg" alt="Environmental Club" class="img-fluid mb-2">
+        <h2>Environmental Club</h2>
+        <ul>
+            <li>Educates students on steps to improve the environment and motivates them to keep surroundings green and clean.</li>
+            <li>Increases awareness of the relationship between human actions and the environment.</li>
+        </ul>
+    </div>
+
+    <div class="club animate__animated animate__fadeInUp mb-4" style="animation-delay: 0.5s;">
+        <img src="nyabzgallery/particts.png" alt="Patriotic Club" class="img-fluid mb-2">
+        <h2>Patriotic Club</h2>
+        <ul>
+            <li>Helping learners to know the background of their country.</li>
+            <li>To love their country, protect and defend it from any evil attack.</li>
+            <li>Teachers and learners get committed to national services.</li>
+        </ul>
+    </div>
+
+    <div class="club animate__animated animate__fadeInUp mb-4" style="animation-delay: 0.6s;">
+        <img src="nyabzgallery/writers.jpeg" alt="Writer's Club" class="img-fluid mb-2">
+        <h2>Writer's Club</h2>
+        <ul>
+            <li>Helps students to learn and practice English.</li>
+            <li>Enhances the knowledge of reading and writing.</li>
+            <li>Helps build a writing culture for the school.</li>
+        </ul>
+    </div>
+
+    <div class="club animate__animated animate__fadeInUp mb-4" style="animation-delay: 0.7s;">
+        <img src="nyabzgallery/debating.jpg" alt="Debating Club" class="img-fluid mb-2">
+        <h2>Debating Club</h2>
+        <ul>
+            <li>Provides more information about global affairs.</li>
+            <li>Helps students to learn and practice English.</li>
+            <li>Provides training grounds for developing students' communicative skills.</li>
+            <li>Facilitates interactions with both local and international schools through debating competitions.</li>
+        </ul>
+    </div>
+</div>
+
+
+
+      <footer>
+  <div class="container wow animate__animated animate__fadeInUp">
+    <div class="sec aboutus animate__animated animate__fadeInUp animate__delay-1s">
+      <h2>About Us</h2>
+          <p>We aim to nurture confident, compassionate, and innovative leaders through inclusive education, fostering lifelong learning, critical thinking, and global awareness to inspire meaningful contributions to society and the world. </p>
+      <ul class="sci">
+        <li><a href="https://www.facebook.com" target="_blank"><i class="fa fa-facebook"></i></a></li>
+        <li><a href="https://twitter.com" target="_blank"><i class="fa fa-twitter"></i></a></li>
+        <li><a href="https://www.instagram.com" target="_blank"><i class="fa fa-instagram"></i></a></li>
+        <li><a href="https://www.youtube.com" target="_blank"><i class="fa fa-youtube-play"></i></a></li>
+      </ul>
+    </div>
+
+    <div class="sec quicklinks animate__animated animate__fadeInUp animate__delay-2s">
+      <h2>QUICK LINKS</h2>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="Academics.html">Acadamics</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="contactus.html">Contact Us</a></li>
+      </ul>
+    </div>
+
+    <div class="sec quicklinks animate__animated animate__fadeInUp animate__delay-3s">
+      <h2>IMPORTANT LINKS</h2>
+      <ul>
+         <li><a href="https://www.education.go.ug/">Ministry of Education and Sports</a></li>
+        <li><a href="https://uneb.ac.ug/">Uganda National Examinations Board (UNEB)</a></li>
+        <li><a href="https://www.ncdc.go.ug/">Nationl Curriculum Development Centre (NCDC)</a></li>
+        <li><a href="https://www.kabale.go.ug/">Kabale District Local Government</a></li>
+
+      </ul>
+    </div>
+
+    <div class="sec contact animate__animated animate__fadeInUp animate__delay-4s">
+      <h2>Contact Us</h2>
+      <ul class="info">
+        <li>
+          <span><i class="fa fa-map-marker"></i></span>
+          <span>Kabale District<br>Kabale Municipality, Nyabikoni Ward, <br>UGA</span>
+        </li>
+        <li>
+          <span><i class="fa fa-phone"></i></span>
+          <p >
+            <a href="tel:+256704980778">+256 775 475 629</a><br>
+            <a href="tel:+256704980778">+256 703 599 882</a><br>
+            <a href="tel:+256704980778">+256 773 078 285</a>
+          </p>
+        </li>
+        <li>
+          <span><i class="fa fa-envelope"></i></span>
+          <p><a href="mailto:tukamuhebwanewton@gmail.com">tukamuhebwanewton@gmail.com</a></p>
+        </li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+<div class="copyrightText wow animate__animated animate__fadeInUp animate__delay-5s">
+  <div class="fab-container">
+    <button class="fab main-fab" onclick="toggleFab()">+</button>
+    <div class="fab-options">
+      <a href="https://wa.me/256773078285" target="_blank" class="fab-option">
+        <img src="https://img.icons8.com/color/48/whatsapp--v1.png" alt="WhatsApp">
+      </a>
+      <a href="tel:+256775475629" class="fab-option">
+        <img src="https://img.icons8.com/color/48/phone.png" alt="Phone">
+      </a>
+      <a href="mailto:nyabikonisecschool@gmail.com" class="fab-option">
+        <img src="https://img.icons8.com/color/48/email.png" alt="Email">
+      </a>
+      <a href="https://nyabikoniss.blogspot.com/p/about-us.html" class="fab-option">
+        <img src="https://img.icons8.com/color/48/info.png" alt="Info">
+      </a>
+    </div>
+  </div>
+
+  <p style="color: #fff;">Copyright © 2025 Nyabikoni Sec School. All Rights Reserved.</p>
+
+  <div id="up-arrow" onclick="scrollToTop()" class="wow animate__animated animate__fadeInUp animate__delay-0s">
+    <span>&#9650;</span>
+  </div>
+</div>
+   
+    <!-- ------javascript for toggle menu--------- -->
+  <script>
+    var navlinks = document.getElementById("navlinks");
+    function showMenu(){
+        navlinks.style.right = "0"
+    }
+    function hideMenu(){
+        navlinks.style.right = "-200px"
+    }
+  </script>
+  
+  
+  <script>
+      function scrollToTop() {
+  window.scrollTo({
+      top: 0, // Scroll to the top of the page
+      behavior: 'smooth' // Smooth scrolling animation
+  });
+  }
+  
+  </script>
+  
+  <script>
+      function toggleFab() {
+        const fabOptions = document.querySelector('.fab-options');
+        fabOptions.classList.toggle('show');
+      }
+      </script>
+          <!-- WOW.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+<script>
+  new WOW().init();
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+<script>
+  AOS.init();
+</script>
+
+</body>
+</html>

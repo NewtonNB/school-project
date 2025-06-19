@@ -1,0 +1,1017 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events Section</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Press+Start+2P&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Press+Start+2P&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="event.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+      <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        @import url('https:fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap');
+
+ html{
+    scroll-behavior: smooth;
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'poppins';
+}
+body{
+    display: grid;
+    justify-content:center;
+    align-content: center;
+    min-height: 100vh;
+}
+.card.title{
+    font-family: 'bungee';
+}
+/* *{
+    padding: 10px;
+    margin: 0;
+    font-family: "Poppins", sans-serif;
+} */
+.header{
+    min-height: 50vh;
+    width: 100%;
+    background-image: linear-gradient(rgba(4,9,30,0.7),rgba(4,9,30,0.7)),url(nyabzgallery/current.jpg);
+    background-position: center;
+    background-size: cover;
+    position: relative;
+}
+nav{
+    display: flex;
+    padding: 2% 6%;
+    justify-content: space-between;
+    align-items: center;
+}
+nav img{
+    width: 100px;
+}
+.nav-links{
+    flex: 1;
+    text-align: right;
+}
+.nav-links ul li{
+    list-style: none;
+    display: inline-block;
+    padding: 8px 12px;
+    position: relative;
+}
+.nav-links ul li a{
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 17px;
+}
+.nav-links ul li::after{
+    content: '';
+    width: 0%;
+    height: 2px;
+    background:  #268b17;
+    display: block;
+    margin: auto;
+    transition: 0.5s;
+}
+.nav-links ul li:hover::after{
+    width: 100%;
+}
+.text-box {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+  color: #fff;
+}
+
+.text-box h1{
+    font-size: 62px;
+}
+.text-box p{
+    margin: 10px 0 40px;
+    font-size: 15px;
+    font-weight: bold;
+    color: #fff;
+    padding: 100px;
+
+}
+.hero-btn{
+    display: inline-block;
+    text-decoration: none;
+    color: #fff;
+    border: 1px solid #f9f6f6;
+    padding: 12px 34px;
+    font-size: 13px;
+    background: transparent;
+    position: relative;
+    cursor: pointer;
+}
+.hero-btn:hover{
+    color: #fff;
+    border:1px solid  #268b17;
+    background: #268b17;
+    transition: 1s;
+}
+
+nav .fa{
+    display: none;
+}
+
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+    /* margin-top: -20px; */
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #1c4673;
+    min-width: 200px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.9);
+    z-index: 1;
+    border-radius: 4px;
+    /* margin-top: 2px; */
+}
+
+.dropdown-content a {
+    color: #333;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    transition: background-color 0.3s;
+}
+
+.dropdown-content a:hover {
+    background-color:  #268b17;
+}
+
+/* Show dropdown on hover */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+@media(max-width: 700px){
+    .text-box h1{
+        font-size: 20px;
+         text-align: center;
+
+    }
+    .text-box p{
+        text-align: center;
+        margin-left: 10px;
+    }
+    .nav-links ul li{
+        display: block;
+    }
+    .nav-links{
+        position: absolute;
+        background:  #268b17;
+        height: 100vh;
+        width: 200px;
+        top: 0;
+        right: -200px;
+        text-align: left;
+        z-index: 2;
+        transition: 1s;
+
+    }
+    nav .fa{
+        display: block;
+        color: #fff;
+        margin: 10px;
+        font-size: 30px;
+        cursor: pointer;
+
+    }
+    .nav-links ul{
+        padding: 30px
+    }
+}
+
+
+
+footer{
+    position: relative;
+    width: 100%;
+    height: auto;
+    padding: 50px 100px;
+    background: #268b17;
+}
+footer .container{
+    width: 100%;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    grid-gap:20px
+}
+footer .container .sec h2{
+    position: relative;
+    color: #fff;
+    font-weight:500;
+    margin-bottom: 15px;
+}
+footer .container .sec h2::before{
+    content: '';
+    color: #fff;
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 50px;
+    height: 2px;
+    background: #ffeb3b;
+}
+footer .container .sec p{
+    color: #fff;
+}
+.sci{
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: repeat(4,50px);
+    grid-gap: 10px;
+}
+.sci li{
+    list-style: none;
+}
+.sci li a{
+    display: inline-block;
+    width: 48px;
+    height: 48px;
+    background: #49ee2f ;
+    display: grid;
+    align-content: center;
+    justify-content: center;
+}
+.sci li a:hover{
+    background: #49ee2f;
+}
+.sci li a .fa{
+color: #fff;
+font-size: 20px;
+}
+.quicklinks{
+    position: relative;
+}
+.quicklinks li{
+list-style: none;
+}
+.quicklinks li a{
+    color: #f7f7f7;
+    text-decoration: none;
+    margin-bottom: 10px;
+    display: inline-block;
+}
+.quicklinks li a:hover{
+color: #ffeb3b;
+}
+.info
+{
+    position: relative;
+}
+.info li{
+    display: grid;
+    grid-template-columns: 30px 1fr;
+    margin-bottom: 16px;
+}
+.info li span:nth-child(1){
+    color: #fff;
+    font-size: 20px;
+}
+.info li span{
+ color: #fff;
+}
+.info a{
+    color: #f7f7f7;
+    text-decoration: none;
+}
+.info a:hover{
+    color: #ffeb3b;
+}
+.copyrightText{
+    width: 100%;
+    background: #1a650f;
+    padding: 8px 100px;
+    text-align: center;
+    color: #fff;
+}
+@media(max-width:991px){
+    footer{
+        padding: 40px;
+    }
+    footer .container{
+        /* width: 100%; */
+        /* display: grid; */
+        grid-template-columns: repeat(2,1fr);
+        /* grid-gap: 20px; */
+    }
+    .copyrightText{
+        /* width: 100%; */
+        /* background:  #1a650f; */
+        padding: 8px 40px;
+        /* text-align: center; */
+        /* color: #fff; */
+    }
+}
+@media(max-width:768px){
+    footer .container{
+        grid-template-columns: repeat(1,1fr);
+
+    }
+
+}
+        h1, h2{
+            font-family: 'bungee';
+        }
+        body {
+            font-family: 'poppins';
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        .events-section {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            padding: 20px;
+            background-color: #fff;
+        }
+
+        /* .event-card {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            margin: 15px;
+            overflow: hidden;
+        } */
+
+        .event-card img {
+            width: 100%;
+            height: auto;
+        }
+
+        .event-date {
+            background-color: #0a7023;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            font-size: 18px;
+        }
+
+        .event-date span {
+            display: block;
+        }
+
+        .event-date .day {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .event-content {
+            padding: 15px;
+        }
+
+        .event-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin: 10px 0;
+            color: #333;
+        }
+
+        .event-description {
+            font-size: 14px;
+            color: #666;
+            margin: 10px 0;
+        }
+
+
+        #up-arrow {
+    position: fixed;
+    bottom: 20px; /* Adjust to position above bottom */
+    right: 20px; /* Adjust to position left of the right edge */
+    width: 50px;
+    height: 50px;
+    background-color: #004d00; /* Dark green */
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Add subtle shadow */
+}
+
+#up-arrow span {
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.fab-container {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  z-index: 1000;
+}
+
+.fab {
+  width: 60px;
+  height: 60px;
+  background-color: #00796b;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  font-size: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.fab:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3);
+}
+
+.fab-options {
+  position: absolute;
+  bottom: 70px;
+  right: 0;
+  display: none;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.fab-option {
+  width: 50px;
+  height: 50px;
+  background-color: white;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.fab-option img {
+  width: 24px;
+  height: 24px;
+}
+
+.fab-option:hover {
+  transform: scale(1.2);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.fab-options.show {
+  display: flex;
+}
+
+.topbar {
+  background: #268b17;
+  color: #fff;
+  font-size: 15px;
+  padding: 1.2rem 0;
+  min-height: 56px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1001;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  transform: translateY(0);
+}
+
+.topbar.hide {
+  transform: translateY(-100%);
+}
+
+.navbar {
+  position: fixed;
+  top: 56px;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  background-color: #343a40 !important;
+  transform: translateY(0);
+}
+
+.navbar.show {
+  transform: translateY(-56px);
+}
+
+/* Adjust the header section to account for fixed navbar and topbar */
+.header {
+  margin-top: 112px;
+  background-attachment: fixed;
+}
+
+/* Adjust text-box to account for fixed navbar */
+.text-box {
+  margin-top: 150px !important;
+}
+
+.topbar .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+      margin-top: 20px;
+}
+.topbar .topbar-left {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+.topbar .topbar-left span, .topbar .topbar-left a {
+  color: #fff;
+  text-decoration: none;
+  margin-right: 1.5rem;
+  display: flex;
+  align-items: center;
+}
+.topbar .topbar-left i {
+  margin-right: 0.5rem;
+  color: #fff;
+}
+.topbar .topbar-right {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+.topbar .topbar-message {
+  margin-right: 1.5rem;
+  color: #fff;
+}
+.topbar .topbar-message a {
+  color: #4da3ff;
+  text-decoration: none;
+  font-weight: 500;
+}
+.topbar .topbar-social a {
+  color: #fff;
+  margin-left: 0.7rem;
+  font-size: 1.1em;
+  transition: color 0.2s;
+}
+.topbar .topbar-social a:hover {
+  color: #4da3ff;
+}
+@media (max-width: 768px) {
+  .topbar .container {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  .topbar .topbar-right {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.3rem;
+  }
+  .topbar .topbar-message {
+    margin-right: 0;
+  }
+}
+    </style>
+</head>
+<body>
+   <!-- Topbar Section -->
+<div class="topbar" style="padding: 5px 0;">
+    <div class="container" style="font-size: 14px; line-height: 18px; display: flex; justify-content: space-between; align-items: center;">
+        <div class="topbar-left" style="flex: 1;">
+            <marquee behavior="scroll" direction="left" scrollamount="5" onmouseover="this.stop()" onmouseout="this.start()" style="height: 20px; line-height: 20px;">
+                <span style="padding-right: 30px;"><i class="fa fa-envelope"></i> nyabikonisecschool@gmail.com</span>
+                <span><i class="fa fa-info-circle"></i> +256704980778</span>
+            </marquee>
+        </div>
+        <div class="topbar-right" style="flex: 1; display: flex; justify-content: flex-end; align-items: center; gap: 10px;">
+            <marquee behavior="scroll" direction="left" scrollamount="5" onmouseover="this.stop()" onmouseout="this.start()" style="height: 20px; line-height: 20px; max-width: 70%;">
+                <span class="topbar-message">
+                    We deliver the highest quality performance we do. <a href="contact.html">Contact Us</a>
+                </span>
+            </marquee>
+            <span class="topbar-social" style="white-space: nowrap;">
+                <a href="#"><i class="fa fa-twitter"></i></a>
+                <a href="#"><i class="fa fa-facebook"></i></a>
+                <a href="#"><i class="fa fa-linkedin"></i></a>
+                <a href="#"><i class="fa fa-instagram"></i></a>
+            </span>
+        </div>
+    </div>
+</div>
+
+    <section class="header" >
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+            <a href="index.html"><img src="nyabzgallery/nyabz logo.png" alt=""  style="margin-left: 30px;"></a>
+            <div class="nav-links" id="navlinks">
+                <i class="fa fa-times" onclick="hideMenu()"></i>
+                <ul style="margin-right: 30px;">
+                    <li><a href="index.html">HOME</a></li>
+                    <li class="dropdown"><a href="about.html">ABOUT</a>
+                        <div class="dropdown-content">
+                            <a href="anthem.html">SCHOOL ANTHEM</a>
+                            <div class="dropdown">
+                                <a href="#">STAFF</a>
+                                <div class="dropdown-content">
+                                    <a href="staff.html">TEACHING STAFF</a>
+                                    <a href="nonstaff.html">NON TEACHING STAFF</a>
+                                </div>
+                            </div>
+                            <a href="footer.html">STUDENT'S CLUBS</a>
+                        </div>
+                    </li>
+                    <li class="dropdown"><a href="Academics.html">ACADEMICS</a>
+                        <div class="dropdown-content">
+                            <div class="dropdown">
+                                <div class="dropdown-content">
+                                    <a href="olevel.html">O'LEVEL</a>
+                                    <a href="alevel.html">A'LEVEL</a>
+                                </div>
+                            </div>
+                            <a href="events.html">NEWS & EVENTS</a>
+                        </div>
+                    </li>
+                    <li><a href="contact.html">GALLERY</a></li>
+                    <li><a href="contactus.html">CONTACT</a></li>
+                </ul>
+            </div>
+            <i class="fa fa-bars" onclick="showMenu()"></i>
+        </nav>
+
+     <div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-8 text-center text-box" data-aos="fade-up" data-aos-duration="1000">
+      <h1 style="font-family: Bungee; margin-bottom: 10px;">NEWS & EVENTS</h1>
+      <p style="padding: 5px; margin-bottom: 100px;">
+        Read about our latest news plus events happening at our school and stay updated.
+      </p>
+      <!-- <a href="Academics.html" class="hero-btn">Know More</a> -->
+    </div>
+  </div>
+</div>
+
+    </section>
+  <!-- Bootstrap CSS CDN -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<section class="events-section container py-4">
+  <div class="row g-4">
+    <!-- Event 1 -->
+    <div class="col-md-4 col-lg-4 event-card animate-fade-slide">
+      <div class="card h-100 shadow-sm">
+        <img src="nyabzgallery/indepe.jpg" class="card-img-top" alt="Independence Day">
+        <div class="card-body">
+          <div class="d-flex justify-content-between align-items-center mb-2">
+            <div class="event-date text-muted text-center">
+              <span class="day fs-4 fw-bold">09</span><br>
+              <span class="month text-uppercase">OCT 2024</span>
+            </div>
+            <h5 class="card-title mb-0">Independence Day</h5>
+          </div>
+          <p class="card-text">On Monday, 9th October 2023, Uganda celebrated the 61st anniversary of its independence hosted by the northern district of Kitgum, highlighting the nation's unity and progress.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Event 2 -->
+    <div class="col-md-6 col-lg-4 event-card animate-fade-slide">
+      <div class="card h-100 shadow-sm">
+        <img src="nyabzgallery/ceremony.jpg" class="card-img-top" alt="Induction Ceremony">
+        <div class="card-body">
+          <div class="d-flex justify-content-between align-items-center mb-2">
+            <div class="event-date text-muted text-center">
+              <span class="day fs-4 fw-bold">14</span><br>
+              <span class="month text-uppercase">JUL 2024</span>
+            </div>
+            <h5 class="card-title mb-0">Induction Ceremony</h5>
+          </div>
+          <p class="card-text">On Sunday, 9th July 2023, the school held an induction ceremony to officially welcome S.1 and S.5 learners, encouraging them to embrace the school community and its values.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Event 3 -->
+    <div class="col-md-6 col-lg-4 event-card animate-fade-slide">
+      <div class="card h-100 shadow-sm">
+        <img src="nyabzgallery/exams.jpg" class="card-img-top" alt="Pre-Mock Examinations">
+        <div class="card-body">
+          <div class="d-flex justify-content-between align-items-center mb-2">
+            <div class="event-date text-muted text-center">
+              <span class="day fs-4 fw-bold">14</span><br>
+              <span class="month text-uppercase">JUL 2024</span>
+            </div>
+            <h5 class="card-title mb-0">Pre-Mock Examinations</h5>
+          </div>
+          <p class="card-text">Learners in S.4 and S.6 sat their pre-mock examinations successfully, preparing them for the upcoming mock exams with confidence and focus.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Event 4 -->
+    <div class="col-md-6 col-lg-4 event-card animate-fade-slide">
+      <div class="card h-100 shadow-sm">
+        <img src="nyabzgallery/VD.jpg" class="card-img-top" alt="Parent Visitation Day Term III">
+        <div class="card-body">
+          <div class="d-flex justify-content-between align-items-center mb-2">
+            <div class="event-date text-muted text-center">
+              <span class="day fs-4 fw-bold">21</span><br>
+              <span class="month text-uppercase">APR 2024</span>
+            </div>
+            <h5 class="card-title mb-0">Parent Visitation Day (Term III, 2023)</h5>
+          </div>
+          <p class="card-text">Dear Parents and guardians, visitation day is scheduled for Saturday, 14 October 2023 starting at 8:00 AM. This is an opportunity to check on your child’s progress and the school's environment.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Event 5 -->
+    <div class="col-md-6 col-lg-4 event-card animate-fade-slide">
+      <div class="card h-100 shadow-sm">
+        <img src="nyabzgallery/sucsess2.jpg" class="card-img-top" alt="UACE Results">
+        <div class="card-body">
+          <div class="d-flex justify-content-between align-items-center mb-2">
+            <div class="event-date text-muted text-center">
+              <span class="day fs-4 fw-bold">12</span><br>
+              <span class="month text-uppercase">MAR 2024</span>
+            </div>
+            <h5 class="card-title mb-0">UACE Results, 2023</h5>
+          </div>
+          <p class="card-text">On Thursday, 7th March 2024, the Minister of Education and Sports, Hon. Janet Kataaha Museveni, released the 2023 Uganda Advanced Certificate of Education results celebrating student achievements.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Event 6 -->
+    <div class="col-md-6 col-lg-4 event-card animate-fade-slide">
+      <div class="card h-100 shadow-sm">
+        <img src="nyabzgallery/UCE RESULTS (2).jpg" class="card-img-top" alt="UCE Results">
+        <div class="card-body">
+          <div class="d-flex justify-content-between align-items-center mb-2">
+            <div class="event-date text-muted text-center">
+              <span class="day fs-4 fw-bold">12</span><br>
+              <span class="month text-uppercase">MAR 2024</span>
+            </div>
+            <h5 class="card-title mb-0">UCE Results, 2023</h5>
+          </div>
+          <p class="card-text">On 15th February 2024, the Minister of Education and Sports, Hon. Janet Kataaha Museveni, released the 2023 Uganda Certificate of Education results at State House, recognizing student excellence.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Event 7 -->
+    <div class="col-md-6 col-lg-4 event-card animate-fade-slide">
+      <div class="card h-100 shadow-sm">
+        <img src="nyabzgallery/chapel3.jpg" class="card-img-top" alt="Chapel Times">
+        <div class="card-body">
+          <div class="d-flex justify-content-between align-items-center mb-2">
+            <div class="event-date text-muted text-center">
+              <span class="day fs-4 fw-bold">09</span><br>
+              <span class="month text-uppercase">OCT 2024</span>
+            </div>
+            <h5 class="card-title mb-0">Chapel Times</h5>
+          </div>
+          <p class="card-text">Students of Nyabikoni Secondary School and Jack & Jill Primary School gathered for the Thanksgiving Mass on the Thirteenth Sunday in Ordinary Time, fostering spiritual growth.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Event 8 -->
+    <div class="col-md-6 col-lg-4 event-card animate-fade-slide">
+      <div class="card h-100 shadow-sm">
+        <img src="nyabzgallery/VD.jpg" class="card-img-top" alt="Parent Visitation Day Term II">
+        <div class="card-body">
+          <div class="d-flex justify-content-between align-items-center mb-2">
+            <div class="event-date text-muted text-center">
+              <span class="day fs-4 fw-bold">14</span><br>
+              <span class="month text-uppercase">JUL 2024</span>
+            </div>
+            <h5 class="card-title mb-0">Parent Visitation Day (Term II, 2023)</h5>
+          </div>
+          <p class="card-text">Parents and guardians are invited to visitation day on Saturday, 1 July 2023 starting at 8:00 AM to discuss their children’s welfare and school development.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Event 9 -->
+    <div class="col-md-6 col-lg-4 event-card animate-fade-slide">
+      <div class="card h-100 shadow-sm">
+        <img src="nyabzgallery/school life.JPG" class="card-img-top" alt="School Life">
+        <div class="card-body">
+          <div class="d-flex justify-content-between align-items-center mb-2">
+            <div class="event-date text-muted text-center">
+              <span class="day fs-4 fw-bold">14</span><br>
+              <span class="month text-uppercase">JUL 2024</span>
+            </div>
+            <h5 class="card-title mb-0">School Life</h5>
+          </div>
+          <p class="card-text">At Nyabikoni Secondary School, students enjoy a safe, inclusive environment with wide curricular and co-curricular opportunities to support their development and success.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Animation for fade + slide up */
+  @keyframes fadeSlideUp {
+    0% {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-fade-slide {
+    animation: fadeSlideUp 0.8s ease forwards;
+    opacity: 0;
+  }
+
+  /* Stagger animation delay for a nice cascade */
+  .events-section .event-card:nth-child(1) { animation-delay: 0.1s; }
+  .events-section .event-card:nth-child(2) { animation-delay: 0.3s; }
+  .events-section .event-card:nth-child(3) { animation-delay: 0.5s; }
+  .events-section .event-card:nth-child(4) { animation-delay: 0.7s; }
+  .events-section .event-card:nth-child(5) { animation-delay: 0.9s; }
+  .events-section .event-card:nth-child(6) { animation-delay: 1.1s; }
+  .events-section .event-card:nth-child(7) { animation-delay: 1.3s; }
+  .events-section .event-card:nth-child(8) { animation-delay: 1.5s; }
+  .events-section .event-card:nth-child(9) { animation-delay: 1.7s; }
+</style>
+
+
+      <footer>
+  <div class="container wow animate__animated animate__fadeInUp">
+    <div class="sec aboutus animate__animated animate__fadeInUp animate__delay-1s">
+      <h2>About Us</h2>
+          <p>We aim to nurture confident, compassionate, and innovative leaders through inclusive education, fostering lifelong learning, critical thinking, and global awareness to inspire meaningful contributions to society and the world. </p>
+      <ul class="sci">
+        <li><a href="https://www.facebook.com" target="_blank"><i class="fa fa-facebook"></i></a></li>
+        <li><a href="https://twitter.com" target="_blank"><i class="fa fa-twitter"></i></a></li>
+        <li><a href="https://www.instagram.com" target="_blank"><i class="fa fa-instagram"></i></a></li>
+        <li><a href="https://www.youtube.com" target="_blank"><i class="fa fa-youtube-play"></i></a></li>
+      </ul>
+    </div>
+
+    <div class="sec quicklinks animate__animated animate__fadeInUp animate__delay-2s">
+      <h2>QUICK LINKS</h2>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="Academics.html">Acadamics</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="contactus.html">Contact Us</a></li>
+      </ul>
+    </div>
+
+    <div class="sec quicklinks animate__animated animate__fadeInUp animate__delay-3s">
+      <h2>IMPORTANT LINKS</h2>
+      <ul>
+         <li><a href="https://www.education.go.ug/">Ministry of Education and Sports</a></li>
+        <li><a href="https://uneb.ac.ug/">Uganda National Examinations Board (UNEB)</a></li>
+        <li><a href="https://www.ncdc.go.ug/">Nationl Curriculum Development Centre (NCDC)</a></li>
+        <li><a href="https://www.kabale.go.ug/">Kabale District Local Government</a></li>
+
+      </ul>
+    </div>
+
+    <div class="sec contact animate__animated animate__fadeInUp animate__delay-4s">
+      <h2>Contact Us</h2>
+      <ul class="info">
+        <li>
+          <span><i class="fa fa-map-marker"></i></span>
+          <span>Kabale District<br>Kabale Municipality, Nyabikoni Ward, <br>UGA</span>
+        </li>
+        <li>
+          <span><i class="fa fa-phone"></i></span>
+          <p>
+            <a href="tel:+256704980778">+256 775 475 629</a><br>
+            <a href="tel:+256704980778">+256 703 599 882</a><br>
+            <a href="tel:+256704980778">+256 773 078 285</a>
+          </p>
+        </li>
+        <li>
+          <span><i class="fa fa-envelope"></i></span>
+          <p><a href="mailto:tukamuhebwanewton@gmail.com">tukamuhebwanewton@gmail.com</a></p>
+        </li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+<div class="copyrightText wow animate__animated animate__fadeInUp animate__delay-5s">
+  <div class="fab-container">
+    <button class="fab main-fab" onclick="toggleFab()">+</button>
+    <div class="fab-options">
+      <a href="https://wa.me/256773078285" target="_blank" class="fab-option">
+        <img src="https://img.icons8.com/color/48/whatsapp--v1.png" alt="WhatsApp">
+      </a>
+      <a href="tel:+256775475629" class="fab-option">
+        <img src="https://img.icons8.com/color/48/phone.png" alt="Phone">
+      </a>
+      <a href="mailto:nyabikonisecschool@gmail.com" class="fab-option">
+        <img src="https://img.icons8.com/color/48/email.png" alt="Email">
+      </a>
+      <a href="https://nyabikoniss.blogspot.com/p/about-us.html" class="fab-option">
+        <img src="https://img.icons8.com/color/48/info.png" alt="Info">
+      </a>
+    </div>
+  </div>
+
+  <p style="color: #fff;">Copyright © 2025 Nyabikoni Sec School. All Rights Reserved.</p>
+
+  <div id="up-arrow" onclick="scrollToTop()" class="wow animate__animated animate__fadeInUp animate__delay-0s">
+    <span>&#9650;</span>
+  </div>
+</div>
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init();
+</script>
+<!-- -------script----- -->
+
+<script>
+    var navlinks = document.getElementById("navlinks");
+    function showMenu(){
+        navlinks.style.right = "0"
+    }
+    function hideMenu(){
+        navlinks.style.right = "-200px"
+    }
+    
+</script>
+
+<script>
+    function scrollToTop() {
+window.scrollTo({
+    top: 0, // Scroll to the top of the page
+    behavior: 'smooth' // Smooth scrolling animation
+});
+}
+
+</script>
+<script>
+    function toggleFab() {
+      const fabOptions = document.querySelector('.fab-options');
+      fabOptions.classList.toggle('show');
+    }
+    </script>
+
+<script>
+    // Add scroll event listener with throttling for smoother animation
+    let lastScrollTop = 0;
+    const scrollThreshold = 100;
+    let ticking = false;
+
+    window.addEventListener('scroll', function() {
+        if (!ticking) {
+            window.requestAnimationFrame(function() {
+                const topbar = document.querySelector('.topbar');
+                const navbar = document.querySelector('.navbar');
+                const scrollPosition = window.scrollY;
+                
+                // Determine scroll direction
+                const scrollDirection = scrollPosition > lastScrollTop ? 'down' : 'up';
+                
+                if (scrollPosition > scrollThreshold) {
+                    if (scrollDirection === 'down') {
+                        topbar.classList.add('hide');
+                        navbar.classList.add('show');
+                    } else {
+                        topbar.classList.remove('hide');
+                        navbar.classList.remove('show');
+                    }
+                } else {
+                    topbar.classList.remove('hide');
+                    navbar.classList.remove('show');
+                }
+                
+                lastScrollTop = scrollPosition;
+                ticking = false;
+            });
+            
+            ticking = true;
+        }
+    });
+</script>
+</body>
+</html>

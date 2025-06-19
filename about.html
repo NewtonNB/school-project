@@ -1,0 +1,842 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Nyabikoni SS</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Press+Start+2P&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Press+Start+2P&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="style3.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+    <!-- Add Animate.css in your <head> if not already included -->
+    <link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css"rel="stylesheet"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+
+<style>
+.topbar {
+  background: #268b17;
+  color: #fff;
+  font-size: 15px;
+  padding: 1.2rem 0;
+  min-height: 56px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1001;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  transform: translateY(0);
+}
+
+.topbar.hide {
+  transform: translateY(-100%);
+}
+
+.navbar {
+  position: fixed;
+  top: 56px;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  background-color: #343a40 !important;
+  transform: translateY(0);
+}
+
+.navbar.show {
+  transform: translateY(-56px);
+}
+
+/* Adjust the header section to account for fixed navbar and topbar */
+.header {
+  margin-top: 112px;
+}
+
+/* Adjust text-box to account for fixed navbar */
+.text-box {
+  margin-top: 150px !important;
+}
+
+.topbar .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+.topbar .topbar-left {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+.topbar .topbar-left span, .topbar .topbar-left a {
+  color: #fff;
+  text-decoration: none;
+  margin-right: 1.5rem;
+  display: flex;
+  align-items: center;
+}
+.topbar .topbar-left i {
+  margin-right: 0.5rem;
+  color: #fff;
+}
+.topbar .topbar-right {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+.topbar .topbar-message {
+  margin-right: 1.5rem;
+  color: #fff;
+}
+.topbar .topbar-message a {
+  color: #4da3ff;
+  text-decoration: none;
+  font-weight: 500;
+}
+.topbar .topbar-social a {
+  color: #fff;
+  margin-left: 0.7rem;
+  font-size: 1.1em;
+  transition: color 0.2s;
+}
+.topbar .topbar-social a:hover {
+  color: #4da3ff;
+}
+@media (max-width: 768px) {
+  .topbar .container {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  .topbar .topbar-right {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.3rem;
+  }
+  .topbar .topbar-message {
+    margin-right: 0;
+  }
+}
+
+    body {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        background-color: #f4f4f9;
+        color: #333;
+    }
+
+    header {
+        text-align: center;
+        padding: 20px;
+        background-color:  #268b17;
+        color: #fff;
+        margin: 20px;
+    }
+
+    header h1 {
+        margin: 0;
+    }
+
+    .statistics {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+        padding: 20px;
+    }
+
+    .stat-card {
+        background: #fff;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        width: 250px;
+        padding: 20px;
+        transition: transform 0.3s ease;
+    }
+
+    .stat-card:hover {
+        transform: translateY(-5px);
+    }
+
+    .stat-card i {
+        font-size: 50px;
+        color:  #268b17;
+        margin-bottom: 15px;
+    }
+
+    .stat-card h2 {
+        font-size: 2.5em;
+        margin: 10px 0;
+        color: #333;
+    }
+
+    .stat-card p {
+        font-size: 1.2em;
+        margin: 0;
+    }
+
+
+ .section {
+    background: #f4f8fb;
+    padding: 60px 20px;
+  }
+
+  .container1 {
+    max-width: 900px;
+    margin: auto;
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+  }
+
+  .accordion-button {
+    font-weight: 600;
+    background-color: #e9f5ff;
+    color: #003366;
+    transition: all 0.3s ease;
+    border-radius: 8px;
+  }
+
+  .accordion-button:hover {
+    background-color: #d4ecff;
+  }
+
+  .accordion-button:not(.collapsed) {
+    background-color: #cce5ff;
+    color: #003366;
+  }
+
+  .accordion-item {
+    border: none;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+
+  .accordion-body {
+    background-color: #fdfdfd;
+    padding: 20px;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #444;
+    border-top: 1px solid #ddd;
+  }
+
+  @media (max-width: 768px) {
+    .container1 {
+      padding: 20px;
+    }
+  }
+</style>
+<style>
+  #up-arrow {
+    position: fixed;
+    bottom: 40px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    background: #00796B;
+    color: white;
+    font-size: 24px;
+    border-radius: 50%;
+    display: none; /* initially hidden */
+    cursor: pointer;
+    z-index: 1000;
+
+    /* Center the arrow */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  #up-arrow span {
+    display: block;
+    line-height: 1;
+  }
+</style>
+
+<style>
+  .fab-container {
+    position: fixed;
+    bottom: 100px;
+    left: 30px;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .main-fab {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background-color: #00796B;
+    color: white;
+    font-size: 28px;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .fab-options {
+    display: none;
+    flex-direction: row-reverse; /* aligns icons to the left of the main button */
+    margin-top: 10px;
+    gap: 10px;
+  }
+
+  .fab-container.open .fab-options {
+    display: flex;
+  }
+
+  .fab-option img {
+    width: 40px;
+    height: 40px;
+    background-color: #fff;
+    border-radius: 50%;
+    padding: 5px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    transition: transform 0.2s;
+  }
+
+  .fab-option img:hover {
+    transform: scale(1.1);
+  }
+</style>
+
+
+</head>
+<body>
+<!-- Topbar Section -->
+<div class="topbar" style="padding: 5px 0;">
+    <div class="container" style="font-size: 14px; line-height: 18px; display: flex; justify-content: space-between; align-items: center;">
+        <div class="topbar-left" style="flex: 1;">
+            <marquee behavior="scroll" direction="left" scrollamount="5" onmouseover="this.stop()" onmouseout="this.start()" style="height: 20px; line-height: 20px;">
+                <span style="padding-right: 30px;"><i class="fa fa-envelope"></i> nyabikonisecschool@gmail.com</span>
+                <span><i class="fa fa-info-circle"></i> +256704980778</span>
+            </marquee>
+        </div>
+        <div class="topbar-right" style="flex: 1; display: flex; justify-content: flex-end; align-items: center; gap: 10px;">
+            <marquee behavior="scroll" direction="left" scrollamount="5" onmouseover="this.stop()" onmouseout="this.start()" style="height: 20px; line-height: 20px; max-width: 70%;">
+                <span class="topbar-message">
+                    We deliver the highest quality performance we do. <a href="contact.html">Contact Us</a>
+                </span>
+            </marquee>
+            <span class="topbar-social" style="white-space: nowrap;">
+                <a href="#"><i class="fa fa-twitter"></i></a>
+                <a href="#"><i class="fa fa-facebook"></i></a>
+                <a href="#"><i class="fa fa-linkedin"></i></a>
+                <a href="#"><i class="fa fa-instagram"></i></a>
+            </span>
+        </div>
+    </div>
+</div>
+
+
+
+    <section class="header" >
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <a href="index.html"><img src="nyabzgallery/nyabz logo.png" alt=""></a>
+            <div class="nav-links" id="navlinks">
+                <i class="fa fa-times" onclick="hideMenu()"></i>
+                <ul>
+                    <li><a href="index.html">HOME</a></li>
+                   <li class="dropdown">
+                         <li class="dropdown">
+                          <a href="about.html">ABOUT <span class="arrow">&#9656;</span></a>
+                          <ul class="dropdown-content">
+                              <li><a href="anthem.html">SCHOOL ANTHEM</a></li>
+                              <li class="dropdown">
+                                <a href="#">STAFF <span class="arrow">&#9656;</span></a>
+                                <ul class="dropdown-content">
+                            <li><a href="staff.html">TEACHING STAFF</a></li>
+                            <li><a href="nonstaff.html">NON TEACHING STAFF</a></li>
+                          </ul>
+                        </li>
+                        <li><a href="footer.html">STUDENT'S CLUBS</a></li>
+                      </ul>
+                    </li>
+                    <li class="dropdown">
+                      <a href="Academics.html">ACADEMICS <span class="arrow">&#9656;</span></a>
+                      <ul class="dropdown-content">
+                        <li><a href="olevel.html">O'LEVEL</a></li>
+                        <li><a href="alevel.html">A'LEVEL</a></li>
+                        <li><a href="events.html">NEWS & EVENTS</a></li>
+                      </ul>
+                    </li>
+                    
+                    <li><a href="contact.html">GALLERY</a></li>
+                    <li><a href="contactus.html">CONTACT</a></li>
+                </ul>
+            </div>
+            <i class="fa fa-bars" onclick="showMenu()"></i>
+        </nav>
+
+<div class="text-box wow animate__animated animate__zoomIn animate__delay-1s">
+  <h1 style="font-family: Bungee;">ABOUT US</h1><br>
+</div>
+
+    </section>
+<section
+  style="margin: 40px auto; max-width: 1200px; padding: 20px 40px; box-sizing: border-box;"
+>
+  <h2
+    class="text-center animate__animated animate__fadeInDown"
+    style="font-family: 'Bungee'; font-size: 2.5rem; margin-bottom: 30px;"
+  >
+    HEADMASTER'S MESSAGE
+  </h2>
+
+  <div
+    class="d-flex flex-column flex-md-row align-items-center"
+    style="gap: 30px;"
+  >
+    <!-- Image with fadeInLeft -->
+    <img
+      src="nyabzgallery/HM.JPG"
+      alt="Headmaster"
+      class="animate__animated animate__fadeInLeft"
+      style="
+        width: 100%;
+        max-width: 450px;
+        border-radius: 20%;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        object-fit: cover;
+        flex-shrink: 0;
+        animation-delay: 0.3s;
+        animation-fill-mode: both;
+      "
+    />
+
+    <!-- Text Content with fadeInRight -->
+    <div
+      class="animate__animated animate__fadeInRight"
+      style="
+        flex: 1;
+        color: #2c3e50;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        animation-delay: 0.6s;
+        animation-fill-mode: both;
+      "
+    >
+      <p style="font-size: 1.1rem; line-height: 1.7; margin-bottom: 20px;">
+        Welcome to our website, dear visitor. We sincerely appreciate you taking
+        the time out of your busy schedule for us. I am glad to see that you are
+        interested in learning more about Nyabikoni Secondary School. There is no
+        question that learning more about us will be a good decision.
+      </p>
+      <p style="font-size: 1.1rem; line-height: 1.7; margin-bottom: 20px;">
+        The goal of Nyabikoni Secondary School is to provide a holistic education,
+        generating people who are intellectually strong, physically healthy,
+        socially balanced, and God-fearing. By emphasizing academics and
+        extracurricular activities, this is achieved.
+      </p>
+      <p style="font-size: 1.1rem; line-height: 1.7; margin-bottom: 20px;">
+        I am honored to be affiliated with Nyabikoni Secondary School, an
+        institution whose mission is "To produce competent human resources to
+        serve the church, state, and world." We try our hardest to make our dream
+        a reality and not only talk about it; we actually put our vision into
+        action.
+      </p>
+      <p
+        style="
+          font-weight: 700;
+          font-size: 1.2rem;
+          margin-top: 30px;
+          color: #1b263b;
+        "
+      >
+        By Head Teacher<br />
+        <span style="font-size: 1.5rem;">Mr. Turyasiima Elly</span>
+      </p>
+    </div>
+  </div>
+</section>
+
+   
+   <div id="about-2">
+  <div class="container">
+    <div class="row text-center justify-content-center g-4">
+      <!-- VISION -->
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+        <div class="about-item">
+          <i class="fa fa-book about-icon"></i>
+          <h3 class="about-title">VISION</h3>
+          <hr />
+          <p>
+            To be at the helm of producing competent human resource to serve the
+            church, state and the world.
+          </p>
+        </div>
+      </div>
+
+      <!-- MISSION -->
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+        <div class="about-item">
+          <i class="fa fa-pencil about-icon"></i>
+          <h3 class="about-title">MISSION</h3>
+          <hr />
+          <p>
+            To provide quality education through practical skills, teamwork,
+            self-reliance and produce God-fearing persons.
+          </p>
+        </div>
+      </div>
+
+      <!-- CORE VALUES -->
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+        <div class="about-item">
+          <i class="fa fa-globe about-icon"></i>
+          <h3 class="about-title">CORE VALUES</h3>
+          <hr />
+          <ul>
+            <li>Fear God</li>
+            <li>Excellence</li>
+            <li>Integrity</li>
+            <li>Respect of persons and property</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+    <header>
+        <h1 style="font-family: Bungee;">School Statistics Data</h1>
+        <p>Providing quality education with a dedicated team and rich curriculum.</p>
+    </header>
+
+    <section class="statistics">
+        <div class="stat-card">
+            <i class="fas fa-user-graduate"></i>
+            <h2 class="counter" data-target="15000">0</h2>
+            <p>Graduated Students</p>
+        </div>
+
+        <div class="stat-card">
+            <i class="fas fa-chalkboard-teacher"></i>
+            <h2 class="counter" data-target="35">0</h2>
+            <p>Teachers</p>
+        </div>
+
+        <div class="stat-card">
+            <i class="fas fa-users"></i>
+            <h2 class="counter" data-target="1115">0</h2>
+            <p>Current Students</p>
+        </div>
+
+        <div class="stat-card">
+            <i class="fas fa-futbol"></i>
+            <h2 class="counter" data-target="15">0</h2>
+            <p>Extra Curricular</p>
+        </div>
+</section>
+
+
+<!-- Accordion Section with Logo on Side -->
+<section style="background: linear-gradient(to right, #f0f8ff, #e6f2ff); padding: 60px 20px;">
+  <div class="container" data-aos="fade-up">
+    <div class="text-center mb-5">
+      <h2 style="font-family: 'Bungee', sans-serif; font-size: 2.5rem;">Our Key Facilities</h2>
+      <p class="text-muted">Discover the excellent infrastructure we provide for holistic education.</p>
+    </div>
+
+    <div class="row align-items-center justify-content-center">
+      <!-- Accordion Column -->
+      <div class="col-lg-7">
+        <div class="accordion accordion-flush" id="accordionFlushExample">
+          <!-- Classrooms -->
+          <div class="accordion-item mb-3 shadow-sm rounded" data-aos="fade-up" data-aos-delay="100">
+            <h2 class="accordion-header" id="flush-headingOne">
+              <button class="accordion-button collapsed rounded" type="button" data-bs-toggle="collapse"
+                data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                <i class="fa fa-building me-2 text-primary"></i> Well Built Classrooms
+              </button>
+            </h2>
+            <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne"
+              data-bs-parent="#accordionFlushExample">
+              <div class="accordion-body bg-white p-4">
+                Our classrooms are well equipped and designed for an engaging and comfortable learning experience.
+              </div>
+            </div>
+          </div>
+
+          <!-- Health Center -->
+          <div class="accordion-item mb-3 shadow-sm rounded" data-aos="fade-up" data-aos-delay="200">
+            <h2 class="accordion-header" id="flush-headingTwo">
+              <button class="accordion-button collapsed rounded" type="button" data-bs-toggle="collapse"
+                data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+                <i class="fa fa-heartbeat me-2 text-danger"></i> Health Center
+              </button>
+            </h2>
+            <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo"
+              data-bs-parent="#accordionFlushExample">
+              <div class="accordion-body bg-white p-4">
+                Student wellness is a priority — our health center ensures all students receive quick and effective medical attention.
+              </div>
+            </div>
+          </div>
+
+          <!-- Computer Lab -->
+          <div class="accordion-item mb-3 shadow-sm rounded" data-aos="fade-up" data-aos-delay="300">
+            <h2 class="accordion-header" id="flush-headingThree">
+              <button class="accordion-button collapsed rounded" type="button" data-bs-toggle="collapse"
+                data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+                <i class="fa fa-laptop-code me-2 text-success"></i> Computer Lab
+              </button>
+            </h2>
+            <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree"
+              data-bs-parent="#accordionFlushExample">
+              <div class="accordion-body bg-white p-4">
+                Our well-resourced Computer Lab prepares students with essential digital skills to thrive in today's tech-driven world.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Logo Column -->
+      <div class="col-lg-5 d-flex justify-content-center align-items-center" data-aos="fade-left" data-aos-delay="400">
+        <a href="#">
+          <img src="nyabzgallery/nyabz logo.png" alt="Nyabikoni Logo" style="max-width: 100%; max-height: 200px; object-fit: contain;">
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+ <footer>
+  <div class="container wow animate__animated animate__fadeInUp">
+    <div class="sec aboutus animate__animated animate__fadeInUp animate__delay-1s">
+      <h2>About Us</h2>
+          <p>We aim to nurture confident, compassionate, and innovative leaders through inclusive education, fostering lifelong learning, critical thinking, and global awareness to inspire meaningful contributions to society and the world. </p>
+      <ul class="sci">
+        <li><a href="https://www.facebook.com" target="_blank"><i class="fa fa-facebook"></i></a></li>
+        <li><a href="https://twitter.com" target="_blank"><i class="fa fa-twitter"></i></a></li>
+        <li><a href="https://www.instagram.com" target="_blank"><i class="fa fa-instagram"></i></a></li>
+        <li><a href="https://www.youtube.com" target="_blank"><i class="fa fa-youtube-play"></i></a></li>
+      </ul>
+    </div>
+
+    <div class="sec quicklinks animate__animated animate__fadeInUp animate__delay-2s">
+      <h2>QUICK LINKS</h2>
+      <ul>
+        <li><a href="nyabz.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="Academics.html">Acadamics</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="contactus.html">Contact Us</a></li>
+      </ul>
+    </div>
+
+    <div class="sec quicklinks animate__animated animate__fadeInUp animate__delay-3s">
+      <h2>IMPORTANT LINKS</h2>
+      <ul>
+         <li><a href="https://www.education.go.ug/">Ministry of Education and Sports</a></li>
+        <li><a href="https://uneb.ac.ug/">Uganda National Examinations Board (UNEB)</a></li>
+        <li><a href="https://www.ncdc.go.ug/">Nationl Curriculum Development Centre (NCDC)</a></li>
+        <li><a href="https://www.kabale.go.ug/">Kabale District Local Government</a></li>
+
+      </ul>
+    </div>
+
+    <div class="sec contact animate__animated animate__fadeInUp animate__delay-4s">
+      <h2>Contact Us</h2>
+      <ul class="info">
+        <li>
+          <span><i class="fa fa-map-marker"></i></span>
+          <span>Kabale District<br>Kabale Municipality, Nyabikoni Ward, <br>UGA</span>
+        </li>
+        <li>
+          <span><i class="fa fa-phone"></i></span>
+          <p>
+            <a href="tel:+256704980778">+256 775 475 629</a><br>
+            <a href="tel:+256704980778">+256 703 599 882</a><br>
+            <a href="tel:+256704980778">+256 773 078 285</a>
+          </p>
+        </li>
+        <li>
+          <span><i class="fa fa-envelope"></i></span>
+          <p><a href="mailto:tukamuhebwanewton@gmail.com">tukamuhebwanewton@gmail.com</a></p>
+        </li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+<div class="copyrightText wow animate__animated animate__fadeInUp animate__delay-5s">
+ <div class="fab-container">
+  <button class="fab main-fab" onclick="toggleFab()">+</button>
+  <div class="fab-options">
+    <a href="https://wa.me/256773078285" target="_blank" class="fab-option">
+      <img src="https://img.icons8.com/color/48/whatsapp--v1.png" alt="WhatsApp">
+    </a>
+    <a href="tel:+256775475629" class="fab-option">
+      <img src="https://img.icons8.com/color/48/phone.png" alt="Phone">
+    </a>
+    <a href="mailto:nyabikonisecschool@gmail.com" class="fab-option">
+      <img src="https://img.icons8.com/color/48/email.png" alt="Email">
+    </a>
+    <a href="https://nyabikoniss.blogspot.com/p/about-us.html" class="fab-option">
+      <img src="https://img.icons8.com/color/48/info.png" alt="Info">
+    </a>
+  </div>
+</div>
+
+  <p style="color: #fff;">Copyright © 2025 Nyabikoni Sec School. All Rights Reserved.</p>
+
+ <!-- Up Arrow Button -->
+<div id="up-arrow" onclick="scrollToTop()" class="wow animate__animated animate__fadeInUp animate__delay-0s">
+  <span>&#9650;</span>
+</div>
+</div>
+
+      
+
+<!-- -------script----- -->
+
+    <script>
+        var navlinks = document.getElementById("navlinks");
+        function showMenu(){
+            navlinks.style.right = "0"
+        }
+        function hideMenu(){
+            navlinks.style.right = "-200px"
+        }
+         
+ 
+        // Add scroll event listener with throttling for smoother animation
+        let lastScrollTop = 0;
+        const scrollThreshold = 100;
+        let ticking = false;
+
+        window.addEventListener('scroll', function() {
+            if (!ticking) {
+                window.requestAnimationFrame(function() {
+                    const topbar = document.querySelector('.topbar');
+                    const navbar = document.querySelector('.navbar');
+                    const scrollPosition = window.scrollY;
+                    
+                    // Determine scroll direction
+                    const scrollDirection = scrollPosition > lastScrollTop ? 'down' : 'up';
+                    
+                    if (scrollPosition > scrollThreshold) {
+                        if (scrollDirection === 'down') {
+                            topbar.classList.add('hide');
+                            navbar.classList.add('show');
+                        } else {
+                            topbar.classList.remove('hide');
+                            navbar.classList.remove('show');
+                        }
+                    } else {
+                        topbar.classList.remove('hide');
+                        navbar.classList.remove('show');
+                    }
+                    
+                    lastScrollTop = scrollPosition;
+                    ticking = false;
+                });
+                
+                ticking = true;
+            }
+        });
+    </script>
+
+    <script>
+        function scrollToTop() {
+    window.scrollTo({
+        top: 0, // Scroll to the top of the page
+        behavior: 'smooth' // Smooth scrolling animation
+    });
+}
+    </script>
+
+<script>
+  function toggleFab() {
+    document.querySelector('.fab-container').classList.toggle('open');
+  }
+</script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const counters = document.querySelectorAll(".counter");
+
+            counters.forEach(counter => {
+                const updateCounter = () => {
+                    const target = +counter.getAttribute("data-target");
+                    const count = +counter.innerText;
+                    const increment = target / 100; // Adjust speed
+
+                    if (count < target) {
+                        counter.innerText = Math.ceil(count + increment);
+                        setTimeout(updateCounter, 30); // Adjust speed timing
+                    } else {
+                        counter.innerText = target;
+                    }
+                };
+                updateCounter();
+            });
+        });
+    </script>
+    <!-- Include AOS JS before closing </body> -->
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+<script>
+  AOS.init({
+    duration: 800,
+    once: true, // animation only happens once when scrolled into view
+  });
+  
+
+  
+</script>
+
+<!-- Scripts -->
+<script>
+  function scrollToTop() {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  }
+
+  window.addEventListener('scroll', function () {
+    var arrow = document.getElementById('up-arrow');
+    arrow.style.display = window.scrollY > 300 ? 'block' : 'none';
+  });
+
+  new WOW().init();
+</script>
+<!-- WOW.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+<script>
+  new WOW().init();
+</script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</body>
+</html>
+
+
+
+
+ 

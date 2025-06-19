@@ -1,0 +1,1105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nyabikoni website</title>
+    <link rel="stylesheet" href="style1.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Press+Start+2P&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bungee&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Press+Start+2P&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+<!-- <link rel="stylesheet" href="contact.css"> -->
+ <link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+/>
+<!-- AOS CSS -->
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+<style>
+*{
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+font-family: "poppins";
+}
+
+/* Multi-level dropdown styles */
+.dropdown {
+    position: relative;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #1c4673;
+    min-width: 200px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.9);
+    z-index: 1;
+    border-radius: 4px;
+    margin-top: 10px;
+}
+
+.dropdown-content a {
+    color: #fff;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    transition: background-color 0.3s;
+}
+
+.dropdown-content a:hover {
+    background-color: #268b17;
+}
+
+/* Nested dropdown styles */
+.dropdown-content .dropdown {
+    position: relative;
+}
+
+.dropdown-content .dropdown-content {
+    left: 100%;
+    top: 0;
+    margin-top: 0;
+    margin-left: 2px;
+}
+
+.dropdown-content .dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Show dropdown on hover */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Add arrow indicators for dropdowns */
+.dropdown > a:after {
+    content: ' ▼';
+    font-size: 12px;
+}
+
+.dropdown-content .dropdown > a:after {
+    content: ' ►';
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.swapper{
+display: flex;
+align-items: center;
+justify-content: center;
+align-items: center;
+background: url() #030728 no-repeat center;
+margin: 20px 20px 20px 20px;
+border-radius: 10px;
+gap: 20px;
+
+}
+.slider-wrapper{
+overflow: hidden;
+margin: 100px 70px;
+height: 50%;
+}
+
+.card-list .card-item{
+color: #fff;
+user-select: none;
+padding: 35px;
+display: flex;
+flex-direction: column;
+align-items: center;
+border-radius: 8px;
+backdrop-filter: blur(30px);
+background: rgba(225,255,255, 0.2);
+border: 1px solid rgba(255,255,255,0.5);
+height: 50%;
+}
+.card-item .swiper-slide{
+    width: 300px;
+}
+
+.card-list .card-item .user-image{
+width: 150px;
+height: 150px;
+border-radius: 50%;
+margin-bottom: 40px;
+border: 3px solid #fff;
+padding: 4px;
+}
+.card-list .card-item .user-profession{
+font-size: 1.13rem;
+color: #e3e3e3;
+font-weight: 500;
+margin: 4px 0 40px;
+}
+.card-list .card-item .message-button{
+font-size: 1.25rem;
+padding: 10px 35px;
+color: #030728;
+border-radius: 6px;
+font-weight: 500;
+cursor: pointer;
+background: #fff;
+border: 1px solid transparent;
+transition: 0.2s ease;
+}
+.card-list .card-item .message-button:hover{
+background: rgba(255,255,255,0.1);
+border: 1px solid #fff;
+color: #fff;
+}
+.slider-wrapper .swiper-pagination-bullet{
+background: #fff;
+height: 15px;
+width: 15px;
+}
+.slider-wrapper .swiper-slide-button{
+color: #fff;
+margin-top: -50px;
+transition: 0.2s ease;
+}
+.slider-wrapper .swiper-slide-button:hover{
+color: #030728;
+}
+@media (max-width: 768px){
+.slider-wrapper{
+    margin: 0 10px 40px;
+}
+.slider-wrapper .swiper-slide-button{
+    display: none;
+}
+}
+
+
+
+.kontainer {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .map-container {
+            width: 100%;
+            height: 400px;
+            margin-top: 20px;
+        }
+
+        h1 {
+            font-size: 2em;
+            margin-bottom: 10px;
+            /* color: #333; */
+        }
+
+        p {
+            font-family: 'poppins' sans-serif;
+            font-size: 1.2em;
+            /* color: #555; */
+        }
+
+        iframe {
+            border: none;
+            width: 100%;
+            height: 100%;
+        }
+
+.topbar {
+  background: #268b17;
+  color: #fff;
+  font-size: 15px;
+  padding: 1.2rem 0;
+  min-height: 56px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1001;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  transform: translateY(0);
+}
+
+.topbar.hide {
+  transform: translateY(-100%);
+}
+
+.navbar {
+  position: fixed;
+  top: 56px;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  background-color: #343a40 !important;
+  transform: translateY(0);
+}
+
+.navbar.show {
+  transform: translateY(-56px);
+}
+
+/* Adjust the header section to account for fixed navbar and topbar */
+.header {
+  margin-top: 112px;
+}
+
+/* Adjust text-box to account for fixed navbar */
+.text-box {
+  margin-top: 150px !important;
+}
+
+.topbar .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+      margin-top: 20px;
+}
+.topbar .topbar-left {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+.topbar .topbar-left span, .topbar .topbar-left a {
+  color: #fff;
+  text-decoration: none;
+  margin-right: 1.5rem;
+  display: flex;
+  align-items: center;
+}
+.topbar .topbar-left i {
+  margin-right: 0.5rem;
+  color: #fff;
+}
+.topbar .topbar-right {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+.topbar .topbar-message {
+  margin-right: 1.2rem;
+  color:  #fff;
+}
+.topbar .topbar-message a {
+  color: #4da3ff;
+  text-decoration: none;
+  font-weight: 500;
+}
+.topbar .topbar-social a {
+  color:  #fff;
+  margin-left: 0.5rem;
+  font-size: 1.1em;
+  transition: color 0.2s;
+}
+.topbar .topbar-social a:hover {
+  color: #4da3ff;
+}
+@media (max-width: 768px) {
+  .topbar .container {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  .topbar .topbar-right {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.3rem;
+  }
+  .topbar .topbar-message {
+    margin-right: 0;
+  }
+}
+
+
+.topbar-message-wrapper {
+  overflow: hidden;
+  white-space: nowrap;
+  width: 250px; /* Adjust this to fit your design */
+  position: relative;
+}
+
+.scrolling-text {
+  display: inline-block;
+  white-space: nowrap;
+  animation: topbar-scroll-left 15s linear infinite;
+  color: #fff;
+}
+
+@keyframes topbar-scroll-left {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.topbar-message-wrapper a {
+  color: #4da3ff;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+@media (max-width: 768px) {
+  .scrolling-text {
+    animation: none;
+    transform: translateX(0);
+  }
+}
+
+.topbar-left-wrapper {
+  overflow: hidden;
+  white-space: nowrap;
+  max-width: 300px; /* Adjust width as needed */
+  position: relative;
+}
+
+.scrolling-left {
+  display: inline-block;
+  white-space: nowrap;
+  animation: scroll-left-info 15s linear infinite;
+  color: #fff;
+}
+
+@keyframes scroll-left-info {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+@media (max-width: 768px) {
+  .scrolling-left {
+    animation: none;
+    transform: translateX(0);
+  }
+}
+
+
+.carousel-image-container {
+  height: 100vh; /* Full viewport height */
+  overflow: hidden;
+}
+
+.carousel-image-container img {
+  object-fit: cover; /* Cover entire container nicely */
+  height: 100%;
+  width: 100%;
+}
+
+.gradient-overlay {
+  background: linear-gradient(180deg, rgba(0,0,0,0.6) 20%, rgba(0,0,0,0.3) 60%, transparent 100%);
+  pointer-events: none; /* So overlay doesn’t block buttons or links */
+  z-index: 1;
+}
+
+.carousel-caption {
+  z-index: 2; /* On top of overlay */
+}
+
+.text-box {
+  max-width: 700px;
+  color: #fff;
+}
+
+/* Responsive text sizes */
+@media (max-width: 768px) {
+  .carousel-caption h1 {
+    font-size: 1.8rem;
+  }
+  .carousel-caption h2 {
+    font-size: 1.2rem;
+  }
+  .carousel-caption p {
+    font-size: 1rem;
+  }
+}
+ /* Faster carousel fade duration */
+  .carousel-fade .carousel-item {
+    transition: opacity 0.7s ease-in-out; /* Speed up fade */
+  }
+
+  /* Parallax scroll effect */
+  .carousel-item img {
+    object-fit: cover;
+    height: 100vh;
+    transform: scale(1.05);
+    transition: transform 1s ease;
+    will-change: transform;
+  }
+
+  /* When active, slightly zoom out for virtual scroll illusion */
+  .carousel-item.active img {
+    transform: scale(1);
+  }
+
+.course h1, .course p, .course-col {
+  transition: all 0.6s ease-in-out;
+}
+
+</style>
+</head>
+<body>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+<!-- Topbar Section -->
+<div class="topbar" style="padding: 5px 0;">
+    <div class="container" style="font-size: 14px; line-height: 18px; display: flex; justify-content: space-between; align-items: center;">
+        <div class="topbar-left" style="flex: 1;">
+            <marquee behavior="scroll" direction="left" scrollamount="5" onmouseover="this.stop()" onmouseout="this.start()" style="height: 20px; line-height: 20px;">
+                <span style="padding-right: 30px;"><i class="fa fa-envelope"></i> nyabikonisecschool@gmail.com</span>
+                <span><i class="fa fa-info-circle"></i> +256704980778</span>
+            </marquee>
+        </div>
+        <div class="topbar-right" style="flex: 1; display: flex; justify-content: flex-end; align-items: center; gap: 10px;">
+            <marquee behavior="scroll" direction="left" scrollamount="5" onmouseover="this.stop()" onmouseout="this.start()" style="height: 20px; line-height: 20px; max-width: 70%;">
+                <span class="topbar-message">
+                    We deliver the highest quality performance we do. <a href="contact.html">Contact Us</a>
+                </span>
+            </marquee>
+            <span class="topbar-social" style="white-space: nowrap;">
+                <a href="#"><i class="fa fa-twitter"></i></a>
+                <a href="#"><i class="fa fa-facebook"></i></a>
+                <a href="#"><i class="fa fa-linkedin"></i></a>
+                <a href="#"><i class="fa fa-instagram"></i></a>
+            </span>
+        </div>
+    </div>
+</div>
+
+
+  <section class="header">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+      <div class="container">
+        <a  href="index.html"><img src="nyabzgallery/nyabz logo.png" alt=""></a>
+        <div class="marquee">
+          <div class="marquee-text" >NYABIKONI SECONDARY SCHOOL</div>
+        </div>
+      
+        <div class="nav-links" id="navlinks">
+            <i class="fa fa-times" onclick="hideMenu()"></i>
+            <ul>
+                <li><a href="index.html">HOME</a></li>
+                <li class="dropdown"><a href="about.html">ABOUT</a>
+                    <div class="dropdown-content">
+                        <a href="anthem.html">SCHOOL ANTHEM</a>
+                        <div class="dropdown">
+                            <a href="staff.html">STAFF</a>
+                            <div class="dropdown-content">
+                                <a href="staff.html">TEACHING STAFF</a>
+                                <a href="nonstaff.html">NON TEACHING STAFF</a>
+                            </div>
+                        </div>
+                        <a href="footer.html">STUDENT'S CLUBS</a>
+                    </div>
+                </li>
+                <li class="dropdown"><a href="Academics.html">ACADEMICS</a>
+                    <div class="dropdown-content">
+                        <div class="dropdown">
+                            <div class="dropdown-content">
+                                <a href="olevel.html">O'LEVEL</a>
+                                <a href="alevel.html">A'LEVEL</a>
+                            </div>
+                        </div>
+                        <a href="events.html">NEWS & EVENTS</a>
+                    </div>
+                </li>
+                <li><a href="contact.html">GALLERY</a></li>
+                <li><a href="contactus.html">CONTACT</a></li>
+            </ul>
+        </div>
+        <i class="fa fa-bars" onclick="showMenu()"></i>
+      </div>
+    </nav>
+</section>
+
+<!-- Carousel with Gradient Overlay -->
+<div id="carouselExampleCaptions" class="carousel slide carousel-fade" data-bs-ride="carousel">
+
+  <!-- Carousel Indicators -->
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+  </div>
+
+  <!-- Carousel Inner -->
+  <div class="carousel-inner">
+
+    <!-- Slide Template (Repeat for each slide) -->
+    <!-- Slide 1 -->
+    <div class="carousel-item active">
+      <div class="carousel-image-container position-relative">
+        <img src="nyabzgallery/current.jpg" class="d-block w-100" alt="Slide 1" style="object-fit: cover; height: 100vh;">
+        <!-- Gradient overlay -->
+        <div class="position-absolute top-0 start-0 w-100 h-100" style="background: linear-gradient(to bottom, rgba(0,0,0,0.7), rgba(0,0,0,0.7)); z-index: 1;"></div>
+
+        <div class="carousel-caption d-flex flex-column justify-content-center align-items-center text-center px-3 animate__animated animate__fadeInUp" style="bottom: 20%; z-index: 2;">
+          <div class="background-color: rgba(0, 0, 0, 0.08); rounded p-4">
+            <h1 class="display-4 fw-bold" style="font-family: Bungee; color: #fff;">Nyabikoni Secondary School</h1>
+            <h2 class="h3 text-light">Strive For Excellence Is Our Motto</h2>
+            <p class=" text-white">
+              We push ourselves to deliver the highest quality performance we do.<br>
+              At Nyabikoni Secondary School we believe that those who strive for excellence will have longevity in their endeavors.
+            </p>
+            <a href="Academics.html" class="btn btn-lg btn-primary hero-btn animate__animated animate__zoomIn" style="animation-delay: 0.5s;">Know More</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 2 -->
+    <div class="carousel-item">
+      <div class="carousel-image-container position-relative">
+        <img src="nyabzgallery/Alevelstudents.jpg" class="d-block w-100" alt="Slide 2" style="object-fit: cover; height: 100vh;">
+        <div class="position-absolute top-0 start-0 w-100 h-100" style="background: linear-gradient(to bottom, rgba(0,0,0,0.7), rgba(0,0,0,0.7)); z-index: 1;"></div>
+
+        <div class="carousel-caption d-flex flex-column justify-content-center align-items-center text-center px-3 animate__animated animate__fadeInUp" style="bottom: 20%; z-index: 2;">
+          <div class="background-color: rgba(0, 0, 0, 0.08); rounded p-4">
+            <h1 class="display-4 fw-bold" style="font-family: Bungee; color: #fff;">Nyabikoni Secondary School</h1>
+            <h2 class="h3 text-light">Strive For Excellence Is Our Motto</h2>
+            <p class="text-white">
+              We push ourselves to deliver the highest quality performance we do.<br>
+              At Nyabikoni Secondary School we believe that those who strive for excellence will have longevity in their endeavors.
+            </p>
+            <a href="Academics.html" class="btn btn-lg btn-primary hero-btn animate__animated animate__zoomIn" style="animation-delay: 0.5s;">Know More</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slide 3 -->
+    <div class="carousel-item">
+      <div class="carousel-image-container position-relative">
+        <img src="nyabzgallery/estern block.JPG" class="d-block w-100" alt="Slide 3" style="object-fit: cover; height: 100vh;">
+        <div class="position-absolute top-0 start-0 w-100 h-100" style="background: linear-gradient(to bottom, rgba(0,0,0,0.7), rgba(0,0,0,0.7)); z-index: 1;"></div>
+
+        <div class="carousel-caption d-flex flex-column justify-content-center align-items-center text-center px-3 animate__animated animate__fadeInUp" style="bottom: 20%; z-index: 2;">
+          <div class="background-color: rgba(0, 0, 0, 0.08); rounded p-4">
+            <h1 class="display-4 fw-bold" style="font-family: Bungee; color: #fff;">Nyabikoni Secondary School</h1>
+            <h2 class="h3 text-light">Strive For Excellence Is Our Motto</h2>
+            <p class="text-white">
+              We push ourselves to deliver the highest quality performance we do.<br>
+              At Nyabikoni Secondary School we believe that those who strive for excellence will have longevity in their endeavors.
+            </p>
+            <a href="Academics.html" class="btn btn-lg btn-primary hero-btn animate__animated animate__zoomIn" style="animation-delay: 0.5s;">Know More</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Controls -->
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+
+
+
+<!-- Welcome Section -->
+<section class="container my-5 p-4 border border-success rounded-4 shadow-lg bg-light">
+  <div class="row align-items-center g-4">
+
+    <!-- Image Column -->
+    <div class="col-lg-5 text-center wow animate__animated animate__fadeInLeft">
+      <img src="nyabzgallery/HM.JPG" alt="Nyabikoni Secondary School" class="img-fluid rounded-3 shadow">
+    </div>
+
+    <!-- Text Column -->
+    <div class="col-lg-7 wow animate__animated animate__fadeInRight" data-wow-delay="0.2s">
+      <h1 class="display-5 fw-bold text-success mb-3" style="font-family: 'Bungee', cursive;">Welcome to Nyabikoni Secondary School</h1>
+      <p class="fs-5 text-dark">
+        <strong>Nyabikoni Secondary School</strong> is a private, day and boarding school for O' and A' levels. It was founded in 2003 by Rev. Fr. Busingye Christopher, a diocesan priest in Kabale Diocese.
+      </p>
+      <p class="fs-5 text-dark">
+        The school is located in Kanyakiriro Cell, Nyabikoni Ward, Central Division, Kabale Municipality; a quarter kilometre along the Kabale-Kisoro main road and approximately 1 km from the municipal centre.
+      </p>
+      <p class="fs-5 text-dark">
+        The idea to start the school was born out of the need to help less fortunate children in the region access education. It is registered with the Ministry of Education and Sports under registration number 
+        <strong>Pass/N/169</strong> and <strong>UNEB Centre No. 1998</strong>.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+
+
+
+<!-- ------academics------ -->
+<section class="course">
+  <h1 style="font-family: bungee;" data-aos="fade-down" data-aos-duration="2000">Academics</h1>
+  <p data-aos="fade-up" data-aos-duration="2000">Lorem ipsum dolor sit amet consectetur.</p>
+
+  <div class="row">
+    <div class="course-col" data-aos="fade-right" data-aos-duration="2000">
+      <h3>ORDINARY LEVEL(O'LEVEL)</h3>
+      <p>Our ordinary level program serves over 500 students from S.1 to S.4. <br> Academics centres around a Uganda National curriculum.</p>
+    </div>
+    <div class="course-col" data-aos="fade-up" data-aos-duration="2000">
+      <h3>ADVANCED LEVEL(A'LEVEL)</h3>
+      <p>Our Advanced level program serves over 240 students from S.5 to S.6. <br> Academics centres around a Uganda National curriculum.</p>
+    </div>
+    <div class="course-col" data-aos="fade-left" data-aos-duration="2000">
+      <h3>CO-CURRICULAR ACTIVITIES</h3>
+      <p>The school has a rich co-curricular programme that includes Music, dance drama and elocution, Games, Sports and Club Activities</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ----campus---------->
+<section class="campus">
+  <h1 style="font-family: bungee;" data-aos="fade-down" data-aos-duration="2000" data-aos-once="true">
+    Our School Infrastructure
+  </h1>
+  <p data-aos="fade-up" data-aos-duration="2000" data-aos-once="true">
+    The School has a good learning environment and infrastructure
+  </p>
+
+  <div class="row">
+    <div class="campus-col" data-aos="fade-right" data-aos-duration="2000" data-aos-once="true">
+      <img src="nyabzgallery/admin2 - Copy.jpg">
+      <div class="layer">
+        <h3>ADMINISTRATION BLOCK</h3>
+      </div>
+    </div>
+
+    <div class="campus-col" data-aos="fade-up" data-aos-duration="2000" data-aos-once="true">
+      <img src="nyabzgallery/students3.JPG">
+      <div class="layer">
+        <h3>MAIN CAMPUS</h3>
+      </div>
+    </div>
+
+    <div class="campus-col" data-aos="fade-left" data-aos-duration="2000" data-aos-once="true">
+      <img src="nyabzgallery/esternblock - Copy.jpg">
+      <div class="layer">
+        <h3>EASTERN CAMPUS</h3>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<h2 style="font-weight: bold;margin-top: 100px;text-align: center; font-family: bungee;" data-aos="fade-down" data-aos-duration="2000" data-aos-once="true">
+  OUR ADMINISTRATIVE PERSONNEL
+</h2>
+
+<section class="swapper">
+  <div class="container swiper" data-aos="fade-up" data-aos-duration="2000" data-aos-once="true">
+    <div class="slider-wrapper">
+      <div class="card-list swiper-wrapper">
+        <div class="card-item swiper-slide" data-aos="fade-up" data-aos-duration="2000">
+          <img src="nyabzgallery/scholar.JPG" alt="User Image" class="user-image">
+          <h2 class="user-name">Rev.Fr.Busingye Christopher</h2>
+          <p class="user-profession">Executive Director</p>
+          <button class="message-button">Message</button>
+        </div>
+
+        <div class="card-item swiper-slide" data-aos="fade-up" data-aos-duration="2000">
+          <img src="nyabzgallery/HM.JPG" alt="User Image" class="user-image">
+          <h2 class="user-name">Mr.Turyasiima Elly</h2>
+          <p class="user-profession">Head Teacher</p>
+          <button class="message-button">Message</button>
+        </div>
+
+        <div class="card-item swiper-slide" data-aos="fade-up" data-aos-duration="2000">
+          <img src="nyabzgallery/scholar.JPG" alt="User Image" class="user-image">
+          <h2 class="user-name">Ms.Kyomugisha Scholastic</h2>
+          <p class="user-profession">Assistant Director</p>
+          <button class="message-button">Message</button>
+        </div>
+
+        <div class="card-item swiper-slide" data-aos="fade-up" data-aos-duration="2000">
+          <img src="nyabzgallery/LINET.jpg" alt="User Image" class="user-image">
+          <h2 class="user-name">Eng.Agaba Wenceslaus</h2>
+          <p class="user-profession">Technical Advisor & Marketing Manager</p>
+          <button class="message-button">Message</button>
+        </div>
+
+        <div class="card-item swiper-slide" data-aos="fade-up" data-aos-duration="2000">
+          <img src="nyabzgallery/KAKETO SULAIT.jpg" alt="User Image" class="user-image">
+          <h2 class="user-name">Ngabirano Agricola</h2>
+          <p class="user-profession">Soft Developer</p>
+          <button class="message-button">Message</button>
+        </div>
+
+        <div class="card-item swiper-slide" data-aos="fade-up" data-aos-duration="2000">
+          <img src="nyabzgallery/DEPUTY HM Eastern Campus - Copy.jpg" alt="User Image" class="user-image">
+          <h2 class="user-name">Madam Scholar</h2>
+          <p class="user-profession">Deputy Head Teacher (Administration)</p>
+          <button class="message-button">Message</button>
+        </div>
+
+        <div class="card-item swiper-slide" data-aos="fade-up" data-aos-duration="2000">
+          <img src="nyabzgallery/DEPUTY HM Eastern Campus - Copy.jpg" alt="User Image" class="user-image">
+          <h2 class="user-name">Mr.Tukamushaba Moses</h2>
+          <p class="user-profession">Deputy Head Teacher</p>
+          <button class="message-button">Message</button>
+        </div>
+      </div>
+
+      <div class="swiper-pagination"></div>
+      <div class="swiper-slide-button swiper-button-prev"></div>
+      <div class="swiper-slider-button swiper-button-next"></div>
+    </div>
+  </div>
+</section>
+
+
+<!-- -------testimonials----- -->
+<section class="testimonials" style="background: #f9f9f9; padding: 50px 20px;">
+  <h1 style="font-family: bungee" data-aos="fade-up">What are our studies</h1>
+  <p data-aos="fade-up" data-aos-delay="200">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quo eaque unde quas asperiores.</p>
+
+  <div class="row">
+    <div class="testimonial-col" data-aos="fade-up" data-aos-delay="400">
+      <img src="nyabzgallery/scholar.JPG" alt="Madam Scholastic">
+      <div>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor officia cupiditate sunt ratione optio molestiae doloribus, fugit iste ex vel.</p>
+        <h3>Madam Scholastic</h3>
+        <i class="fa fa-star"></i>
+        <i class="fa fa-star"></i>
+        <i class="fa fa-star"></i>
+        <i class="fa fa-star"></i>
+        <i class="fa fa-star-o"></i>
+      </div>
+    </div>
+
+    <div class="testimonial-col" data-aos="fade-up" data-aos-delay="600">
+      <img src="nyabzgallery/HM.JPG" alt="Turyamusiima Elly">
+      <div>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor officia cupiditate sunt ratione optio molestiae doloribus, fugit iste ex vel.</p>
+        <h3>Turyamusiima Elly</h3>
+        <i class="fa fa-star"></i>
+        <i class="fa fa-star"></i>
+        <i class="fa fa-star"></i>
+        <i class="fa fa-star"></i>
+        <i class="fa fa-star-half-o"></i>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+ <section class="featured-gallery">
+    <h1 style="font-family: bungee;">FEATURED GALLERY</h1>
+    <p>
+      Our gallery dives you into a visualization of our school, students, teachers, events, and more that
+      is happening in and out of our school.
+    </p>
+    <div class="gallery-wrapper">
+      <div class="gallery">
+        <div class="gallery-item">
+          <img src="nyabzgallery/current.jpg" alt="Main Campus">
+          <h3>Main Campus</h3>
+          <h5>Our Gallery</h5>
+        </div>
+        <div class="gallery-item">
+          <img src="nyabzgallery/sports.JPG" alt="Co-curricular Activities">
+          <h3>Co-curricular Activities</h3>
+          <h5>Our Gallery</h5>
+        </div>
+        <div class="gallery-item">
+          <img src="nyabzgallery/chapel - Copy.JPG" alt="Chapel Times">
+          <h3>Chapel Times</h3>
+          <h5>Our Gallery</h5>
+        </div>
+        <div class="gallery-item">
+          <img src="nyabzgallery/sports4.JPG" alt="School Clubs">
+          <h3>School Clubs</h3>
+          <h5>Our Gallery</h5>
+        </div>
+        <div class="gallery-item">
+          <img src="nyabzgallery/esternblock - Copy.jpg" alt="General Album">
+          <h3>Eastern Block</h3>
+          <h5>Our Gallery</h5>
+        </div>
+        <div class="gallery-item">
+          <img src="nyabzgallery/admin2 - Copy.JPG" alt="General Album">
+          <h3>Admin Block</h3>
+          <p>Our Gallery</p>
+        </div>
+        <div class="gallery-item">
+          <img src="nyabzgallery/boyswing - Copy.JPG" alt="General Album">
+          <h3>Estern Campus</h3>
+          <h5>Our Gallery</h5>
+        </div>
+        <div class="gallery-item">
+          <img src="nyabzgallery/chapel2 - Copy.JPG" alt="General Album">
+          <h3>School Chapel</h3>
+          <h5>Our Gallery</h5>
+        </div>
+        <div class="gallery-item">
+          <img src="nyabzgallery/estern block.JPG" alt="General Album">
+          <h3>Estern Block2</h3>
+          <h5>Our Gallery</h5>
+        </div>
+      </div>
+    </div>
+</section>
+
+<div class="kontainer">
+    <h1 style="font-family: bungee;">SCHOOL LOCATION</h1>
+    <p>Nyabikoni Secondary School is found along Rushanbwa Rd, Kabale District, Uganda - East Africa.</p>
+    <div class="map-container">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.867278060912!2d29.975607541358137!3d-1.2510354323165203!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x19dc0df04d1debb7%3A0xcf77785b2b3d1338!2sNyabikoni%20Secondary%20School!5e0!3m2!1sen!2sug!4v1737384566062!5m2!1sen!2sug" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+</div>
+
+ <footer>
+  <div class="container wow animate__animated animate__fadeInUp">
+    <div class="sec aboutus animate__animated animate__fadeInUp animate__delay-1s">
+      <h2>About Us</h2>
+          <p>We aim to nurture confident, compassionate, and innovative leaders through inclusive education, fostering lifelong learning, critical thinking, and global awareness to inspire meaningful contributions to society and the world. </p>
+      <ul class="sci">
+        <li><a href="https://www.facebook.com" target="_blank"><i class="fa fa-facebook"></i></a></li>
+        <li><a href="https://twitter.com" target="_blank"><i class="fa fa-twitter"></i></a></li>
+        <li><a href="https://www.instagram.com" target="_blank"><i class="fa fa-instagram"></i></a></li>
+        <li><a href="https://www.youtube.com" target="_blank"><i class="fa fa-youtube-play"></i></a></li>
+      </ul>
+    </div>
+
+    <div class="sec quicklinks animate__animated animate__fadeInUp animate__delay-2s">
+      <h2>QUICK LINKS</h2>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="Academics.html">Acadamics</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="contactus.html">Contact Us</a></li>
+      </ul>
+    </div>
+
+    <div class="sec quicklinks animate__animated animate__fadeInUp animate__delay-3s">
+      <h2>IMPORTANT LINKS</h2>
+      <ul>
+         <li><a href="https://www.education.go.ug/">Ministry of Education and Sports</a></li>
+        <li><a href="https://uneb.ac.ug/">Uganda National Examinations Board (UNEB)</a></li>
+        <li><a href="https://www.ncdc.go.ug/">Nationl Curriculum Development Centre (NCDC)</a></li>
+        <li><a href="https://www.kabale.go.ug/">Kabale District Local Government</a></li>
+
+      </ul>
+    </div>
+
+    <div class="sec contact animate__animated animate__fadeInUp animate__delay-4s">
+      <h2>Contact Us</h2>
+      <ul class="info">
+        <li>
+          <span><i class="fa fa-map-marker"></i></span>
+          <span>Kabale District<br>Kabale Municipality, Nyabikoni Ward, <br>UGA</span>
+        </li>
+        <li>
+          <span><i class="fa fa-phone"></i></span>
+          <p>
+            <a href="tel:+256704980778">+256 775 475 629</a><br>
+            <a href="tel:+256704980778">+256 703 599 882</a><br>
+            <a href="tel:+256704980778">+256 773 078 285</a>
+          </p>
+        </li>
+        <li>
+          <span><i class="fa fa-envelope"></i></span>
+          <p><a href="mailto:tukamuhebwanewton@gmail.com">tukamuhebwanewton@gmail.com</a></p>
+        </li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+<div class="copyrightText wow animate__animated animate__fadeInUp animate__delay-5s">
+  <div class="fab-container">
+    <button class="fab main-fab" onclick="toggleFab()">+</button>
+    <div class="fab-options">
+      <a href="https://wa.me/256773078285" target="_blank" class="fab-option">
+        <img src="https://img.icons8.com/color/48/whatsapp--v1.png" alt="WhatsApp">
+      </a>
+      <a href="tel:+256775475629" class="fab-option">
+        <img src="https://img.icons8.com/color/48/phone.png" alt="Phone">
+      </a>
+      <a href="mailto:nyabikonisecschool@gmail.com" class="fab-option">
+        <img src="https://img.icons8.com/color/48/email.png" alt="Email">
+      </a>
+      <a href="https://nyabikoniss.blogspot.com/p/about-us.html" class="fab-option">
+        <img src="https://img.icons8.com/color/48/info.png" alt="Info">
+      </a>
+    </div>
+  </div>
+
+  <p style="color: #fff;">Copyright © 2025 Nyabikoni Sec School. All Rights Reserved.</p>
+
+  <div id="up-arrow" onclick="scrollToTop()" class="wow animate__animated animate__fadeInUp animate__delay-0s">
+    <span>&#9650;</span>
+  </div>
+</div>
+
+
+     <!-- ------javascript for toggle menu--------- -->
+    <script>
+        var navlinks = document.getElementById("navlinks");
+        function showMenu(){
+            navlinks.style.right = "0"
+        }
+        function hideMenu(){
+            navlinks.style.right = "-200px"
+        }
+    </script>
+
+<script>
+    function scrollToTop() {
+window.scrollTo({
+    top: 0, // Scroll to the top of the page
+    behavior: 'smooth' // Smooth scrolling animation
+});
+}
+
+ AOS.init({
+    duration: 1000,   // 1 second animation duration
+    easing: 'ease-in-out',
+    once: true
+  })
+</script>
+
+<script>
+    function toggleFab() {
+      const fabOptions = document.querySelector('.fab-options');
+      fabOptions.classList.toggle('show');
+    }
+    </script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+const gallery = document.querySelector(".gallery");
+const items = document.querySelectorAll(".gallery-item");
+const itemCount = items.length;
+
+let currentPosition = 0;
+
+function cloneItems() {
+items.forEach(item => {
+  const clone = item.cloneNode(true);
+  gallery.appendChild(clone);
+});
+}
+
+function autoScroll() {
+currentPosition -= 1;
+gallery.style.transform = `translateX(${currentPosition}px)`;
+
+if (Math.abs(currentPosition) >= itemCount * items[0].offsetWidth) {
+  currentPosition = 0;
+}
+
+requestAnimationFrame(autoScroll);
+}
+
+cloneItems();
+autoScroll();
+});
+
+</script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script>
+  const swiper = new Swiper('.slider-wrapper', {  // Use class selector with dot (.)
+  loop: true,
+  grabCursor: true,  // Corrected property name
+  spaceBetween: 30,
+
+  // If we need pagination
+  pagination: {
+      el: '.swiper-pagination',
+      clickable: true,
+      dynamicBullets: true
+  },
+
+  // Navigation arrows
+  navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+  },
+
+  // Breakpoints for responsive behavior
+  breakpoints: {
+      0: {
+          slidesPerView: 1
+      },
+      768: {
+          slidesPerView: 2
+      },
+      1024: {
+          slidesPerView: 3
+      },
+  }
+});
+
+</script>
+<!-- Add WOW.js in your HTML before </body> -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+<script>
+  new WOW().init();
+</script>
+
+
+
+
+<script>
+    // Add scroll event listener with throttling for smoother animation
+    let lastScrollTop = 0;
+    const scrollThreshold = 100;
+    let ticking = false;
+
+    window.addEventListener('scroll', function() {
+        if (!ticking) {
+            window.requestAnimationFrame(function() {
+                const topbar = document.querySelector('.topbar');
+                const navbar = document.querySelector('.navbar');
+                const scrollPosition = window.scrollY;
+                
+                // Determine scroll direction
+                const scrollDirection = scrollPosition > lastScrollTop ? 'down' : 'up';
+                
+                if (scrollPosition > scrollThreshold) {
+                    if (scrollDirection === 'down') {
+                        topbar.classList.add('hide');
+                        navbar.classList.add('show');
+                    } else {
+                        topbar.classList.remove('hide');
+                        navbar.classList.remove('show');
+                    }
+                } else {
+                    topbar.classList.remove('hide');
+                    navbar.classList.remove('show');
+                }
+                
+                lastScrollTop = scrollPosition;
+                ticking = false;
+            });
+            
+            ticking = true;
+        }
+    });
+</script>
+<!-- AOS JS -->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init();
+</script>
+</body>
+</html>
+

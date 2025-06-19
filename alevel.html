@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course List with Descriptions</title>
+    <link rel="stylesheet" href="alevel.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Press+Start+2P&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bungee&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Press+Start+2P&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+  rel="stylesheet">
+  <!-- Animate.css -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <style>
+        /* Resetting margin and padding */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'poppins', sans-serif;
+            /* background-color: #f4f4f9; */
+            color:black;
+            /* padding: 20px; */
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            max-width: 1200px;
+            margin: 20px auto;
+        }
+
+        .course {
+            background-color: #fff;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .course:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .course h3 {
+            font-size: 1.2em;
+            color: #4CAF50;
+            margin-bottom: 10px;
+        }
+
+        .course p {
+            font-size: 1em;
+            color: #555;
+            margin-bottom: 10px;
+        }
+@media(max-width:700px)
+        {
+            .container{
+                display: block;
+                /* padding: 20px; */
+            }
+            .course{
+                padding: 20px;
+                margin: 10px;
+            }
+        }
+
+        footer{
+    position: relative;
+    width: 100%;
+    height: auto;
+    padding: 50px 100px;
+    background: #268b17;
+}
+footer .container{
+    width: 100%;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    grid-gap:20px
+}
+footer .container .sec h2{
+    position: relative;
+    color: #fff;
+    font-weight:500;
+    margin-bottom: 15px;
+}
+footer .container .sec h2::before{
+    content: '';
+    color: #fff;
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 50px;
+    height: 2px;
+    background: #ffeb3b;
+}
+footer .container .sec p{
+    color: #fff;
+}
+.sci{
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: repeat(4,50px);
+    grid-gap: 10px;
+}
+.sci li{
+    list-style: none;
+}
+.sci li a{
+    display: inline-block;
+    width: 48px;
+    height: 48px;
+    background: #49ee2f ;
+    display: grid;
+    align-content: center;
+    justify-content: center;
+}
+.sci li a:hover{
+    background: #49ee2f;
+}
+.sci li a .fa{
+color: #fff;
+font-size: 20px;
+}
+.quicklinks{
+    position: relative;
+}
+.quicklinks li{
+list-style: none;
+}
+.quicklinks li a{
+    color: #f7f7f7;
+    text-decoration: none;
+    margin-bottom: 10px;
+    display: inline-block;
+}
+.quicklinks li a:hover{
+color: #ffeb3b;
+}
+.info
+{
+    position: relative;
+}
+.info li{
+    display: grid;
+    grid-template-columns: 30px 1fr;
+    margin-bottom: 16px;
+}
+.info li span:nth-child(1){
+    color: #fff;
+    font-size: 20px;
+}
+.info li span{
+ color: #fff;
+}
+.info a{
+    color: #f7f7f7;
+    text-decoration: none;
+}
+.info a:hover{
+    color: #ffeb3b;
+}
+.copyrightText{
+    width: 100%;
+    background: #1a650f;
+    padding: 8px 100px;
+    text-align: center;
+    color: #fff;
+}
+@media(max-width:991px){
+    footer{
+        padding: 40px;
+    }
+    footer .container{
+        /* width: 100%; */
+        /* display: grid; */
+        grid-template-columns: repeat(2,1fr);
+        /* grid-gap: 20px; */
+    }
+    .copyrightText{
+        /* width: 100%; */
+        /* background:  #1a650f; */
+        padding: 8px 40px;
+        /* text-align: center; */
+        /* color: #fff; */
+    }
+}
+@media(max-width:768px){
+    footer .container{
+        grid-template-columns: repeat(1,1fr);
+
+    }
+
+}
+
+        /* Media Queries for Responsiveness */
+        @media (max-width: 768px) {
+            .container {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .course {
+                padding: 10px;
+                font-size: 0.9rem;
+            }
+
+            .course h3 {
+                font-size: 1em;
+            }
+
+            .course p {
+                font-size: 0.9em;
+            }
+        }
+
+        #up-arrow {
+    position: fixed;
+    bottom: 20px; /* Adjust to position above bottom */
+    right: 20px; /* Adjust to position left of the right edge */
+    width: 50px;
+    height: 50px;
+    background-color: #004d00; /* Dark green */
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Add subtle shadow */
+}
+
+#up-arrow span {
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.fab-container {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  z-index: 1000;
+}
+
+.fab {
+  width: 60px;
+  height: 60px;
+  background-color: #00796b;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  font-size: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.fab:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3);
+}
+
+.fab-options {
+  position: absolute;
+  bottom: 70px;
+  right: 0;
+  display: none;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.fab-option {
+  width: 50px;
+  height: 50px;
+  background-color: white;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.fab-option img {
+  width: 24px;
+  height: 24px;
+}
+
+.fab-option:hover {
+  transform: scale(1.2);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.fab-options.show {
+  display: flex;
+}
+
+.topbar {
+  background: #268b17;
+  color: #fff;
+  font-size: 15px;
+  /* padding: 1.2rem 0; */
+  min-height:30px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1001;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  transform: translateY(0);
+}
+
+.topbar.hide {
+  transform: translateY(-100%);
+}
+
+.navbar {
+  position: fixed;
+  top: 56px;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  background-color: #343a40 !important;
+  transform: translateY(0);
+}
+
+.navbar.show {
+  transform: translateY(-56px);
+}
+
+
+/* Adjust the header section to account for fixed navbar and topbar */
+.header {
+  margin-top: 112px;
+  background-attachment: fixed;
+}
+
+/* Adjust text-box to account for fixed navbar */
+.text-box {
+  margin-top: 150px !important;
+}
+
+.topbar .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+.topbar .topbar-left {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+.topbar .topbar-left span, .topbar .topbar-left a {
+  color: #fff;
+  text-decoration: none;
+  margin-right: 1.5rem;
+  display: flex;
+  align-items: center;
+}
+.topbar .topbar-left i {
+  margin-right: 0.5rem;
+  color: #fff;
+}
+.topbar .topbar-right {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+.topbar .topbar-message {
+  margin-right: 1.5rem;
+  color: #bfc8e2;
+}
+.topbar .topbar-message a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+}
+.topbar .topbar-social a {
+  color: #fff;
+  margin-left: 0.7rem;
+  font-size: 1.1em;
+  transition: color 0.2s;
+}
+.topbar .topbar-social a:hover {
+  color: #4da3ff;
+}
+@media (max-width: 768px) {
+  .topbar .container {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  .topbar .topbar-right {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.3rem;
+  }
+  .topbar .topbar-message {
+    margin-right: 0;
+  }
+}
+    </style>
+</head>
+<body>
+  <!-- Topbar Section -->
+ <div class="topbar" style="padding: 5px 0;">
+    <div class="container" style="font-size: 14px; line-height: 18px; display: flex; justify-content: space-between; align-items: center;">
+        <div class="topbar-left" style="flex: 1;">
+            <marquee behavior="scroll" direction="left" scrollamount="5" onmouseover="this.stop()" onmouseout="this.start()" style="height: 20px; line-height: 20px;">
+                <span style="padding-right: 30px;"><i class="fa fa-envelope"></i> nyabikonisecschool@gmail.com</span>
+                <span><i class="fa fa-info-circle"></i> +256704980778</span>
+            </marquee>
+        </div>
+        <div class="topbar-right" style="flex: 1; display: flex; justify-content: flex-end; align-items: center; gap: 10px;">
+            <marquee behavior="scroll" direction="left" scrollamount="5" onmouseover="this.stop()" onmouseout="this.start()" style="height: 20px; line-height: 20px; max-width: 70%;">
+                <span class="topbar-message">
+                    We deliver the highest quality performance we do. <a href="contact.html">Contact Us</a>
+                </span>
+            </marquee>
+            <span class="topbar-social" style="white-space: nowrap;">
+                <a href="#"><i class="fa fa-twitter"></i></a>
+                <a href="#"><i class="fa fa-facebook"></i></a>
+                <a href="#"><i class="fa fa-linkedin"></i></a>
+                <a href="#"><i class="fa fa-instagram"></i></a>
+            </span>
+        </div>
+    </div>
+</div>
+
+
+    <section class="header">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+            <a href="index.html"><img src="nyabzgallery/nyabz logo.png" alt=""  style="margin-left: 30px;"></a>
+            <div class="nav-links" id="navlinks">
+                <i class="fa fa-times" onclick="hideMenu()"></i>
+                <ul style="margin-right: 30px;">
+                    <li><a href="index.html">HOME</a></li>
+                    <li class="dropdown"><a href="about.html">ABOUT</a>
+                        <div class="dropdown-content">
+                            <a href="anthem.html">SCHOOL ANTHEM</a>
+                            <div class="dropdown">
+                                <a href="staff.html">STAFF</a>
+                                <div class="dropdown-content">
+                                    <a href="staff.html">TEACHING STAFF</a>
+                                    <a href="nonstaff.html">NON TEACHING STAFF</a>
+                                </div>
+                            </div>
+                            <a href="footer.html">STUDENT'S CLUBS</a>
+                        </div>
+                    </li>
+                    <li class="dropdown"><a href="Academics.html">ACADEMICS</a>
+                        <div class="dropdown-content">
+                            <div class="dropdown">
+                                <div class="dropdown-content">
+                                    <a href="olevel.html">O'LEVEL</a>
+                                    <a href="alevel.html">A'LEVEL</a>
+                                </div>
+                            </div>
+                            <a href="events.html">NEWS & EVENTS</a>
+                        </div>
+                    </li>
+                    <li><a href="contact.html">GALLERY</a></li>
+                    <li><a href="contactus.html">CONTACT</a></li>
+                </ul>
+            </div>
+            <i class="fa fa-bars" onclick="showMenu()"></i>
+        </nav>
+
+
+         <div class="text-box">
+            <h1 style="font-family: Bungee; margin-bottom: 200px;">ADVANCED LEVEL (A' LEVEL)</h1><br>
+            <!-- <h2>Strive For Excellence Is Our Motto</h2> -->
+            <!-- <p>We push ourselves to deliver the highest quality performance we do. <br>At Nyabikoni Secondary school we believe that those who strive for excellence will have longevity in their endeavors.</p> -->
+            <!-- <a href="Academics.html"class="hero-btn">Know More</a> -->
+        </div>
+    </section>
+
+<section>
+   <div class="wow animate__animated animate__fadeInUp animate__delay-0s" style="
+    background: #f0f8f4;
+    padding: 30px 20px;
+    border-left: 5px solid #005522;
+    margin: 40px auto;
+    max-width: 900px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    text-align: center;
+">
+    <h4 style="
+        font-size: 1.3rem;
+        line-height: 1.7;
+        color: #222;
+        font-weight: 500;
+        font-family: 'Poppins', sans-serif;
+        margin: 0;
+    ">
+        Our Advanced level program serves over 240 students from S.5 to S.6. Academics centre around a Uganda National curriculum, including the following subjects:
+    </h4>
+</div>
+</section>
+
+ <section style="background: #f9fdfb; padding: 40px 20px;">
+  <div class="container subject-grid">
+
+    <div class="course wow animate__animated animate__fadeInUp-1s">
+      <h3>S101 General Paper</h3>
+      <p>Focuses on general knowledge, current affairs, and critical thinking skills.</p>
+    </div>
+
+    <div class="course wow animate__animated animate__fadeInUp animate__delay-1s">
+      <h3>S475 Subsidiary Mathematics</h3>
+      <p>Introduction to basic mathematical concepts such as algebra, geometry, and calculus.</p>
+    </div>
+
+    <div class="course wow animate__animated animate__fadeInUp animate__delay-1s">
+      <h3>S850 Subsidiary Computer</h3>
+      <p>Covers fundamentals of computer science: hardware, software, programming.</p>
+    </div>
+
+    <div class="course wow animate__animated animate__fadeInUp animate__delay-2s">
+      <h3>Food and Nutrition</h3>
+      <p>Science of food, nutrition, and its relation to health and well-being.</p>
+    </div>
+
+    <div class="course wow animate__animated animate__fadeInUp animate__delay-2s">
+      <h3>P210 History</h3>
+      <p>Study of historical events and their present and future impacts.</p>
+    </div>
+
+    <div class="course wow animate__animated animate__fadeInUp animate__delay-3s">
+      <h3>P220 Economics</h3>
+      <p>Economic principles, market structures, and role in society.</p>
+    </div>
+
+    <!-- Continue applying wow/animate__fadeInUp + delay classes as needed -->
+
+    <div class="course wow animate__animated animate__fadeInUp animate__delay-3s">
+      <h3>P230 Entrepreneurship Education</h3>
+      <p>Basics of starting and managing businesses: marketing, finance, innovation.</p>
+    </div>
+
+    <div class="course wow animate__animated animate__fadeInUp animate__delay-3s">
+      <h3>P245 Christian Religious Education</h3>
+      <p>Christian teachings, scriptures, and life application.</p>
+    </div>
+
+    <!-- Continue the same structure for all the remaining items -->
+     <div class="course wow animate__animated animate__fadeInUp animate__delay-4s">
+    <h3>P250 Geography</h3>
+    <p>Study of the Earth's physical features, environments, and the relationship between people and their surroundings.</p>
+</div>
+
+<div class="course wow animate__animated animate__fadeInUp animate__delay-4s">
+    <h3>P310 Literature in English</h3>
+    <p>Analyzes English literary works, from classical to modern, with a focus on themes and writing styles.</p>
+</div>
+
+<div class="course wow animate__animated animate__fadeInUp animate__delay-5s">
+    <h3>P320 Kiswahili</h3>
+    <p>Study of the Kiswahili language, including grammar, vocabulary, and cultural context.</p>
+</div>
+
+<div class="course wow animate__animated animate__fadeInUp animate__delay-5s">
+    <h3>P364 Runyankore – Rukiga</h3>
+    <p>Introduction to the Runyankore-Rukiga language, covering basic grammar, vocabulary, and cultural aspects.</p>
+</div>
+
+<div class="course wow animate__animated animate__fadeInUp animate__delay-5s">
+    <h3>P425 Mathematics</h3>
+    <p>An advanced study of mathematical concepts, including calculus, algebra, and statistics.</p>
+</div>
+
+<div class="course wow animate__animated animate__fadeInUp animate__delay-5s">
+    <h3>P510 Physics</h3>
+    <p>Introduction to the fundamental laws of physics, including mechanics, thermodynamics, and electricity.</p>
+</div>
+
+<div class="course wow animate__animated animate__fadeInUp animate__delay-5s">
+    <h3>P515 Agriculture</h3>
+    <p>Covers the science and practice of farming, including crop production, animal husbandry, and sustainable agriculture.</p>
+</div>
+
+<div class="course wow animate__animated animate__fadeInUp animate__delay-5s">
+    <h3>P525 Chemistry</h3>
+    <p>Study of the properties, composition, and behavior of matter, including organic and inorganic chemistry.</p>
+</div>
+
+<div class="course wow animate__animated animate__fadeInUp animate__delay-5s">
+    <h3>P530 Biology</h3>
+    <p>Study of living organisms, focusing on structure, function, evolution, and ecology.</p>
+</div>
+
+
+    <div class="course wow animate__animated animate__fadeInUp animate__delay-5s">
+      <h3>P615 Fine Art</h3>
+      <p>Visual arts: painting, sculpture, digital media, creation and analysis.</p>
+    </div>
+
+  </div>
+</section>
+
+
+ <footer>
+  <div class="container wow animate__animated animate__fadeInUp">
+    <div class="sec aboutus animate__animated animate__fadeInUp animate__delay-1s">
+      <h2>About Us</h2>
+          <p>We aim to nurture confident, compassionate, and innovative leaders through inclusive education, fostering lifelong learning, critical thinking, and global awareness to inspire meaningful contributions to society and the world. </p>
+      <ul class="sci">
+        <li><a href="https://www.facebook.com" target="_blank"><i class="fa fa-facebook"></i></a></li>
+        <li><a href="https://twitter.com" target="_blank"><i class="fa fa-twitter"></i></a></li>
+        <li><a href="https://www.instagram.com" target="_blank"><i class="fa fa-instagram"></i></a></li>
+        <li><a href="https://www.youtube.com" target="_blank"><i class="fa fa-youtube-play"></i></a></li>
+      </ul>
+    </div>
+
+    <div class="sec quicklinks animate__animated animate__fadeInUp animate__delay-2s">
+      <h2>QUICK LINKS</h2>
+      <ul>
+        <li><a href="nyabz.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="Academics.html">Acadamics</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="contactus.html">Contact Us</a></li>
+      </ul>
+    </div>
+
+    <div class="sec quicklinks animate__animated animate__fadeInUp animate__delay-3s">
+      <h2>IMPORTANT LINKS</h2>
+      <ul>
+         <li><a href="https://www.education.go.ug/">Ministry of Education and Sports</a></li>
+        <li><a href="https://uneb.ac.ug/">Uganda National Examinations Board (UNEB)</a></li>
+        <li><a href="https://www.ncdc.go.ug/">Nationl Curriculum Development Centre (NCDC)</a></li>
+        <li><a href="https://www.kabale.go.ug/">Kabale District Local Government</a></li>
+
+      </ul>
+    </div>
+
+    <div class="sec contact animate__animated animate__fadeInUp animate__delay-4s">
+      <h2>Contact Us</h2>
+      <ul class="info">
+        <li>
+          <span><i class="fa fa-map-marker"></i></span>
+          <span>Kabale District<br>Kabale Municipality, Nyabikoni Ward, <br>UGA</span>
+        </li>
+        <li>
+          <span><i class="fa fa-phone"></i></span>
+          <p>
+            <a href="tel:+256704980778">+256 775 475 629</a><br>
+            <a href="tel:+256704980778">+256 703 599 882</a><br>
+            <a href="tel:+256704980778">+256 773 078 285</a>
+          </p>
+        </li>
+        <li>
+          <span><i class="fa fa-envelope"></i></span>
+          <p><a href="mailto:tukamuhebwanewton@gmail.com">tukamuhebwanewton@gmail.com</a></p>
+        </li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+<div class="copyrightText wow animate__animated animate__fadeInUp animate__delay-5s">
+  <div class="fab-container">
+    <button class="fab main-fab" onclick="toggleFab()">+</button>
+    <div class="fab-options">
+      <a href="https://wa.me/256773078285" target="_blank" class="fab-option">
+        <img src="https://img.icons8.com/color/48/whatsapp--v1.png" alt="WhatsApp">
+      </a>
+      <a href="tel:+256775475629" class="fab-option">
+        <img src="https://img.icons8.com/color/48/phone.png" alt="Phone">
+      </a>
+      <a href="mailto:nyabikonisecschool@gmail.com" class="fab-option">
+        <img src="https://img.icons8.com/color/48/email.png" alt="Email">
+      </a>
+      <a href="https://nyabikoniss.blogspot.com/p/about-us.html" class="fab-option">
+        <img src="https://img.icons8.com/color/48/info.png" alt="Info">
+      </a>
+    </div>
+  </div>
+
+  <p style="color: #fff;">Copyright © 2025 Nyabikoni Sec School. All Rights Reserved.</p>
+
+  <div id="up-arrow" onclick="scrollToTop()" class="wow animate__animated animate__fadeInUp animate__delay-0s">
+    <span>&#9650;</span>
+  </div>
+</div>
+
+
+    
+<!-- ------javascript for toggle menu--------- -->
+<script>
+    var navlinks = document.getElementById("navlinks");
+    function showMenu(){
+        navlinks.style.right = "0"
+    }
+    function hideMenu(){
+        navlinks.style.right = "-200px"
+    }
+</script>
+<!-- WOW.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+<script>
+  new WOW().init();
+</script>
+
+<script>
+    function scrollToTop() {
+window.scrollTo({
+    top: 0, // Scroll to the top of the page
+    behavior: 'smooth' // Smooth scrolling animation
+});
+}
+
+</script>
+
+<script>
+    function toggleFab() {
+      const fabOptions = document.querySelector('.fab-options');
+      fabOptions.classList.toggle('show');
+    }
+    </script>
+
+<script>
+    // Add scroll event listener with throttling for smoother animation
+    let lastScrollTop = 0;
+    const scrollThreshold = 100;
+    let ticking = false;
+
+    window.addEventListener('scroll', function() {
+        if (!ticking) {
+            window.requestAnimationFrame(function() {
+                const topbar = document.querySelector('.topbar');
+                const navbar = document.querySelector('.navbar');
+                const scrollPosition = window.scrollY;
+                
+                // Determine scroll direction
+                const scrollDirection = scrollPosition > lastScrollTop ? 'down' : 'up';
+                
+                if (scrollPosition > scrollThreshold) {
+                    if (scrollDirection === 'down') {
+                        topbar.classList.add('hide');
+                        navbar.classList.add('show');
+                    } else {
+                        topbar.classList.remove('hide');
+                        navbar.classList.remove('show');
+                    }
+                } else {
+                    topbar.classList.remove('hide');
+                    navbar.classList.remove('show');
+                }
+                
+                lastScrollTop = scrollPosition;
+                ticking = false;
+            });
+            
+            ticking = true;
+        }
+    });
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

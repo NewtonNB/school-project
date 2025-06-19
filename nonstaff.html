@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teaching Staff Gallery</title>
+    <link rel="stylesheet" href="nonstaff.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Press+Start+2P&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bungee&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Press+Start+2P&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+  rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+<style>
+    h1, h2{
+        font-family: 'bungee';
+    }
+.topbar {
+  background: #268b17;
+  color: #fff;
+  font-size: 15px;
+  padding: 1.2rem 0;
+  min-height: 56px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1001;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  transform: translateY(0);
+}
+
+.topbar.hide {
+  transform: translateY(-100%);
+}
+
+.navbar {
+  position: fixed;
+  top: 56px;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  background-color: #343a40 !important;
+  transform: translateY(0);
+}
+
+.navbar.show {
+  transform: translateY(-56px);
+}
+
+/* Adjust the header section to account for fixed navbar and topbar */
+.header {
+  margin-top: 112px;
+  background-attachment: fixed;
+}
+
+/* Adjust text-box to account for fixed navbar */
+.text-box {
+  margin-top: 150px !important;
+}
+
+.topbar .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+      margin-top: 20px;
+}
+.topbar .topbar-left {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+.topbar .topbar-left span, .topbar .topbar-left a {
+  color: #fff;
+  text-decoration: none;
+  margin-right: 1.5rem;
+  display: flex;
+  align-items: center;
+}
+.topbar .topbar-left i {
+  margin-right: 0.5rem;
+  color: #fff;
+}
+.topbar .topbar-right {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+.topbar .topbar-message {
+  margin-right: 1.5rem;
+  color: #fff;
+}
+.topbar .topbar-message a {
+  color: #4da3ff;
+  text-decoration: none;
+  font-weight: 500;
+}
+.topbar .topbar-social a {
+  color: #fff;
+  margin-left: 0.7rem;
+  font-size: 1.1em;
+  transition: color 0.2s;
+}
+.topbar .topbar-social a:hover {
+  color: #4da3ff;
+}
+@media (max-width: 768px) {
+  .topbar .container {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  .topbar .topbar-right {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.3rem;
+  }
+  .topbar .topbar-message {
+    margin-right: 0;
+  }
+}
+</style>
+</head>
+<body>
+   <!-- Topbar Section -->
+<div class="topbar" style="padding: 5px 0;">
+    <div class="container" style="font-size: 14px; line-height: 18px; display: flex; justify-content: space-between; align-items: center;">
+        <div class="topbar-left" style="flex: 1;">
+            <marquee behavior="scroll" direction="left" scrollamount="5" onmouseover="this.stop()" onmouseout="this.start()" style="height: 20px; line-height: 20px;">
+                <span style="padding-right: 30px;"><i class="fa fa-envelope"></i> nyabikonisecschool@gmail.com</span>
+                <span><i class="fa fa-info-circle"></i> +256704980778</span>
+            </marquee>
+        </div>
+        <div class="topbar-right" style="flex: 1; display: flex; justify-content: flex-end; align-items: center; gap: 10px;">
+            <marquee behavior="scroll" direction="left" scrollamount="5" onmouseover="this.stop()" onmouseout="this.start()" style="height: 20px; line-height: 20px; max-width: 70%;">
+                <span class="topbar-message">
+                    We deliver the highest quality performance we do. <a href="contact.html">Contact Us</a>
+                </span>
+            </marquee>
+            <span class="topbar-social" style="white-space: nowrap;">
+                <a href="#"><i class="fa fa-twitter"></i></a>
+                <a href="#"><i class="fa fa-facebook"></i></a>
+                <a href="#"><i class="fa fa-linkedin"></i></a>
+                <a href="#"><i class="fa fa-instagram"></i></a>
+            </span>
+        </div>
+    </div>
+</div>
+
+    <section class="header">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+            <a href="index.html"><img src="nyabzgallery/nyabz logo.png" alt=""  style="margin-left: 30px;"></a>
+            <div class="nav-links" id="navlinks">
+                <i class="fa fa-times" onclick="hideMenu()"></i>
+                <ul style="margin-right: 30px;">
+                    <li><a href="index.html">HOME</a></li>
+                    <li class="dropdown"><a href="about.html">ABOUT</a>
+                        <div class="dropdown-content">
+                            <a href="anthem.html">SCHOOL ANTHEM</a>
+                            <div class="dropdown">
+                                <a href="staff.html">STAFF</a>
+                                <div class="dropdown-content">
+                                    <a href="staff.html">TEACHING STAFF</a>
+                                    <a href="nonstaff.html">NON TEACHING STAFF</a>
+                                </div>
+                            </div>
+                            <a href="footer.html">STUDENT'S CLUBS</a>
+                        </div>
+                    </li>
+                    <li class="dropdown"><a href="Academics.html">ACADEMICS</a>
+                        <div class="dropdown-content">
+                            <div class="dropdown">
+                                <div class="dropdown-content">
+                                    <a href="olevel.html">O'LEVEL</a>
+                                    <a href="alevel.html">A'LEVEL</a>
+                                </div>
+                            </div>
+                            <a href="events.html">NEWS & EVENTS</a>
+                        </div>
+                    </li>
+                    <li><a href="contact.html">GALLERY</a></li>
+                    <li><a href="contactus.html">CONTACT</a></li>
+                </ul>
+            </div>
+            <i class="fa fa-bars" onclick="showMenu()"></i>
+        </nav>
+
+
+        <div class="text-box">
+            <h1 style="font-family: Bungee;margin-bottom: 200px;">Non Teaching Staff</h1><br>
+            <!-- <h2>Strive For Excellence Is Our Motto</h2> -->
+            <!-- <p>Our professional staff who teach students based on national curriculum guidelines within their specialist subject areas. Their duties include; Assessing, monitoring, recording and reporting on the learning needs, progress and achievements of assigned students. Participate in arrangements for preparing learners for external examinations.</p> -->
+            <!-- <a href=""class="hero-btn">Know More</a> -->
+        </div>
+    </section>
+
+    <section class="gallery">
+    <div class="gallery-container">
+        <!-- Staff 1 -->
+        <div class="staff-item wow animate__animated animate__fadeInUp animate__delay-1s">
+            <img src="nyabzgallery/burser1.png" alt="Mr. Mandu Peace Isaac">
+            <h3>MS.TUMUKUNDE AGATHA</h3>
+            <p>Burser</p>
+        </div>
+        <!-- Staff 2 -->
+        <div class="staff-item wow animate__animated animate__fadeInUp animate__delay-1s">
+            <img src="nyabzgallery/burser2.jpg" alt="Ms. Aharituhisya Miriah">
+            <h3>MS. MUSIIMENTA ELIZABETH</h3>
+            <p>ASSISTANT BURSAR</p>
+        </div>
+        <!-- Staff 3 -->
+        <div class="staff-item wow animate__animated animate__fadeInUp animate__delay-2s">
+            <img src="nyabzgallery/burser3.jpg" alt="Ms. Ateede Jesca Rabecca">
+            <h3>MS. OWOMUHANGI JEMMA</h3>
+            <p>ASSISTANT BURSAR</p>
+        </div>
+        <!-- Staff 4 -->
+        <div class="staff-item wow animate__animated animate__fadeInUp animate__delay-2s">
+            <img src="nyabzgallery/secretary.jpg" alt="Ms. Kirabo Patricia">
+            <h3>MS. KYOBUTUNGI CONFIDENCE</h3>
+            <p>SECRETARY</p>
+        </div>
+        <!-- Staff 5 -->
+        <div class="staff-item wow animate__animated animate__fadeInUp animate__delay-3s">
+            <img src="nyabzgallery/librrian.png" alt="Mr. Ainebyona Oscar">
+            <h3>MS. AMPEIRE NANYRS</h3>
+            <p>LIBRARIAN</p>
+        </div>
+        <!-- Staff 6 -->
+        <div class="staff-item wow animate__animated animate__fadeInUp animate__delay-3s">
+            <img src="nyabzgallery/LINET.jpg" alt="Mr. Kaketto Sulaiti">
+            <h3>MS. KYAGABA LINET</h3>
+            <p>OFFICE ASSISTANT</p>
+        </div>
+        <!-- Staff 7 -->
+        <div class="staff-item wow animate__animated animate__fadeInUp animate__delay-4s">
+            <img src="nyabzgallery/lab attendeant.png" alt="Ms. Kyagaba Linet">
+            <h3>MR. NATURINDA CALLIST</h3>
+            <p>LAB ASSISTANT</p>
+        </div>
+        <!-- Staff 8 -->
+        <div class="staff-item wow animate__animated animate__fadeInUp animate__delay-4s">
+            <img src="nyabzgallery/cook7.png" alt="Mr. Amanyire Collen">
+            <h3>MR. KATWESIGYE OBED</h3>
+            <p>COOK</p>
+        </div>
+        <!-- Staff 9 -->
+        <div class="staff-item wow animate__animated animate__fadeInUp animate__delay-5s">
+            <img src="nyabzgallery/cook6.png" alt="Mr. Agaba Felix">
+            <h3>MR. TUKAMUSHABA BRUNO</h3>
+            <p>HEAD COOK</p>
+        </div>
+        <!-- Staff 10 -->
+        <div class="staff-item wow animate__animated animate__fadeInUp animate__delay-5s">
+            <img src="nyabzgallery/cleaner.png" alt="Mr. Waruhanga Ephraim">
+            <h3>MS. OWOMUGISHA DENIS</h3>
+            <p>CLEANER</p>
+        </div>
+        <!-- Staff 11 -->
+        <div class="staff-item wow animate__animated animate__fadeInUp">
+            <img src="nyabzgallery/cook5.png" alt="Ms. Ainembabazi Luckery">
+            <h3>MR. NDAHEBIRE GASTON</h3>
+            <p>COOK</p>
+        </div>
+        <!-- Staff 12 -->
+        <div class="staff-item wow animate__animated animate__fadeInUp">
+            <img src="nyabzgallery/cook4.png" alt="Mr. Niwaha Ivan">
+            <h3>MR. KWERI HILLARY</h3>
+            <p>COOK</p>
+        </div>
+        <!-- Staff 13 -->
+        <div class="staff-item wow animate__animated animate__fadeInUp">
+            <img src="nyabzgallery/cook3.png" alt="Ms. Muteguzi Elizabeth">
+            <h3>MR. MBAGAYA POSIANO</h3>
+            <p>COOK</p>
+        </div>
+        <!-- Staff 14 -->
+        <div class="staff-item wow animate__animated animate__fadeInUp">
+            <img src="nyabzgallery/cook2.png" alt="Ms. Akampurira Prossy">
+            <h3>MR. ARIHO PETER</h3>
+            <p>COOK</p>
+        </div>
+        <!-- Staff 15 -->
+        <div class="staff-item wow animate__animated animate__fadeInUp">
+            <img src="nyabzgallery/cook1.png" alt="Mr. Ongom Jimmy">
+            <h3>MR. TWEHEYO DAVIS</h3>
+            <p>COOK</p>
+        </div>
+        <!-- Staff 16 -->
+        <div class="staff-item wow animate__animated animate__fadeInUp">
+            <img src="nyabzgallery/OWOMUHANGI JEMMA.png" alt="Mr. Turyamusiiima Owen">
+            <h3>MR. TWEHEYO DAVIS</h3>
+            <p>Gate Keeper</p>
+        </div>
+    </div>
+</section>
+
+
+
+   <footer>
+  <div class="container wow animate__animated animate__fadeInUp">
+    <div class="sec aboutus animate__animated animate__fadeInUp animate__delay-1s">
+      <h2>About Us</h2>
+          <p>We aim to nurture confident, compassionate, and innovative leaders through inclusive education, fostering lifelong learning, critical thinking, and global awareness to inspire meaningful contributions to society and the world. </p>
+      <ul class="sci">
+        <li><a href="https://www.facebook.com" target="_blank"><i class="fa fa-facebook"></i></a></li>
+        <li><a href="https://twitter.com" target="_blank"><i class="fa fa-twitter"></i></a></li>
+        <li><a href="https://www.instagram.com" target="_blank"><i class="fa fa-instagram"></i></a></li>
+        <li><a href="https://www.youtube.com" target="_blank"><i class="fa fa-youtube-play"></i></a></li>
+      </ul>
+    </div>
+
+    <div class="sec quicklinks animate__animated animate__fadeInUp animate__delay-2s">
+      <h2>QUICK LINKS</h2>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="Academics.html">Acadamics</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="contactus.html">Contact Us</a></li>
+      </ul>
+    </div>
+
+    <div class="sec quicklinks animate__animated animate__fadeInUp animate__delay-3s">
+      <h2>IMPORTANT LINKS</h2>
+      <ul>
+         <li><a href="https://www.education.go.ug/">Ministry of Education and Sports</a></li>
+        <li><a href="https://uneb.ac.ug/">Uganda National Examinations Board (UNEB)</a></li>
+        <li><a href="https://www.ncdc.go.ug/">Nationl Curriculum Development Centre (NCDC)</a></li>
+        <li><a href="https://www.kabale.go.ug/">Kabale District Local Government</a></li>
+
+      </ul>
+    </div>
+
+    <div class="sec contact animate__animated animate__fadeInUp animate__delay-4s">
+      <h2>Contact Us</h2>
+      <ul class="info">
+        <li>
+          <span><i class="fa fa-map-marker"></i></span>
+          <span>Kabale District<br>Kabale Municipality, Nyabikoni Ward, <br>UGA</span>
+        </li>
+        <li>
+          <span><i class="fa fa-phone"></i></span>
+          <p>
+            <a href="tel:+256704980778">+256 775 475 629</a><br>
+            <a href="tel:+256704980778">+256 703 599 882</a><br>
+            <a href="tel:+256704980778">+256 773 078 285</a>
+          </p>
+        </li>
+        <li>
+          <span><i class="fa fa-envelope"></i></span>
+          <p><a href="mailto:tukamuhebwanewton@gmail.com">tukamuhebwanewton@gmail.com</a></p>
+        </li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+<div class="copyrightText wow animate__animated animate__fadeInUp animate__delay-5s">
+  <div class="fab-container">
+    <button class="fab main-fab" onclick="toggleFab()">+</button>
+    <div class="fab-options">
+      <a href="https://wa.me/256773078285" target="_blank" class="fab-option">
+        <img src="https://img.icons8.com/color/48/whatsapp--v1.png" alt="WhatsApp">
+      </a>
+      <a href="tel:+256775475629" class="fab-option">
+        <img src="https://img.icons8.com/color/48/phone.png" alt="Phone">
+      </a>
+      <a href="mailto:nyabikonisecschool@gmail.com" class="fab-option">
+        <img src="https://img.icons8.com/color/48/email.png" alt="Email">
+      </a>
+      <a href="https://nyabikoniss.blogspot.com/p/about-us.html" class="fab-option">
+        <img src="https://img.icons8.com/color/48/info.png" alt="Info">
+      </a>
+    </div>
+  </div>
+
+  <p style="color: #fff;">Copyright © 2025 Nyabikoni Sec School. All Rights Reserved.</p>
+
+  <div id="up-arrow" onclick="scrollToTop()" class="wow animate__animated animate__fadeInUp animate__delay-0s">
+    <span>&#9650;</span>
+  </div>
+</div>
+
+
+    <script>
+        
+    function showMenu() {
+        document.getElementById('navlinks').style.right = "0";
+    }
+
+    function hideMenu() {
+        document.getElementById('navlinks').style.right = "-200px";
+    }
+
+
+    </script>
+    <!-- WOW.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+<script>
+  new WOW().init();
+</script>
+
+<script>
+    function scrollToTop() {
+window.scrollTo({
+    top: 0, // Scroll to the top of the page
+    behavior: 'smooth' // Smooth scrolling animation
+});
+}
+
+</script>
+
+<script>
+    function toggleFab() {
+      const fabOptions = document.querySelector('.fab-options');
+      fabOptions.classList.toggle('show');
+    }
+    </script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    // Add scroll event listener with throttling for smoother animation
+    let lastScrollTop = 0;
+    const scrollThreshold = 100;
+    let ticking = false;
+
+    window.addEventListener('scroll', function() {
+        if (!ticking) {
+            window.requestAnimationFrame(function() {
+                const topbar = document.querySelector('.topbar');
+                const navbar = document.querySelector('.navbar');
+                const scrollPosition = window.scrollY;
+                
+                // Determine scroll direction
+                const scrollDirection = scrollPosition > lastScrollTop ? 'down' : 'up';
+                
+                if (scrollPosition > scrollThreshold) {
+                    if (scrollDirection === 'down') {
+                        topbar.classList.add('hide');
+                        navbar.classList.add('show');
+                    } else {
+                        topbar.classList.remove('hide');
+                        navbar.classList.remove('show');
+                    }
+                } else {
+                    topbar.classList.remove('hide');
+                    navbar.classList.remove('show');
+                }
+                
+                lastScrollTop = scrollPosition;
+                ticking = false;
+            });
+            
+            ticking = true;
+        }
+    });
+</script>
+</body>
+</html>

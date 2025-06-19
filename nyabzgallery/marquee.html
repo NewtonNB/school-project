@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    .marquee {
+      width: 100%;
+      overflow: hidden;
+      white-space: nowrap;
+      color: #fff;
+    }
+
+    .marquee-text {
+      display: inline-block;
+      animation: scroll-left 10s linear infinite;
+    }
+
+    @keyframes scroll-left {
+      0% {
+        transform: translateX(100%);
+      }
+      100% {
+        transform: translateX(-100%);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="marquee">
+    <div class="marquee-text">Welcome to our website! This is a scrolling text effect using CSS.</div>
+  </div>
+
+</body>
+</html>
